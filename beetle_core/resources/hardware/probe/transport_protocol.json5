@@ -1,0 +1,10 @@
+{
+    "custom"   : null,
+    "hla-jtag" : null,
+    "hla-swd"  : null,
+    "jtag"     : null,
+    "sdi"      : null,
+    "spi"      : null,
+    "swd"      : null,
+    "uart"     : null
+}

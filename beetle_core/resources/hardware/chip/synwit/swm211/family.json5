@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'swm211'
+// ============================
+// This file contains very basic data for the 'swm211' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "swm211",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/synwit_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "synwit"
+}

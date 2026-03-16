@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'devkit'
+// =============================
+// This file contains very basic data for the 'devkit' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "devkit",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/apm32-mini.png",
+    "synonyms":           [],
+    "manufacturer":       "fermionic"
+}

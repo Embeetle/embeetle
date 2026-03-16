@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'm031'
+// ==========================
+// This file contains very basic data for the 'm031' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "m031",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/nuvoton_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "nuvoton"
+}

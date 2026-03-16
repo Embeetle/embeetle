@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'ch32v00x'
+// ==============================
+// This file contains very basic data for the 'ch32v00x' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "ch32v00x",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/wch_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "wch"
+}

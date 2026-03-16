@@ -1,0 +1,97 @@
+// DATA FOR PROBE 'stlink-v2-1'
+// ============================
+// This file contains very basic data for the 'stlink-v2-1' probe.
+{
+    // MAIN DATA
+    // ---------
+    // This is the most basic information from the 'stlink-v2-1' probe.
+    "name":         "stlink-v2-1",
+    "kind":         "probe",
+    "active":       true,
+    "icon":         "icons/probe/stlink_v2_1.png",
+    "synonyms":     ["stlink v2.1"],
+    "manufacturer": "stmicro",
+    "built_in":     true,
+    "link":         "https://embeetle.com/#supported-hardware/stmicro/probes/stlink-v2-1",
+
+
+    // WEBPAGE DATA
+    // ------------
+    // This is data mainly used for the webpage.
+    "purchase_links": {
+        "farnell": {
+            "order_code": "1892523",
+            "link_base": "https://uk.farnell.com/",
+            "link_suffix": "1892523"
+        },
+        "digikey": {
+            "order_code": "497-10484-ND",
+            "link_base": "https://www.digikey.com/en/products/detail/stmicroelectronics/",
+            "link_suffix": "ST-LINK-V2/2214535"
+        },
+        "mouser": {
+            "order_code": "511-ST-LINK/V2",
+            "link_base": "https://mou.sr/",
+            "link_suffix": "3zy4owT"
+        },
+        "lcsc": {
+            "order_code": "C85147",
+            "link_base": "https://www.lcsc.com/product-detail/",
+            "link_suffix": "Programmers-Emulators-and-Debuggers_STMicroelectronics-ST-LINK-V2_C85147.html"
+        }
+    },
+
+
+    // FLASHTOOL
+    // ---------
+    // Define here which flashtool(s) can be used with this probe.
+    //     - "default_flashtool_uid"
+    //     Unique ID from the default flashtool. Beware: the one from the chip.json file has
+    //     precedence! To override the one from the chip.json file, you must set the
+    //     'default_flashtool_uid' override in the board.json file.
+    // 
+    //     - "flashtool_patterns"
+    //     Unique ID from the chosen flashtool should match at least one of these patterns.
+    // 
+    //     - "transport_protocols"
+    //     List the transport protocols (such as 'jtag', 'swd', ...) compatible with this probe.
+    // 
+    //     - "needs_serial_port"
+    //     Does this probe upload the firmware over a serial port? Does Embeetle need to show a
+    //     dropdown menu for selecting the COM-port/TTY-port?
+    // 
+    //     - "can_flash_bootloader"
+    //     Can this probe flash a bootloader? If yes, Embeetle will make the corresponding field in
+    //     the Dashboard 'relevant' and add a button for flashing the bootloader.
+    "default_flashtool_uid": "openocd_0.10.0_dev01438_64b",
+    "flashtool_patterns":    ["*openocd*"],
+    "transport_protocols":   ["hla-swd"],
+    "needs_serial_port":     false,
+    "can_flash_bootloader":  false,
+
+
+    // DASHBOARD.MK
+    // ------------
+    // List the data necessary to generate the 'dashboard.mk' file.
+    //     - "flash_rules_generator"
+    //     Point to the python module that generates the 'FLASH RULES' section in 'dashboard.mk'.
+    //     The chip also points to such a python module. The probe must only do this if the module
+    //     pointed at by the chip is not compatible.
+    "flash_rules_generator": null,
+
+
+    // OPENOCD_PROBE.CFG
+    // -----------------
+    // List all data relevant for 'openocd_probe.cfg':
+    //     - "openocd_probe_cfg_generator"
+    //     This python module generates the 'openocd_probe.cfg' file, based on the data presented
+    //     below.
+    // 
+    //     - "target_file"
+    //     The location of the OpenOCD config file that represents this probe, relative to the
+    //     'scripts' folder within the OpenOCD installation.
+    "openocd": {
+        "openocd_probe_cfg_generator": "hardware/openocd_probe_cfg.py",
+        "target_file": "interface/stlink.cfg"
+    }
+}

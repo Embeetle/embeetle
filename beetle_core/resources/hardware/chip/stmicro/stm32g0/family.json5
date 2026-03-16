@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'stm32g0'
+// =============================
+// This file contains very basic data for the 'stm32g0' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "stm32g0",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/stmicro_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "stmicro"
+}

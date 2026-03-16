@@ -1,0 +1,6 @@
+{
+  "kind"     : "manufacturer",
+  "active"   : true,
+  "icon"     : "icons/board/custom_board.png",
+  "synonyms" : []
+}

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="128px"
+   height="128px"
+   id="RSSicon"
+   viewBox="0 0 256 256"
+   sodipodi:docname="feed-icon.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview32"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="3.0328252"
+     inkscape:cx="-17.80518"
+     inkscape:cy="58.856013"
+     inkscape:window-width="1920"
+     inkscape:window-height="730"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="RSSicon" />
+  <defs
+     id="defs17">
+    <linearGradient
+       x1="0.085"
+       y1="0.085"
+       x2="0.915"
+       y2="0.915"
+       id="RSSg">
+      <stop
+         offset="0.0"
+         stop-color="#E3702D"
+         id="stop2" />
+      <stop
+         offset="0.1071"
+         stop-color="#EA7D31"
+         id="stop4" />
+      <stop
+         offset="0.3503"
+         stop-color="#F69537"
+         id="stop6" />
+      <stop
+         offset="0.5"
+         stop-color="#FB9E3A"
+         id="stop8" />
+      <stop
+         offset="0.7016"
+         stop-color="#EA7C31"
+         id="stop10" />
+      <stop
+         offset="0.8866"
+         stop-color="#DE642B"
+         id="stop12" />
+      <stop
+         offset="1.0"
+         stop-color="#D95B29"
+         id="stop14" />
+    </linearGradient>
+  </defs>
+  <rect
+     width="256"
+     height="256"
+     rx="55"
+     ry="55"
+     x="0"
+     y="0"
+     fill="#204a87"
+     id="rect19"
+     style="stroke:none;fill:#204a87;fill-opacity:1" />
+  <circle
+     cx="68"
+     cy="189"
+     r="24"
+     fill="#729fcf"
+     id="circle25"
+     style="fill:#729fcf;fill-opacity:1" />
+  <path
+     d="m 153.87978,213 h -21.21676 c -3.49883,0 -6.91106,-3.5082 -6.91106,-6.42548 C 122.63874,166.40921 90.587053,134.35885 50.421161,131.24771 46.749564,131.24771 44,128 44,124.80113 v -20.77271 c 0,-3.86995 3.341014,-6.814643 7.100845,-6.814643 58.323915,3.521963 105.021385,50.139223 108.669615,108.428993 0,3.41917 -2.79422,7.35723 -5.89068,7.35723 z"
+     fill="#729fcf"
+     id="path27"
+     style="fill:#729fcf;fill-opacity:1"
+     sodipodi:nodetypes="ccccccccc" />
+  <path
+     d="M 183.80959,205.63486 C 180.08695,133.81056 122.23229,76.305785 50.262641,73.137571 47.014309,73.137571 44,70.531467 44,68.138434 V 44.007286 c 0,-3.124947 3.304052,-5.874253 6.887006,-5.874253 90.860804,3.516245 163.949814,76.306307 167.941284,167.044437 0,3.86871 -2.35386,7.82253 -7.59332,7.82253 h -19.00182 c -5.15742,0 -8.42356,-4.18675 -8.42356,-7.36514 z"
+     fill="#729fcf"
+     id="path29"
+     style="fill:#729fcf;fill-opacity:1"
+     sodipodi:nodetypes="ccccccccc" />
+</svg>

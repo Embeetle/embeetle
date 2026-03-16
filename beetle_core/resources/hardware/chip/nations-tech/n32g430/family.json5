@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'n32g430'
+// =============================
+// This file contains very basic data for the 'n32g430' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "n32g430",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/nations-tech-chip.png",
+    "synonyms":           [],
+    "manufacturer":       "nations-tech"
+}

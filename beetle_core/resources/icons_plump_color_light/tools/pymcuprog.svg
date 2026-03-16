@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 48 48"
+   height="256"
+   width="256"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="pymcuprog.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="true"
+     inkscape:zoom="0.57245265"
+     inkscape:cx="-269.01788"
+     inkscape:cy="-16.595259"
+     inkscape:current-layer="svg6"
+     inkscape:window-width="1920"
+     inkscape:window-height="730"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid239"
+       units="px"
+       spacingx="1.5"
+       spacingy="1.5" />
+  </sodipodi:namedview>
+  <path
+     inkscape:export-ydpi="1300"
+     inkscape:export-xdpi="1300"
+     inkscape:export-filename="/home/kristof/EMBEETLE_IDE/embeetle/beetle_core/resources/icons/logo/microchip.png"
+     id="path197-0"
+     style="fill:#d63232;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.135238"
+     d="m 22.529924,36.73301 c 0,0 1.743113,3.250956 3.715085,0 L 30.065745,30.828971 18.81484,11.734256 c 0,0 -1.743113,-2.5596616 -3.820761,0 l -3.926336,5.773257 z m 1.531836,9.267115 c 5.898359,0 11.250931,-2.316773 15.177292,-6.016159 l -13.434204,-22.345672 4.155271,-6.03482 c 1.743112,-2.4288796 3.59185,0 3.59185,0 l 11.479815,19.225497 c 0.545764,-1.625477 0.862789,-3.475157 0.968342,-5.212743 L 33.006132,3.849743 C 30.277046,2.6912951 27.231033,2.0000625 24.06176,2.0000625 c -11.427013,0 -22.061698,9.3044615 -22.061698,22.0093615 0,1.9618 0.316902,3.923576 0.757114,5.661161 l 6.44422,-9.379209 4.489807,7.305327 c 1.074016,1.737585 0,3.232268 0,3.232268 L 8.004121,39.16189 c 4.296139,4.558823 10.05363,6.838235 16.057664,6.838235"
+     sodipodi:nodetypes="cccccccccccccccsscccccc" />
+</svg>

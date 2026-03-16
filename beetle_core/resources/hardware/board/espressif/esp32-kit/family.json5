@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'esp32-kit'
+// ================================
+// This file contains very basic data for the 'esp32-kit' boardfamily. More detailed data is given
+// in the specific boardfiles.
+{
+    "name":               "esp32-kit",
+    "kind":               "boardfamily",
+    "active":             false,
+    "icon":               "icons/board/esp32_pico_kit.png",
+    "synonyms":           [],
+    "manufacturer":       "espressif"
+}

@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'dspic33fj'
+// ===============================
+// This file contains very basic data for the 'dspic33fj' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "dspic33fj",
+    "kind":               "chipfamily",
+    "active":             false,
+    "icon":               "icons/chip/microchip_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

@@ -1,0 +1,40 @@
+#!/bin/sh
+
+################################################################################
+# Startup script for Embeetle                                                  #
+#                                                                              #
+# If you double-clicked this script to Embeetle:                               #
+#                                                                              #
+#  - try right-click > execute or right-click-run                              #
+#                                                                              #
+#  - start Embeetle from the command line: open a terminal and type            #
+#     ~/embeetle/embeetle                                                      #
+#    (assuming Embeetle was unpacked in ~/embeetle)                            #
+#                                                                              #
+# In case of problems, contact us at https://forum.embeetle.com or             #
+# info@embeetle.com                                                            #
+#                                                                              #
+################################################################################
+
+if test -x "$(dirname $0)/beetle_core/beetle_core"; then
+    glibc=$(ldd --version | head -1 | sed -e 's@.* @@')
+    min=2.28
+    if [ "`(echo $glibc; echo $min) | sort -V | head -1`" != "$min" ]; then
+        echo 1>&2 "Embeetle requires glibc version $min or higher"
+        echo 1>&2 "You have glibc version $glibc"
+        echo 1>&2 "Check https://embeetle.com/#embeetle-ide/download"
+        echo 1>&2 "for compatible Linux versions"
+        exit 1
+    fi
+    export QT_LOGGING_RULES="*.debug=false"
+    export QT_QPA_PLATFORM=xcb
+    "$(dirname $0)/beetle_core/beetle_core" "$@"
+elif test -r "$(dirname $0)/../../../beetle_core/embeetle.py"; then
+    python "$(dirname $0)/../../../beetle_core/embeetle.py" "$@"
+else
+    echo 1>&2 "$(dirname $0)/beetle_core/beetle_core: no such file"
+    echo 1>&2 "Unable to find the Embeetle executable."
+    echo 1>&2 "Please download Embeetle again from"
+    echo 1>&2 "   https://embeetle.com#embeetle-ide/download"
+    exit 1
+fi

@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'nuc029'
+// ============================
+// This file contains very basic data for the 'nuc029' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "nuc029",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/nuvoton_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "nuvoton"
+}

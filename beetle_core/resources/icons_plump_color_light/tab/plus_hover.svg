@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 48 48"
+   height="256"
+   width="256"
+   version="1.1"
+   id="svg308"
+   sodipodi:docname="plus_hover.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs312" />
+  <sodipodi:namedview
+     id="namedview310"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.6191406"
+     inkscape:cx="-49.408927"
+     inkscape:cy="127.53679"
+     inkscape:current-layer="svg308"
+     inkscape:window-width="1920"
+     inkscape:window-height="730"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1" />
+  <path
+     fill="#77c32f"
+     fill-rule="evenodd"
+     d="m 47.802905,26.997624 c -0.205002,1.403248 -1.410181,2.27152 -2.827021,2.3338 -1.600203,0.07044 -11.528206,0.150074 -15.454163,0.190297 -0.04023,3.925957 -0.119839,13.85396 -0.190298,15.454163 -0.06227,1.41684 -0.930551,2.622019 -2.333799,2.827021 C 26.226858,47.915394 25.236388,48 24,48 22.763612,48 21.773142,47.915384 21.002375,47.802905 19.599127,47.597903 18.730855,46.392724 18.668577,44.975884 18.598118,43.375681 18.518502,33.447678 18.478279,29.521721 14.552322,29.481498 4.6243197,29.401882 3.0241156,29.331423 1.6072764,29.269144 0.40209612,28.400872 0.19709422,26.997624 0.08460688,26.226858 0,25.236388 0,24 0,22.763612 0.084607,21.773142 0.19709422,21.002375 0.40209612,19.599127 1.6072764,18.730855 3.0241156,18.668577 4.6243197,18.598118 14.552322,18.518503 18.478279,18.478279 18.518502,14.552322 18.598118,4.6243199 18.668577,3.0241157 18.730858,1.6072765 19.599127,0.402096 21.002375,0.19709422 21.773142,0.08460688 22.763612,0 24,0 c 1.236388,0 2.226858,0.08460666 2.997624,0.19709422 1.403248,0.20500222 2.27152,1.41018218 2.333799,2.82702138 0.07044,1.6002041 0.150074,11.5282064 0.190298,15.4541634 3.925957,0.04023 13.85396,0.119839 15.454163,0.190298 1.41684,0.06227 2.622019,0.93055 2.827021,2.333798 C 47.915394,21.773142 48,22.763612 48,24 c 0,1.236388 -0.08461,2.226858 -0.197095,2.997624 z"
+     clip-rule="evenodd"
+     id="path132"
+     sodipodi:nodetypes="cccccscccccscccccscccccsc"
+     style="stroke-width:1.38702;fill:#77c32f;fill-opacity:1" />
+</svg>

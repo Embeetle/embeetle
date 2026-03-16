@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'swm211'
+// =============================
+// This file contains very basic data for the 'swm211' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "swm211",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/blue_pill.png",
+    "synonyms":           [],
+    "manufacturer":       "synwit"
+}

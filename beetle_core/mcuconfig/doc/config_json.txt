@@ -1,0 +1,223 @@
+____________________________________________________________________
+====================================================================
+JSON format for file describing an MCU for the Embeetle config tools
+____________________________________________________________________
+====================================================================
+
+The json file described here contains all chip specific information needed by
+Embeetle to provide a user interface to configure a chip and generate code.
+It does not contain specific values chosen by the user;  those will be stored in
+a separate json file.
+
+There will be one json file per chip series (or family); in other words, one
+file for each data sheet + user/reference manual + SVD file.  The SVD includes
+information about the available variants (e.g. in different packages) and their
+pinouts.
+
+The json file is read and interpreted by the mcuconfig code, which creates a
+data structure to be used by the EMbeetle user interface code.
+
+Overall structure
+=================
+
+
+{
+  "series": "APM32F411",
+  "parts": [
+     ... # parts, with their part number, package 
+  ],
+  "pins": {
+    "layout": [...],
+    "pads": [
+      ... # pad names, types and bonding
+    ],
+    "types": {
+      ... # pad type definitions (description, modes)
+    },
+    "config": {
+      ... # how to set pad mode and other options
+    },
+    "map": {
+      ... # how to map peripheral signals (aka ports) to pads
+    }
+  },
+  "clocks": {
+     ... # clock tree information
+  },
+  "peripherals": [
+     ... # information about peripherals including signals and settings
+  ],
+  "svd_data": {
+    "filename": "APM32F411.svd",
+    "version": "1.0",
+    "address_unit_bits": 8,
+    "peripherals": {
+       ... # peripheral description, register and bit field data
+    }
+  }
+}
+
+SVD data
+========
+
+SVD data is extracted from an SVD file. The simplest way to populate this part
+of the json file is to use the svd2json.py script,  which wil read an SVD file
+and generate the skeleton of a json file for you.
+
+"address_unit_bits" is the minimal number of bits addressable.  It is almost
+always equal to 8 (1 byte),  and defaults to 8 if not specified.
+
+Each peripheral has the following structure:
+
+      "CAN2": {
+        "description": "Controller area network",
+        "registers": {
+          "MCTRL": {
+            "description": "CAN Master control register",
+            "address": 1073768448,
+            "width": 32,
+            "reset_value": 0,
+            "reset_mask": 4294967295,
+            "fields": {
+              "INITREQ": {
+                "description": "INITREQ",
+                "offset": 0,
+                "width": 1
+              },
+              "SLEEPREQ": {
+                "description": "SLEEPREQ",
+                "offset": 1,
+                "width": 1
+              },
+              ...
+
+"CAN2" is the peripheral name. It has a description string,  which is used as
+default when no other description of the peripheral is available. It also has a
+list of registers.
+
+Each register has a description, address, width, reset_value, reset_mask and
+fields.  reset_value defaults to zero.
+
+The peripherals listed in the SVD do not necessarily correspond one-to-one to
+peripherals shown in the user interface. For example:
+
+- GPIOA, GPIOB ... peripherals are never shown in the UI;  instead, a generic
+  GPIO peripheral is shown to which user-defined signals can be added.
+
+
+
+Parts
+=====
+
+A part is a specific chip in a specific package,  with a specific memory size
+and layout,  and a specific part number that you can use to order it. The JSON
+for a part looks like this:
+
+    {
+      "name": "APM32F411VCT6",
+      "package": "LQFP100"
+    }
+
+In this example,  APM32F411VCT6 is the part number and LQFP100 is the package
+name.
+
+Packages are hard coded in mcuconfig, and included minimal layout information to
+allow the UI to draw it:
+
+@global_enum    
+class PackageType(Enum):
+    SIDES2 = auto()
+    SIDES4 = auto()
+    BGA = auto()
+    
+packages = { package.name: package for package in [
+    Package(name="SOP8",    type=SIDES2, nr_of_pins= 8, aspect_ratio=80),
+    Package(name="SOP16",   type=SIDES2, nr_of_pins=16, aspect_ratio=40),
+    Package(name="TSSOP20", type=SIDES2, nr_of_pins=20),
+    Package(name="QFN20",   type=SIDES4, nr_of_pins=20),
+    Package(name="QFN48",   type=SIDES4, nr_of_pins=48),
+    Package(name="LQFP48",  type=SIDES4, nr_of_pins=48),
+    Package(name="LQFP64",  type=SIDES4, nr_of_pins=64),
+    Package(name="LQFP100", type=SIDES4, nr_of_pins=100),
+]}
+
+There is an optional field called "layout" that defaults to the package name. It
+is used when a chip is sold in two variants with the same package but a
+different bonding (pin to pad assignment).
+
+Pins
+====
+
+This section probably needs to be reorganized for better structure. It contains
+various kinds of information about pins, pads and mapping of pads to signals.
+
+    "layout":                              ["LQFP100","LQFP64","LQFP48","QFN48"],
+    "pads": [
+      {"name": "PE2", "type": "I/O_5T", "pins": [  1,  null,  null, null ]},
+      {"name": "PE3", "type": "I/O_5T", "pins": [  2,  null,  null, null ]},
+      ...
+
+The "layout" and "pads" fields together describe pad types and bonding.
+They are designed to resemble the information typically found in the data sheet,
+in a table called pin table or similar.
+
+Each row in the "pads" field contains the pad name and type, as well as a list
+of bonded pins: one for each part layout. The "layout" field contains a list of
+layout names (which default to package names), and the pins for each pad are
+listed in the same order as the layouts. If a pad is not bonded for a given
+layout, the entry in the "pins" list is null.  Otherwise, it is either a pin
+number (integer) or a pin name (string). Pin numbers or names are defined by the
+package.
+
+Clocks
+======
+
+Each clock has a name (=key), description and kind.  Depending on the kind,
+there can be additional fields.
+
+    "HSECLK": {
+      "description": "external high-frequency crystal/ceramic oscillator or clock",
+      "kind": "external",
+      ...
+   }
+
+External Clock
+--------------
+
+An external clock is associated with two pads called xin and xout.
+These pads can be connected to a crystal or ceramic resonator, or xin can be
+connected to an externally generated clock signal and xout left floating.
+
+An example:
+
+    "HSECLK": {
+      "description": "external high-frequency crystal/ceramic oscillator or clock",
+      "kind": "external",
+      "xin": "PH0",
+      "xout": "PH1",
+      "enable": "HSEEN",
+      "bypass": "HSEBCFG",
+      "ready": "HSERDY"
+      "max_freq": "26MHz",
+      "min_freq": "4MHz",
+    }
+
+"xin" and "xout" are the names of the pads associated with this clock. The
+corresponding pin number for a given part is given by the bonding information.
+
+"enable" is an expression that is true when the clock is enabled. When false,
+the connected pins can be used for other purposes, e.g. as GPIO pins. When true,
+GPIO and other functionality is disabled.
+
+"ready" is an expression that is true when the clock is stable, in other words
+ready to be used. It is meaningless when the clock is not enabled and when an
+externally generated clock signal is used.
+
+"bypass" is an expression that is true when the clock signal is generated
+externally.
+
+"max_freq" is the maximum frequency of the crystal or ceramic oscillator,  and
+also the maximum frequency of an externally generated clock signal. 
+
+"min_freq" is the minimum frequency of the crystal or ceramic oscillator. It has
+no meaning for an externally generated clock signal.

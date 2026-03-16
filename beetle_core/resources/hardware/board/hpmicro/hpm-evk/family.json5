@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'hpm-evk'
+// ==============================
+// This file contains very basic data for the 'hpm-evk' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "hpm-evk",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/hpmicro_evk.png",
+    "synonyms":           [],
+    "manufacturer":       "hpmicro"
+}

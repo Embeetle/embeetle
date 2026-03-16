@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'fd5mlm0'
+// =============================
+// This file contains very basic data for the 'fd5mlm0' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "fd5mlm0",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/fermionic_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "fermionic"
+}

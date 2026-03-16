@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'nrf52'
+// ===========================
+// This file contains very basic data for the 'nrf52' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "nrf52",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/nordic_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "nordic"
+}

@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'nutiny'
+// =============================
+// This file contains very basic data for the 'nutiny' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "nutiny",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/nutiny.png",
+    "synonyms":           [],
+    "manufacturer":       "nuvoton"
+}

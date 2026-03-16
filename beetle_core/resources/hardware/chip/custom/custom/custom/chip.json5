@@ -1,0 +1,247 @@
+// DATA FOR CHIP 'custom'
+// ======================
+// This file contains all the data for the 'custom', all references to supporting files (such as the
+// linkerscript, .gdbinit files, bootloader files, ...) that must be copied into a project as well
+// as the parameters that must be filled into them. Any data presented in this file can be
+// overridden by a 'board.json5' file (in other words: board-files take priority over chip-files).
+{
+    // MAIN DATA
+    // ---------
+    // This is the most basic information from the 'custom' chip.
+    "name":               "custom",
+    "kind":               "chip",
+    "chipfamily":         "custom",
+    "manufacturer":       "custom",
+    "active":             true,
+    "icon":               "icons/dialog/warning.png",
+    "link":               "https://embeetle.com/#supported-hardware/",
+    "synonyms":           [],
+    "isa":                null,
+    "debugger_enabled":   false,
+    "pinconfig_enabled":  false,
+
+
+    // WEBPAGE DATA
+    // ------------
+    // This is data mainly used for the webpage.
+    "purchase_links": {
+        "farnell": {
+            "order_code": null,
+            "link_base": "https://uk.farnell.com/",
+            "link_suffix": null
+        },
+        "digikey": {
+            "order_code": null,
+            "link_base": null,
+            "link_suffix": null
+        },
+        "mouser": {
+            "order_code": null,
+            "link_base": null,
+            "link_suffix": null
+        },
+        "lcsc": {
+            "order_code": null,
+            "link_base": "https://www.lcsc.com/product-detail/",
+            "link_suffix": null
+        }
+    },
+    "references": {
+        "webpage": null,
+        "datasheet": null,
+        "reference_manual": null,
+        "documentation": null
+    },
+
+
+    // COMPILER TOOLCHAIN
+    // ------------------
+    // Define here which compiler toolchain(s) can be used to compile code for this chip.
+    //     - "default_compiler_uid"
+    //     Unique ID from the default compiler toolchain.
+    // 
+    //     - "default_compiler_prefix"
+    //     The prefix belonging to the default compiler toolchain.
+    // 
+    //     - "compiler_patterns"
+    //     The unique ID from the chosen compiler toolchain should match at least one of these
+    //     patterns.
+    "default_compiler_uid":    null,
+    "default_compiler_prefix": null,
+    "compiler_patterns":       [],
+
+
+    // FLASHTOOL
+    // ---------
+    // Define here which flashtool(s) can be used to upload code to this chip.
+    //     - "default_flashtool_uid"
+    //     Unique ID from the default flashtool.
+    // 
+    //     - "flashtool_patterns"
+    //     Unique ID from the chosen flashtool should match at least one of these patterns.
+    "default_flashtool_uid": null,
+    "flashtool_patterns":    [],
+
+
+    // MAKEFILE
+    // --------
+    // Embeetle is makefile-based. Define here which python file must be used to generate the
+    // makefile for this 'custom' chip.
+    "makefile_generator": "hardware/makefile.py",
+
+
+    // DASHBOARD.MK
+    // ------------
+    // The Embeetle makefile always includes two sub-makefiles: 'dashboard.mk' and 'filetree.mk'.
+    // The first one represents the Dashboard settings (eg. where to find the linkerscript and other
+    // files, the compiler flags based on the chosen chip, ...), the latter represents the
+    // checkboxes in the Filetree (it lists the .c, .cpp and .s files that should be compiled).
+    // Provide following data to generate the 'dashboard.mk' file:
+    //     - "dashboard_mk_generator"
+    //     This python module will generate the whole 'dashboard.mk' file, based on the data in this
+    //     json-file. If you dive into the python module, you'll notice that it goes even further -
+    //     it requires the data from the board, chip and probe json-dictionaries, as well as the
+    //     locations of several important project files (linkerscript, binaries, ...). Embeetle
+    //     provides all that data when the python module gets invoked.
+    // 
+    //     - "binary_rules_generator"
+    //     The python module mentioned above is unable to complete its task alone. It needs a little
+    //     help from this binary_rules_generator python module. This module generates the 'BINARIES'
+    //     section in 'dashboard.mk'.
+    // 
+    //     - "flash_rules_generator"
+    //     Also to make the 'FLASH RULES' section in 'dashboard.mk', a little help is needed. That's
+    //     where this flash_rules_generator python module jumps in. The probe can also point to such
+    //     a module, which will then take precedence.
+    // 
+    //     - "cpu_flags"
+    //     These cpu_flags get added to the TARGET_COMMONFLAGS variable in 'dashboard.mk'.
+    // 
+    //     - "compiler_flags"
+    //     List all the flags required to compile the source files for this 'custom' chip. They get
+    //     added to the 'COMPILATION FLAGS' section in 'dashboard.mk'.
+    "dashboard_mk_generator": "hardware/dashboard_mk.py",
+    "binary_rules_generator": "hardware/binary_rules.py",
+    "flash_rules_generator": "hardware/openocd_flash_rules.py",
+    "cpu_flags": {
+        "mcpu": null,
+        "march": null,
+        "mabi": null,
+        "mfpu": null,
+        "mfloat-abi": null,
+        "mmcu": null
+    },
+    "compiler_flags": {
+        "target_commonflags": [],
+        "target_cflags": [],
+        "target_cxxflags": [],
+        "target_sflags": [],
+        "target_ldflags": [],
+        "toolchain_ldlibs": [
+            "-lm"
+        ]
+    },
+
+
+    // FILETREE.MK
+    // -----------
+    // As mentioned before, the Embeetle 'makefile' always includes 'dashboard.mk' and
+    // 'filetree.mk'. The latter one lists all the source files that take part in the build.
+    // Embeetle does this automatically, but needs a little push now and then from some heuristics:
+    "heuristics": {
+        "required_srcfiles": [],
+        "required_hdirs": [],
+        "rejected_srcfiles": [],
+        "rejected_hdirs": []
+    },
+
+
+    // LINKERSCRIPT
+    // ------------
+    // A microcontroller project can have one or more linkerscripts. In case there are multiple,
+    // usually one *main* linkerscript invokes the others. List the "linkerscript_generators" below.
+    // These are python-file(s) that generate a linkerscript (based on some input from this json-
+    // file), or just plain linkerscript file(s) that must be copied as-is into the project.
+    //
+    // The order at which you list these linkerscript (generators) matters. Embeetle considers
+    // the first one as your *main* linkerscript, and passes that one explicitely to the linker. The
+    // other ones just sit next to it.
+    //
+    // You can also add some linkerscript parameters in the "params" listing. The usual ones are:
+    //     - "MIN_HEAP_SIZE"
+    //     Minimum size of the heap, eg. "0x200".
+    // 
+    //     - "MIN_STACK_SIZE"
+    //     Minimum size of the stack, eg. "0x400".
+    // 
+    //     - "ESTACK"
+    //     The end of stack, eg. "0x20002000".
+    //
+    // These parameters can be literally anything that should be passed on to the linkerscript
+    // generator(s), such that they can spit out the correct linkerscript(s) for this board/chip.
+    //
+    // Finally, list the memory segments as they are shown in the linkerscript.
+    "linkerscript": {
+        "linkerscript_generators": [],
+        "params": {},
+        "memory": {
+            "FLASH": {
+                "rights": "rx",
+                "origin": "0x00000000",
+                "length": "2K"
+            },
+            "RAM": {
+                "rights": "xrw",
+                "origin": "0x00000000",
+                "length": "2K"
+            }
+        }
+    },
+
+
+    // SUPPLEMENTARY FILES
+    // -------------------
+    // List here supplementary files (such as bootloaders) that can be used for the 'custom' chip.
+    // At *project creation time*, they get copied from their original location into the
+    // '<project>/config/' folder. At *project runtime*, the Dashboard Project Layout section takes
+    // note of their project locations. In other words, Project Layout entries such as
+    // 'BOOTLOADER_FILE', 'BOOTSWITCH_FILE' and 'PARTITIONS_CSV_FILE' get filled up. That's how
+    // these values end up in the 'dashboard.mk' file, where they can be used in certain rules.
+    "boot": {
+        "bootloaders": [],
+        "partitions": [],
+        "bootswitches": []
+    },
+
+
+    // OPENOCD_CHIP.CFG
+    // ----------------
+    // List all data relevant for 'openocd_chip.cfg':
+    //     - "openocd_chip_cfg_generator"
+    //     Point to the python module that generates 'openocd_chip.cfg'.
+    // 
+    //     - "target_file"
+    //     The location of the OpenOCD config file that represents this chip/board, relative to the
+    //     'scripts' folder within the OpenOCD installation.
+    "openocd": {
+        "openocd_chip_cfg_generator": "hardware/openocd_chip_cfg.py",
+        "target_file": null
+    },
+
+
+    // .GDBINIT
+    // --------
+    // List all the data relevant for the '.gdbinit' file. First and foremost, list the .gdbinit(s)
+    // that must be copied into the project. These files might contain placeholders between $<..>
+    // symbols. Currently, these placeholders can be filled with parameters extracted from the
+    // linkerscript data. If extra data is needed, place it below.
+    "gdb_init": [],
+
+
+    // MISCELLANEOUS
+    // -------------
+    // Anything I haven't ordered yet.
+    "arduino_params": {
+        "library_architectures": []
+    }
+}

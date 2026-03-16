@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'atm2'
+// ===========================
+// This file contains very basic data for the 'atm2' boardfamily. More detailed data is given in the
+// specific boardfiles.
+{
+    "name":               "atm2",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/atmosic.png",
+    "synonyms":           [],
+    "manufacturer":       "atmosic"
+}

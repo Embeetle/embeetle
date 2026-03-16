@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'k32l2'
+// ===========================
+// This file contains very basic data for the 'k32l2' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "k32l2",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/nxp_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "nxp"
+}

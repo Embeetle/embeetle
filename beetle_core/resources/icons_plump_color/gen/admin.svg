@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 48 48"
+   height="256"
+   width="256"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="admin.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.53613281"
+     inkscape:cx="44.765027"
+     inkscape:cy="43.832423"
+     inkscape:window-width="1920"
+     inkscape:window-height="730"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     fill="#edd400"
+     d="M45.2807 7.03047C45.0705 5.21832 43.9711 3.72231 42.1899 3.32838C39.4114 2.71392 34.026 2 24 2C13.974 2 8.58856 2.71392 5.81011 3.32838C4.02885 3.72231 2.92946 5.21832 2.71927 7.03047C2.40142 9.77083 2 14.284 2 19.6V19.6C2 29.5312 7.24143 38.8241 16.0718 43.3687C19.0216 44.8868 21.9004 46 24 46C26.0996 46 28.9784 44.8868 31.9282 43.3687C40.7586 38.8241 46 29.5312 46 19.6V19.6C46 14.284 45.5986 9.77083 45.2807 7.03047Z"
+     id="path2"
+     style="fill:#edd400;fill-opacity:1" />
+  <path
+     fill="#f57900"
+     fill-rule="evenodd"
+     d="M11.0698 19.8573C10.4717 19.8573 9.98709 19.3651 10.0003 18.7615C10.0485 16.5513 10.1931 14.6242 10.337 13.1764C10.5153 11.3817 11.6109 9.92842 13.372 9.62295C14.8998 9.35794 17.2338 9.10078 20.7423 9.00044C21.3449 8.98321 21.8438 9.47408 21.8438 10.0826V18.769C21.8438 19.37 21.3611 19.8573 20.7657 19.8573H11.0698ZM37.9997 18.7615C38.0129 19.3651 37.5283 19.8573 36.9302 19.8573H27.2343C26.6389 19.8573 26.1562 19.37 26.1562 18.769V10.0826C26.1562 9.47408 26.6551 8.98321 27.2577 9.00044C30.7662 9.10078 33.1002 9.35794 34.628 9.62295C36.3891 9.92842 37.4847 11.3817 37.663 13.1764C37.8069 14.6242 37.9515 16.5513 37.9997 18.7615ZM20.5739 36.9604C21.2249 37.1499 21.8438 36.6339 21.8438 35.95V25.2984C21.8438 24.6974 21.3611 24.2102 20.7657 24.2102H11.1348C10.5121 24.2102 10.0147 24.743 10.1082 25.3645C10.9747 31.1263 15.4416 35.4661 20.5739 36.9604ZM27.4261 36.9604C26.7751 37.1499 26.1562 36.6339 26.1562 35.95V25.2984C26.1562 24.6974 26.6389 24.2102 27.2343 24.2102H36.8652C37.4879 24.2102 37.9853 24.743 37.8918 25.3645C37.0253 31.1263 32.5584 35.4661 27.4261 36.9604Z"
+     clip-rule="evenodd"
+     id="path4"
+     style="fill:#f57900;fill-opacity:1" />
+</svg>

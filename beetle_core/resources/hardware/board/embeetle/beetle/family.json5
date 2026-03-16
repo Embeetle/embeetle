@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'beetle'
+// =============================
+// This file contains very basic data for the 'beetle' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "beetle",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/beetle_board.png",
+    "synonyms":           [],
+    "manufacturer":       "embeetle"
+}

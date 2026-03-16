@@ -1,0 +1,64 @@
+Graphical clock tree representation
+-----------------------------------
+
+- A fat line at the left, representing the chip boundary, with little squares
+  representing pins. Pin name to the left of the square.
+
+- Next to the line,  a column of clock sources: HSI, LSI, HSE, LSE
+
+- External clocks with crystal/ceramic option (HSE/LSE) have two pins: OSC_IN
+  (top) and OSC_OUT (bottom); names can vary; depending on clock mode, both are
+  used or only the top one (bypass mode). They also have a little box with the
+  clock name
+
+  Specialized clocks with crystal/ceramic option: RTC
+
+- Specialized external clocks without crystal/ceramic option (e.g. I2S_CKIN for
+  I2S) have a single pin. Examples: I2S, USB, Ethernet PHY, SDIO (SD Card), CAN,
+  TIMER, SAI (serial audio interface), DVP (digital video port), DSI (display
+  serial interface), FMC (external memory), GPIO clock for precise
+  synchronisation, generic clock input, PLL clock input, ...
+
+Where should we put the actual frequency of these external clocks?  Proposal: a
+label to the left or between/below the pin names. Putting the frequency outside
+the chip boundary makes sense for external clocks.
+
+In some cases such as I2S,  there is a relationship between sampling frequency,
+clock frequency and peripheral settings. Can we makes use of this relationship?
+
+- Left-to-right starting from clock sources is a forest of selectors, scalers,
+  plls and remultipliers (immediately after a scaler). Order of clock sources
+  and selector inputs can be rearranged to minimize signal crossings in this
+  forest. The leaves of this forest labels representing peripherals, the core,
+  buses, ...
+
+- Some edges have a maximum frequency
+
+- One selector might have a CSS (Clock Security System) attached; to be handled
+  as a separate configurable peripheral. CubeMX for STM32C011D6Yx shows this,
+  but offers no obvious option for configuration. Should we? And should it be
+  shown in the clock tree? (I see no immediate need)
+
+- MCO (Microcontroller Clock Output) pins are below the external and internal
+  clocks, with selectors and scalers/dividers in right-to-left direction. To
+  avoid signal crossings,  the inputs of these selector/scaler trees are often
+  labels namign the clock source.
+
+- Scalers are one-line or two-line rectangles with an optional label on the
+  first line and the current scaling factor on the second line.  If the scaling
+  factor is configurable,  there is a down-pointing triangle or arrow to the
+  right of it,  which shows a list of options.
+
+-
+
+
+
+
+Use a grid of half text line height?
+
+
+    * 
+
+
+
+

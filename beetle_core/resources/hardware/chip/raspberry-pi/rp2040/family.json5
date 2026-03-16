@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'rp2040'
+// ============================
+// This file contains very basic data for the 'rp2040' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "rp2040",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/rpi_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "raspberry-pi"
+}

@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'pic32cm'
+// =============================
+// This file contains very basic data for the 'pic32cm' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "pic32cm",
+    "kind":               "chipfamily",
+    "active":             false,
+    "icon":               "icons/chip/microchip_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

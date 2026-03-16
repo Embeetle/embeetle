@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'arduino'
+// ==============================
+// This file contains very basic data for the 'arduino' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "arduino",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/arduino_uno.png",
+    "synonyms":           [],
+    "manufacturer":       "arduino"
+}

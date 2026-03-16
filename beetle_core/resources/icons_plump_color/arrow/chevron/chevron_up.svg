@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 48 48"
+   height="256"
+   width="256"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="chevron_up.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.5272475"
+     inkscape:cx="101.21206"
+     inkscape:cy="118.64776"
+     inkscape:window-width="3840"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <path
+     style="fill:#2e3436;fill-opacity:1;stroke-width:0.999997"
+     d="M 40.744859,32.311113 C 40.541407,31.743078 39.696727,30.396131 38.694515,29.041582 38.351161,28.57752 37.847196,27.889335 37.574593,27.512285 37.30199,27.135234 36.675533,26.312076 36.182466,25.683044 35.6894,25.054011 35.072408,24.264135 34.811372,23.927764 32.416407,20.841595 28.748952,16.98582 26.765647,15.468898 25.574814,14.558095 25.13948,14.383704 24.05356,14.382456 c -0.786097,-9e-4 -0.980898,0.03924 -1.582031,0.326031 -1.698026,0.810093 -5.194968,4.221947 -8.582951,8.37411 -2.126987,2.606743 -5.2156835,6.746868 -6.1584755,8.254895 -0.8801359,1.407805 -0.8177017,2.613903 0.1920145,3.709316 0.6332713,0.687018 1.259015,0.855348 3.920955,1.054765 3.499872,0.26219 6.008829,0.323289 12.896035,0.314045 6.420629,-0.0086 9.298484,-0.105093 12.484578,-0.418528 2.115071,-0.208072 2.851748,-0.573353 3.387258,-1.67957 0.314384,-0.649429 0.362381,-1.368542 0.133916,-2.006407 z"
+     id="path2" />
+</svg>

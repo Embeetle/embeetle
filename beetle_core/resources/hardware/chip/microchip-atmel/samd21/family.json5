@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'samd21'
+// ============================
+// This file contains very basic data for the 'samd21' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "samd21",
+    "kind":               "chipfamily",
+    "active":             false,
+    "icon":               "icons/chip/microchip_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

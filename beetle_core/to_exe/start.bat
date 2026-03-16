@@ -1,0 +1,1 @@
+python freeze_embeetle.py --output "C:/Users/Gebruiker/embeetle_dist"

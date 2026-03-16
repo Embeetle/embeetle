@@ -1,0 +1,45 @@
+# To refresh git after changing this file:
+#   $ git rm -rf --cached .
+#   $ git add .
+.ssh/
+__pycache__
+~$*
+.mypy_cache
+.idea
+.claude
+.DS_Store
+*.DS_Store
+/pio_scripts/dry_run.bat
+/pio_scripts/filter.bat
+/pio_scripts/pyproject.toml
+/beetle_updater_windows/
+/beetle_updater_linux/
+/beetle_tools/
+/beetle_tools
+/test/results.txt
+/test_project/build
+/test_project/build/
+/test_project/compiled_child
+/test_project/compiled_child/
+/test_project/compiled_parent
+/test_project/compiled_parent/
+/beetle_shared/beetle_console/.hypothesis/
+/beetle_core/event-logging.txt
+/beetle_core/gui/forms/pcpp/include/
+/beetle_core/gui/forms/pcpp/output/
+/beetle_project_generator/generators_and_importers/
+/beetle_project_generator/importer.py
+/beetle_project_generator/beetlifyer.py
+/beetle_project_generator/filefunctions.py
+/beetle_project_generator/resources/hardware/
+/beetle_project_generator/resources/templates/
+/beetle_project_generator/hardware_api/
+/sys
+venv/
+# config tools
+*.ncfg
+test_output.c
+test_output
+# webpack temporary folder
+node_modules/
+dist/

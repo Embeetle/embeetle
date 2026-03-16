@@ -1,0 +1,171 @@
+// PROJECT LAYOUT FOR MAKEFILE-BASED PROJECTS
+// ==========================================
+// Meaning of certain fields:
+//     - "default_fallback": Display the default path (if 'None' was displayed) or keep the dis-
+//     played path in case nothing is found. Without this fallback, 'None' is shown.
+{
+    "BUILD_DIR": {
+        "icon":             "icons/folder/closed/build.png",
+        "default_relpath":  "build",
+        "is_file":          false,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      ["build", "bld"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "BIN_FILE": {
+        "icon":             "icons/file/file_bin.png",
+        "default_relpath":  "build/application.bin",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": true,
+        "searchpath":       "BUILD_DIR",
+        "valid_names":      ["*.bin"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "ELF_FILE": {
+        "icon":             "icons/file/file_elf.png",
+        "default_relpath":  "build/application.elf",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": true,
+        "searchpath":       "BUILD_DIR",
+        "valid_names":      ["*.elf"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "BOOTLOADER_FILE": {
+        "icon":             "icons/file/file_hex.png",
+        "default_relpath":  "config/bootloaders/{bootloader}",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      ["*.hex", "*.bin"],
+        "invalid_names":    [".beetle", ".config_orig", "build"]
+    },
+
+    "BOOTSWITCH_FILE": {
+        "icon":             "icons/file/file_bin.png",
+        "default_relpath":  "config/bootswitches/{bootswitch}",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      ["*.hex", "*.bin"],
+        "invalid_names":    [".beetle", ".config_orig", "build"]
+    },
+
+    "PARTITIONS_CSV_FILE": {
+        "icon":             "icons/file/file_csv.png",
+        "default_relpath":  "config/partitions/{partitions_csv}",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      ["*.csv"],
+        "invalid_names":    [".beetle", ".config_orig", "build"]
+    },
+
+    "LINKERSCRIPT": {
+        "icon":             "icons/file/file_ld.png",
+        "default_relpath":  "config/linkerscript.ld",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      ["linkerscript*", "*.ld"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "MAKEFILE": {
+        "icon":             "icons/file/file_mk.png",
+        "default_relpath":  "config/makefile",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      ["makefile*", "*.mk"],
+        "invalid_names":    [".beetle", ".config_orig", "filetree.mk", "file*tree.mk", "dashboard.mk", "projfiles.mk", "projectfiles.mk", "project_files.mk", "proj_files.mk"]
+    },
+
+    "DASHBOARD_MK": {
+        "icon":             "icons/file/file_mk.png",
+        "default_relpath":  "config/dashboard.mk",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": true,
+        "searchpath":       "ROOT",
+        "valid_names":      ["dashboard.mk"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "FILETREE_MK": {
+        "icon":             "icons/file/file_mk.png",
+        "default_relpath":  "config/filetree.mk",
+        "is_file":          true,
+        "readonly":         true,
+        "default_fallback": true,
+        "searchpath":       "ROOT",
+        "valid_names":      ["filetree.mk"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "GDB_FLASHFILE": {
+        "icon":             "icons/file/file_txt.png",
+        "default_relpath":  "config/.gdbinit",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      [".gdbinit", "*gdb*init*", "gdbcommands*", "gdb*commands*", "gdb*cmds*"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "OPENOCD_CHIPFILE": {
+        "icon":             "icons/file/file_cfg.png",
+        "default_relpath":  "config/openocd_chip.cfg",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      ["openocd*chip*.cfg"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "OPENOCD_PROBEFILE": {
+        "icon":             "icons/file/file_cfg.png",
+        "default_relpath":  "config/openocd_probe.cfg",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      ["openocd*probe*.cfg"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "PACKPATH": {
+        "icon":             "icons/folder/closed/folder.png",
+        "default_relpath":  "config/dfp",
+        "is_file":          false,
+        "readonly":         false,
+        "default_fallback": false,
+        "searchpath":       "ROOT",
+        "valid_names":      ["dfp*"],
+        "invalid_names":    [".beetle", ".config_orig"]
+    },
+
+    "BUTTONS_BTL": {
+        "icon":             "icons/file/file_btl.png",
+        "default_relpath":  ".beetle/buttons.btl",
+        "is_file":          true,
+        "readonly":         false,
+        "default_fallback": true,
+        "searchpath":       "DOT_BEETLE_DIR",
+        "valid_names":      ["*buttons*btl*"],
+        "invalid_names":    [".config_orig"]
+    }
+}

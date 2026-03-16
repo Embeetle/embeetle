@@ -1,0 +1,102 @@
+<b><span style="color:'#204a87'">Embeetle license</span></b>
+<b><span style="color:'#204a87'">================</span></b>
+Copyright (c) Matic Kukovec, Kristof Mulier and Johan Cockx.
+
+This license applies to the Embeetle software developed by the above copyright
+holders. It does not apply to third party software that is distributed with
+Embeetle.  Such software generally has its own license.
+
+By downloading, using and/or distributing the Embeetle software, you agree to
+be bound by the terms of this license.
+
+Permission is hereby granted to use this software without modification.
+
+Permission is hereby granted to distribute this software without modification
+and without a fee.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHORS AND COPYRIGHT HOLDERS DISCLAIM
+ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY
+DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+<b><span style="color:'#204a87'">Alternative licenses</span></b>
+<b><span style="color:'#204a87'">====================</span></b>
+
+Under the above license:
+
+- No permission is granted to modify the Embeetle software in any way.
+
+- No permission is granted to use, copy or distribute a modified version of the
+  Embeetle software.
+
+- No permission is granted to distribute Embeetle for a fee.
+
+We are interested in distributing Embeetle under other licenses as well.  If you
+wish to use or distribute a modified version of this software, or if you wish to
+use this software under a different license, please <a href='https://embeetle.com/#contact'>contact us</a> at
+info@embeetle.com.
+
+
+<b><span style="color:'#204a87'">Third party software distributed with Embeetle</span></b>
+<b><span style="color:'#204a87'">==============================================</span></b>
+
+The disclaimer of warranty in the Embeetle license also applies to all third
+party software distributed with Embeetle.
+
+Before using this third party software distributed with Embeetle, either
+directly or from Embeetle, you must accept the corresponding licenses.
+
+<span style="color:'#cc0000'">- Clang</span>
+Embeetle uses Clang for source code analysis. Clang is part of the LLVM project,
+Please consult the <a href='#licenses/clang_license.txt'>LLVM license</a> (click to view).
+
+<span style="color:'#cc0000'">- Qt</span>
+Embeetle uses Qt under the <a href='#licenses/lgpl-3.0.txt'>LGPLv3 license</a>, which in turn refers to the <a href='#licenses/gpl-3.0.txt'>GPLv3
+license</a> (click to view). Source code for PyQt, including Qt, can be downloaded <a href='https://embeetle.com/downloads/opensource/PyQt5-5.14.1.dev1912311030.tar.gz'>here</a>.
+
+<span style="color:'#cc0000'">- GNU make</span>
+Embeetle is distributed with GNU make. GNU make is licensed under <a href='#licenses/gpl-3.0.txt'>GPLv3</a> (click to view).
+Source code for GNU make can be downloaded <a href='https://embeetle.com/downloads/opensource/make-4.2.tar.bz2'>here</a>.
+
+<span style="color:'#cc0000'">- GCC Toolchain</span>
+Embeetle is distributed with GCC toolchain configured for cross-compilation to
+ARM processors. The GCC toolchain is licensed under a combination of <a href='#licenses/gcc-arm-none-eabi_license.txt'>several
+Open Source licenses</a> (click to view). Source code for the GCC toolchain can be downloaded <a href='https://embeetle.com/downloads/opensource/gcc-arm-none-eabi-9-2019-q4-major-src.tar.bz2'>here</a>.
+
+<span style="color:'#cc0000'">- OpenOCD</span>
+Embeetle is distributed with OpenOCD, which includes hidapi, libftdi, libusb and
+libusb-win32. Click to read the licenses for <a href='#licenses/license-openocd.txt'>OpenOCD</a>, <a href='#licenses/license-hidapi.txt'>hidapi</a>, <a href='#licenses/license-libftdi.txt'>libftdi</a>, <a href='#licenses/license-libusb.txt'>libusb</a> and
+<a href='#licenses/license-libusb-win32.txt'>libusb-win32</a>.  We distribute two versions of OpenOCD:
+standard OpenOCD and Nuvoton OpenOCD. The corresponding source code can be downloaded
+<a href='https://embeetle.com/downloads/opensource/openocd-0.10.0.tar.gz'>here</a> and <a href='https://embeetle.com/downloads/opensource/OpenOCD-Nuvoton.tgz'>here</a>.
+
+<span style="color:'#cc0000'">- Pyelftools</span>
+Embeetle is distributed with Pyelftools. This software is licensed under the
+<a href='#licenses/pyelftools_license.pre'>Public Domain</a> license.
+
+<span style="color:'#cc0000'">- Construct</span>
+Pyelftools makes use of the Construct library. Please consult the
+<a href='#licenses/construct_license.pre'>Construct license</a>.
+
+<span style="color:'#cc0000'">- CubeMX</span>
+Embeetle uses C code generated using CubeMX. The CubeMX license can be found
+in <a href='/content/licenses/SLA0048_STM32CubeMX.pdf'>this PDF file</a>.
+
+<span style="color:'#cc0000'">- libffi</span>
+Embeetle uses libffi, which is distributed under <a href='#licenses/license-libffi.txt'>this license</a>.
+
+<span style="color:'#cc0000'">- OpenSSL and libcrypto</span>
+Embeetle uses OpenSSL and libcrypto, which are distributed under a double license,
+i.e. both the conditions of the OpenSSL License and the original SSLeay license apply.
+You can read these licenses <a href='#licenses/license-openssl-ssleay.txt'>here</a>.
+
+<span style="color:'#cc0000'">- 7-Zip</span>
+Embeetle is distributed with 7-Zip under <a href='#licenses/license-7zip.txt'>this license</a>.
+
+<span style="color:'#cc0000'">- pyserial</span>
+Embeetle is distributed with pyserial under <a href='#licenses/license-pyserial.txt'>this license</a>.
+

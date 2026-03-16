@@ -1,0 +1,322 @@
+// DATA FOR CHIP 'hpm6750ivm'
+// ==========================
+// This file contains all the data for the 'hpm6750ivm', all references to supporting files (such as
+// the linkerscript, .gdbinit files, bootloader files, ...) that must be copied into a project as
+// well as the parameters that must be filled into them. Any data presented in this file can be
+// overridden by a 'board.json5' file (in other words: board-files take priority over chip-files).
+{
+    // MAIN DATA
+    // ---------
+    // This is the most basic information from the 'hpm6750ivm' chip.
+    "name":               "hpm6750ivm",
+    "kind":               "chip",
+    "chipfamily":         "hpm6700",
+    "manufacturer":       "hpmicro",
+    "active":             true,
+    "icon":               "icons/chip/hpmicro_chip.png",
+    "link":               "https://embeetle.com/#supported-hardware/hpmicro/microcontrollers/hpm6750ivm",
+    "synonyms":           [],
+    "isa":                "riscv",
+    "debugger_enabled":   true,
+    "pinconfig_enabled":  false,
+
+
+    // WEBPAGE DATA
+    // ------------
+    // This is data mainly used for the webpage.
+    "purchase_links": {
+        "farnell": {
+            "order_code": null,
+            "link_base": "https://uk.farnell.com/",
+            "link_suffix": null
+        },
+        "digikey": {
+            "order_code": null,
+            "link_base": null,
+            "link_suffix": null
+        },
+        "mouser": {
+            "order_code": null,
+            "link_base": null,
+            "link_suffix": null
+        },
+        "lcsc": {
+            "order_code": null,
+            "link_base": "https://www.lcsc.com/product-detail/",
+            "link_suffix": null
+        }
+    },
+    "references": {
+        "webpage": null,
+        "datasheet": null,
+        "reference_manual": null,
+        "documentation": null
+    },
+
+
+    // COMPILER TOOLCHAIN
+    // ------------------
+    // Define here which compiler toolchain(s) can be used to compile code for this chip.
+    //     - "default_compiler_uid"
+    //     Unique ID from the default compiler toolchain.
+    // 
+    //     - "default_compiler_prefix"
+    //     The prefix belonging to the default compiler toolchain.
+    // 
+    //     - "compiler_patterns"
+    //     The unique ID from the chosen compiler toolchain should match at least one of these
+    //     patterns.
+    "default_compiler_uid":    "gnu_riscv_toolchain_11.1.0_64b",
+    "default_compiler_prefix": "riscv32-unknown-elf-",
+    "compiler_patterns":       ["*gnu*riscv*"],
+
+
+    // FLASHTOOL
+    // ---------
+    // Define here which flashtool(s) can be used to upload code to this chip.
+    //     - "default_flashtool_uid"
+    //     Unique ID from the default flashtool.
+    // 
+    //     - "flashtool_patterns"
+    //     Unique ID from the chosen flashtool should match at least one of these patterns.
+    "default_flashtool_uid": "openocd_hpmicro_0.11.0_dev202239_64b",
+    "flashtool_patterns":    ["*openocd*"],
+
+
+    // MAKEFILE
+    // --------
+    // Embeetle is makefile-based. Define here which python file must be used to generate the
+    // makefile for this 'hpm6750ivm' chip.
+    "makefile_generator": "hardware/makefile.py",
+
+
+    // DASHBOARD.MK
+    // ------------
+    // The Embeetle makefile always includes two sub-makefiles: 'dashboard.mk' and 'filetree.mk'.
+    // The first one represents the Dashboard settings (eg. where to find the linkerscript and other
+    // files, the compiler flags based on the chosen chip, ...), the latter represents the
+    // checkboxes in the Filetree (it lists the .c, .cpp and .s files that should be compiled).
+    // Provide following data to generate the 'dashboard.mk' file:
+    //     - "dashboard_mk_generator"
+    //     This python module will generate the whole 'dashboard.mk' file, based on the data in this
+    //     json-file. If you dive into the python module, you'll notice that it goes even further -
+    //     it requires the data from the board, chip and probe json-dictionaries, as well as the
+    //     locations of several important project files (linkerscript, binaries, ...). Embeetle
+    //     provides all that data when the python module gets invoked.
+    // 
+    //     - "binary_rules_generator"
+    //     The python module mentioned above is unable to complete its task alone. It needs a little
+    //     help from this binary_rules_generator python module. This module generates the 'BINARIES'
+    //     section in 'dashboard.mk'.
+    // 
+    //     - "flash_rules_generator"
+    //     Also to make the 'FLASH RULES' section in 'dashboard.mk', a little help is needed. That's
+    //     where this flash_rules_generator python module jumps in. The probe can also point to such
+    //     a module, which will then take precedence.
+    // 
+    //     - "cpu_flags"
+    //     These cpu_flags get added to the TARGET_COMMONFLAGS variable in 'dashboard.mk'.
+    // 
+    //     - "compiler_flags"
+    //     List all the flags required to compile the source files for this 'hpm6750ivm' chip. They
+    //     get added to the 'COMPILATION FLAGS' section in 'dashboard.mk'.
+    "dashboard_mk_generator": "hardware/dashboard_mk.py",
+    "binary_rules_generator": "hardware/binary_rules.py",
+    "flash_rules_generator": "hardware/openocd_flash_rules.py",
+    "cpu_flags": {
+        "mcpu": null,
+        "march": "rv32imac",
+        "mabi": "ilp32",
+        "mfpu": null,
+        "mfloat-abi": null,
+        "mmcu": null
+    },
+    "compiler_flags": {
+        "target_commonflags": [
+            "-DCONFIG_HAS_HPMSDK_ACMP=y",
+            "-DCONFIG_HAS_HPMSDK_ADC12=y",
+            "-DCONFIG_HAS_HPMSDK_ADC16=y",
+            "-DCONFIG_HAS_HPMSDK_CAM=y",
+            "-DCONFIG_HAS_HPMSDK_CAN=y",
+            "-DCONFIG_HAS_HPMSDK_DAO=y",
+            "-DCONFIG_HAS_HPMSDK_DMA=y",
+            "-DCONFIG_HAS_HPMSDK_ENET=y",
+            "-DCONFIG_HAS_HPMSDK_FEMC=y",
+            "-DCONFIG_HAS_HPMSDK_GPIO=y",
+            "-DCONFIG_HAS_HPMSDK_GPTMR=y",
+            "-DCONFIG_HAS_HPMSDK_I2C=y",
+            "-DCONFIG_HAS_HPMSDK_I2S=y",
+            "-DCONFIG_HAS_HPMSDK_JPEG=y",
+            "-DCONFIG_HAS_HPMSDK_LCDC=y",
+            "-DCONFIG_HAS_HPMSDK_MCHTMR=y",
+            "-DCONFIG_HAS_HPMSDK_PCFG=y",
+            "-DCONFIG_HAS_HPMSDK_PDM=y",
+            "-DCONFIG_HAS_HPMSDK_PDMA=y",
+            "-DCONFIG_HAS_HPMSDK_PLLCTL=y",
+            "-DCONFIG_HAS_HPMSDK_PMP=y",
+            "-DCONFIG_HAS_HPMSDK_PTPC=y",
+            "-DCONFIG_HAS_HPMSDK_PWM=y",
+            "-DCONFIG_HAS_HPMSDK_RNG=y",
+            "-DCONFIG_HAS_HPMSDK_RTC=y",
+            "-DCONFIG_HAS_HPMSDK_SDP=y",
+            "-DCONFIG_HAS_HPMSDK_SDXC=y",
+            "-DCONFIG_HAS_HPMSDK_SPI=y",
+            "-DCONFIG_HAS_HPMSDK_UART=y",
+            "-DCONFIG_HAS_HPMSDK_USB=y",
+            "-DCONFIG_HAS_HPMSDK_VAD=y",
+            "-DCONFIG_HAS_HPMSDK_WDG=y",
+            "-DFLASH_XIP=1",
+            "-Wundef",
+            "-Wno-format",
+            "-fomit-frame-pointer",
+            "-fno-builtin"
+        ],
+        "target_cflags": [],
+        "target_cxxflags": [],
+        "target_sflags": [],
+        "target_ldflags": [
+            "--specs=nano.specs",
+            "-static",
+            "-nostartfiles",
+            "-Wl,--print-memory-usage",
+            "-u _printf_float",
+            "-u _scanf_float",
+            "-Xlinker --defsym=_flash_size=8M",
+            "-Xlinker --defsym=_extram_size=16M",
+            "-Xlinker --defsym=_heap_size=0x4000",
+            "-Xlinker --defsym=_stack_size=0x4000"
+        ],
+        "toolchain_ldlibs": [
+            "-lm"
+        ]
+    },
+
+
+    // FILETREE.MK
+    // -----------
+    // As mentioned before, the Embeetle 'makefile' always includes 'dashboard.mk' and
+    // 'filetree.mk'. The latter one lists all the source files that take part in the build.
+    // Embeetle does this automatically, but needs a little push now and then from some heuristics:
+    "heuristics": {
+        "required_srcfiles": [],
+        "required_hdirs": [],
+        "rejected_srcfiles": [
+            "*hpm6200*",
+            "*hpm6280*",
+            "*hpm6300*",
+            "*hpm6360*",
+            "*hpm6750evk/*",
+            "*hpm6750evk2/*",
+            "*segger*"
+        ],
+        "rejected_hdirs": [
+            "*hpm6200*",
+            "*hpm6280*",
+            "*hpm6300*",
+            "*hpm6360*",
+            "*hpm6750evk",
+            "*hpm6750evk2",
+            "*segger*"
+        ]
+    },
+
+
+    // LINKERSCRIPT
+    // ------------
+    // A microcontroller project can have one or more linkerscripts. In case there are multiple,
+    // usually one *main* linkerscript invokes the others. List the "linkerscript_generators" below.
+    // These are python-file(s) that generate a linkerscript (based on some input from this json-
+    // file), or just plain linkerscript file(s) that must be copied as-is into the project.
+    //
+    // The order at which you list these linkerscript (generators) matters. Embeetle considers
+    // the first one as your *main* linkerscript, and passes that one explicitely to the linker. The
+    // other ones just sit next to it.
+    //
+    // You can also add some linkerscript parameters in the "params" listing. The usual ones are:
+    //     - "MIN_HEAP_SIZE"
+    //     Minimum size of the heap, eg. "0x200".
+    // 
+    //     - "MIN_STACK_SIZE"
+    //     Minimum size of the stack, eg. "0x400".
+    // 
+    //     - "ESTACK"
+    //     The end of stack, eg. "0x20002000".
+    //
+    // These parameters can be literally anything that should be passed on to the linkerscript
+    // generator(s), such that they can spit out the correct linkerscript(s) for this board/chip.
+    //
+    // Finally, list the memory segments as they are shown in the linkerscript.
+    "linkerscript": {
+        "linkerscript_generators": [
+            "hardware/chip/hpmicro/hpm6700/hpm6750ivm/linkerscripts/flash_xip.ld",
+            "hardware/chip/hpmicro/hpm6700/hpm6750ivm/linkerscripts/flash.ld",
+            "hardware/chip/hpmicro/hpm6700/hpm6750ivm/linkerscripts/flash_uf2.ld",
+            "hardware/chip/hpmicro/hpm6700/hpm6750ivm/linkerscripts/flash_sdram_uf2.ld",
+            "hardware/chip/hpmicro/hpm6700/hpm6750ivm/linkerscripts/flash_sdram_xip.ld",
+            "hardware/chip/hpmicro/hpm6700/hpm6750ivm/linkerscripts/ram.ld",
+            "hardware/chip/hpmicro/hpm6700/hpm6750ivm/linkerscripts/ram_core1.ld"
+        ],
+        "params": {},
+        "memory": {
+            "FLASH": {
+                "rights": "rx",
+                "origin": "0x80000000",
+                "length": "128K"
+            },
+            "RAM": {
+                "rights": "xrw",
+                "origin": "0x00000000",
+                "length": "800K"
+            }
+        }
+    },
+
+
+    // SUPPLEMENTARY FILES
+    // -------------------
+    // List here supplementary files (such as bootloaders) that can be used for the 'hpm6750ivm'
+    // chip. At *project creation time*, they get copied from their original location into the
+    // '<project>/config/' folder. At *project runtime*, the Dashboard Project Layout section takes
+    // note of their project locations. In other words, Project Layout entries such as
+    // 'BOOTLOADER_FILE', 'BOOTSWITCH_FILE' and 'PARTITIONS_CSV_FILE' get filled up. That's how
+    // these values end up in the 'dashboard.mk' file, where they can be used in certain rules.
+    "boot": {
+        "bootloaders": [],
+        "partitions": [],
+        "bootswitches": []
+    },
+
+
+    // OPENOCD_CHIP.CFG
+    // ----------------
+    // List all data relevant for 'openocd_chip.cfg':
+    //     - "openocd_chip_cfg_generator"
+    //     Point to the python module that generates 'openocd_chip.cfg'.
+    // 
+    //     - "target_file"
+    //     The location of the OpenOCD config file that represents this chip/board, relative to the
+    //     'scripts' folder within the OpenOCD installation.
+    "openocd": {
+        "openocd_chip_cfg_generator": "hardware/chip/hpmicro/hpm6700/hpm6750ivm/openocd_chip_cfg.py",
+        "target_file": "hpmicro/hpmicro-riscv.cfg"
+    },
+
+
+    // .GDBINIT
+    // --------
+    // List all the data relevant for the '.gdbinit' file. First and foremost, list the .gdbinit(s)
+    // that must be copied into the project. These files might contain placeholders between $<..>
+    // symbols. Currently, these placeholders can be filled with parameters extracted from the
+    // linkerscript data. If extra data is needed, place it below.
+    "gdb_init": ["hardware/chip/hpmicro/gdbinit.py"],
+
+
+    // MISCELLANEOUS
+    // -------------
+    // Anything I haven't ordered yet.
+    "arduino_params": {
+        "library_architectures": [
+            "risc-v"
+        ]
+    }
+}

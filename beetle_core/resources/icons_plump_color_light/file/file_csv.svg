@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 48 48"
+   height="256"
+   width="256"
+   version="1.1"
+   id="svg2270"
+   sodipodi:docname="file_csv.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2274" />
+  <sodipodi:namedview
+     id="namedview2272"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.1449053"
+     inkscape:cx="-164.20572"
+     inkscape:cy="102.62858"
+     inkscape:current-layer="svg2270"
+     inkscape:window-width="1920"
+     inkscape:window-height="730"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1" />
+  <path
+     fill="#edf1e9"
+     d="M30.049 2.06996C30.049 2.06996 32.7693 3.1 37.7693 8.05C42.751 12.9819 43.7957 15.6797 43.8033 15.6994C43.9247 18.0495 44 20.7979 44 24C44 33.5541 43.3294 39.0688 42.7649 42.0187C42.4022 43.9138 40.9085 45.2127 38.9715 45.4197C36.3568 45.699 31.7428 46 24 46C16.2572 46 11.6432 45.699 9.02852 45.4197C7.09148 45.2127 5.59781 43.9138 5.23513 42.0187C4.67056 39.0688 4 33.5541 4 24C4 14.4459 4.67056 8.93121 5.23513 5.98128C5.59782 4.08618 7.09148 2.78727 9.02852 2.58034C11.6432 2.30102 16.2572 2 24 2C26.2774 2 28.2842 2.02609 30.049 2.06996Z"
+     id="path2264"
+     style="fill:#edf1e9;fill-opacity:1" />
+  <path
+     fill="#adafaa"
+     d="M43.8024 15.6998C40.6029 16.4965 36.8253 16.5494 33.5625 15.5626C32.1831 15.1454 31.1075 14.0816 30.642 12.7301C29.4822 9.36336 29.1957 5.24234 30.0481 2.07031C30.0481 2.07031 32.7684 3.10035 37.7684 8.05035C42.7684 13.0004 43.8024 15.6998 43.8024 15.6998Z"
+     id="path2266"
+     style="fill:#adafaa;fill-opacity:1" />
+  <g
+     aria-label=","
+     id="text2447"
+     style="font-size:44.2891px;line-height:0.85;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';word-spacing:0px;fill:#606668;stroke-width:0.301971">
+    <path
+       d="m 23.956749,26.689877 q -1.427285,0 -2.465311,-0.865021 -1.038026,-0.886647 -1.038026,-2.465312 0,-1.362409 1.016401,-2.292307 1.0164,-0.929898 2.400434,-0.929898 1.038026,0 1.881422,0.562264 0.843396,0.562264 1.319158,1.665167 0.475762,1.081276 0.475762,2.681566 0,2.140928 -0.908273,4.000725 -0.908273,1.881421 -2.22743,2.962698 -1.297533,1.102903 -2.357184,1.102903 -0.670392,0 -1.102902,-0.454137 -0.410886,-0.43251 -0.410886,-1.0164 0,-0.886647 0.886647,-1.427285 2.530188,-1.40566 2.530188,-3.524963 z"
+       id="path13177" />
+  </g>
+</svg>

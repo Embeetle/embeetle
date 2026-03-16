@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'ch32v10x'
+// ===============================
+// This file contains very basic data for the 'ch32v10x' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "ch32v10x",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/ch32v10x.png",
+    "synonyms":           [],
+    "manufacturer":       "wch"
+}

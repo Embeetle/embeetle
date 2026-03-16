@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'n32-stb'
+// ==============================
+// This file contains very basic data for the 'n32-stb' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "n32-stb",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/nations-tech.png",
+    "synonyms":           [],
+    "manufacturer":       "nations-tech"
+}

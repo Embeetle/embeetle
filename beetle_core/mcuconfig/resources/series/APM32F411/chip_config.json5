@@ -1,0 +1,2359 @@
+//================================================================================================//
+//                                       CH32V00xxx SERIES                                        //
+//================================================================================================//
+{
+  "series": "APM32F411",
+
+  //----------------------------------------------------------------------------------------------//
+  //                                       PIN ASSIGNMENTS                                        //
+  //----------------------------------------------------------------------------------------------//
+  // All settings related to the PIN VIEW in Embeetle
+
+  //-----------------------------------//
+  //             1. PARTS              //
+  //-----------------------------------//
+  // The 'PARTS' are the components you can buy. A 'SERIES' groups all the parts that are based on
+  // the exact same silicon chip, but have different packages and internal wirebonding (they can
+  // also differ in flash and buffer sizes). Below we list all the parts that belong to the series
+  // from this json-file.
+  // Notice the "wirebonding-layout" field for each part. It *usually* is just the package name. If
+  // two parts with the same package have a different wirebonding, then this field would add a
+  // suffix to the package name, for example: "LQFP100-1", "LQFP100-2".
+  "parts": [
+    {
+      "name":               "APM32F411VCT6",
+      "package":            "LQFP100",
+      "wirebonding-layout": "LQFP100"
+    },
+    {
+      "name":               "APM32F411VET6",
+      "package":            "LQFP100",
+      "wirebonding-layout": "LQFP100"
+    },
+    {
+      "name":               "APM32F411RCT6",
+      "package":            "LQFP64",
+      "wirebonding-layout": "LQFP64"
+    },
+    {
+      "name":               "APM32F411RET6",
+      "package":            "LQFP64",
+      "wirebonding-layout": "LQFP64"
+    },
+    {
+      "name":               "APM32F411CCT6",
+      "package":            "LQFP48",
+      "wirebonding-layout": "LQFP48"
+    },
+    {
+      "name":               "APM32F411CET6",
+      "package":            "LQFP48",
+      "wirebonding-layout": "LQFP48"
+    },
+    {
+      "name":               "APM32F411CCU6",
+      "package":            "QFN48",
+      "wirebonding-layout": "QFN48"
+    },
+    {
+      "name":               "APM32F411CEU6",
+      "package":            "QFN48",
+      "wirebonding-layout": "QFN48"
+    }
+  ],
+
+  //-----------------------------------//
+  //              2. PINS              //
+  //-----------------------------------//
+  // The PINS section consists of:
+  //   - "wirebonding-layout" and "wirebonding"
+  //   - "types"
+  //   - "modes"
+  //   - "config"
+  //   - "map"
+  "pins": {
+
+    // 2.1 WIREBONDING
+    // ---------------
+    // The "wirebonding-layout" field lists all the wirebonding layouts. Their order is important
+    // for the wirebonding matrix that follows.
+    "wirebonding-layout":                    ["LQFP100","LQFP64","LQFP48","QFN48"],
+
+    // The "wirebonding" field contains a matrix to specify the wirebonding between the PADS and
+    // PINS. In this matrix, you can check for each pad to which pin it is bonded for a given
+    // wirebonding layout.
+    // For each pad, the "type" is also given. What these types mean is for the next chapter.
+    "wirebonding": [
+      {"pad": "PE2",  "type": "I/O_5T",  "pins": [    1,    null,    null,   null ]},
+      {"pad": "PE3",  "type": "I/O_5T",  "pins": [    2,    null,    null,   null ]},
+      {"pad": "PE4",  "type": "I/O_5T",  "pins": [    3,    null,    null,   null ]},
+      {"pad": "PE5",  "type": "I/O_5T",  "pins": [    4,    null,    null,   null ]},
+      {"pad": "PE6",  "type": "I/O_5T",  "pins": [    5,    null,    null,   null ]},
+      {"pad": "VBAT", "type": "P",       "pins": [    6,       1,       1,      1 ]},
+      {"pad": "PC13", "type": "I/O_5T",  "pins": [    7,       2,       2,      2 ]},
+      {"pad": "PC14", "type": "I/O_5T",  "pins": [    8,       3,       3,      3 ]},
+      {"pad": "PC15", "type": "I/O_5T",  "pins": [    9,       4,       4,      4 ]},
+      {"pad": "VSS",  "type": "P",       "pins": [   10,    null,    null,   null ]},
+      {"pad": "VDD",  "type": "P",       "pins": [   11,    null,    null,   null ]},
+      {"pad": "PH0",  "type": "I/O_5T",  "pins": [   12,       5,       5,      5 ]},
+      {"pad": "PH1",  "type": "I/O_5T",  "pins": [   13,       6,       6,      6 ]},
+      {"pad": "NRST", "type": "I/O_RST", "pins": [   14,       7,       7,      7 ]},
+      {"pad": "PC0",  "type": "I/O_5T",  "pins": [   15,       8,    null,   null ]},
+      {"pad": "PC1",  "type": "I/O_5T",  "pins": [   16,       9,    null,   null ]},
+      {"pad": "PC2",  "type": "I/O_5Tf", "pins": [   17,      10,    null,   null ]},
+      {"pad": "PC3",  "type": "I/O_5Tf", "pins": [   18,      11,    null,   null ]},
+      {"pad": "VDD",  "type": "P",       "pins": [   19,    null,    null,   null ]},
+      {"pad": "VSSA", "type": "P",       "pins": [   20,      12,       8,      8 ]},
+      {"pad": "VREF+","type": "P",       "pins": [   21,      13,       9,      9 ]},
+      {"pad": "VDDA", "type": "P",       "pins": [   22,    null,    null,   null ]},
+      {"pad": "PA0",  "type": "I/O_STD", "pins": [   23,      14,      10,     10 ]},
+      {"pad": "PA1",  "type": "I/O_5T",  "pins": [   24,      15,      11,     11 ]},
+      {"pad": "PA2",  "type": "I/O_5T",  "pins": [   25,      16,      12,     12 ]},
+      {"pad": "PA3",  "type": "I/O_5T",  "pins": [   26,      17,      13,     13 ]},
+      {"pad": "VSS",  "type": "P",       "pins": [   27,      18,    null,   null ]},
+      {"pad": "VDD",  "type": "P",       "pins": [   28,      19,    null,   null ]},
+      {"pad": "PA4",  "type": "I/O_5T",  "pins": [   29,      20,      14,     14 ]},
+      {"pad": "PA5",  "type": "I/O_STD", "pins": [   30,      21,      15,     15 ]},
+      {"pad": "PA6",  "type": "I/O_5T",  "pins": [   31,      22,      16,     16 ]},
+      {"pad": "PA7",  "type": "I/O_5T",  "pins": [   32,      23,      17,     17 ]},
+      {"pad": "PC4",  "type": "I/O_5T",  "pins": [   33,      24,    null,   null ]},
+      {"pad": "PC5",  "type": "I/O_5T",  "pins": [   34,      25,    null,   null ]},
+      {"pad": "PB0",  "type": "I/O_5T",  "pins": [   35,      26,      18,     18 ]},
+      {"pad": "PB1",  "type": "I/O_5T",  "pins": [   36,      27,      19,     19 ]},
+      {"pad": "PB2",  "type": "I/O_5T",  "pins": [   37,      28,      20,     20 ]},
+      {"pad": "PE7",  "type": "I/O_5T",  "pins": [   38,    null,    null,   null ]},
+      {"pad": "PE8",  "type": "I/O_5T",  "pins": [   39,    null,    null,   null ]},
+      {"pad": "PE9",  "type": "I/O_5T",  "pins": [   40,    null,    null,   null ]},
+      {"pad": "PE10", "type": "I/O_5T",  "pins": [   41,    null,    null,   null ]},
+      {"pad": "PE11", "type": "I/O_5T",  "pins": [   42,    null,    null,   null ]},
+      {"pad": "PE12", "type": "I/O_5T",  "pins": [   43,    null,    null,   null ]},
+      {"pad": "PE13", "type": "I/O_5T",  "pins": [   44,    null,    null,   null ]},
+      {"pad": "PE14", "type": "I/O_5T",  "pins": [   45,    null,    null,   null ]},
+      {"pad": "PE15", "type": "I/O_5T",  "pins": [   46,    null,    null,   null ]},
+      {"pad": "PB10", "type": "I/O_5T",  "pins": [   47,      29,      21,     21 ]},
+      {"pad": "VCAP_1","type":"P",       "pins": [   48,      30,      22,     22 ]},
+      {"pad": "VSS",  "type": "P",       "pins": [   49,      31,      23,     23 ]},
+      {"pad": "VDD",  "type": "P",       "pins": [   50,      32,      24,     24 ]},
+      {"pad": "PB12", "type": "I/O_5T",  "pins": [   51,      33,      25,     25 ]},
+      {"pad": "PB13", "type": "I/O_5Tf", "pins": [   52,      34,      26,     26 ]},
+      {"pad": "PB14", "type": "I/O_5Tf", "pins": [   53,      35,      27,     27 ]},
+      {"pad": "PB15", "type": "I/O_5T",  "pins": [   54,      36,      28,     28 ]},
+      {"pad": "PD8",  "type": "I/O_5T",  "pins": [   55,    null,    null,   null ]},
+      {"pad": "PD9",  "type": "I/O_5T",  "pins": [   56,    null,    null,   null ]},
+      {"pad": "PD10", "type": "I/O_5T",  "pins": [   57,    null,    null,   null ]},
+      {"pad": "PD11", "type": "I/O_5T",  "pins": [   58,    null,    null,   null ]},
+      {"pad": "PD12", "type": "I/O_5T",  "pins": [   59,    null,    null,   null ]},
+      {"pad": "PD13", "type": "I/O_5T",  "pins": [   60,    null,    null,   null ]},
+      {"pad": "PD14", "type": "I/O_5T",  "pins": [   61,    null,    null,   null ]},
+      {"pad": "PD15", "type": "I/O_5T",  "pins": [   62,    null,    null,   null ]},
+      {"pad": "PC6",  "type": "I/O_5T",  "pins": [   63,      37,    null,   null ]},
+      {"pad": "PC7",  "type": "I/O_5T",  "pins": [   64,      38,    null,   null ]},
+      {"pad": "PC8",  "type": "I/O_5T",  "pins": [   65,      39,    null,   null ]},
+      {"pad": "PC9",  "type": "I/O_5T",  "pins": [   66,      40,    null,   null ]},
+      {"pad": "PA8",  "type": "I/O_5T",  "pins": [   67,      41,      29,     29 ]},
+      {"pad": "PA9",  "type": "I/O_5T",  "pins": [   68,      42,      30,     30 ]},
+      {"pad": "PA10", "type": "I/O_5T",  "pins": [   69,      43,      31,     31 ]},
+      {"pad": "PA11", "type": "I/O_5T",  "pins": [   70,      44,      32,     32 ]},
+      {"pad": "PA12", "type": "I/O_5T",  "pins": [   71,      45,      33,     33 ]},
+      {"pad": "PA13", "type": "I/O_5T",  "pins": [   72,      46,      34,     34 ]},
+      {"pad": "VCAP_2","type":"P",       "pins": [   73,    null,    null,   null ]},
+      {"pad": "VSS",  "type": "P",       "pins": [   74,      47,      35,     35 ]},
+      {"pad": "VDD",  "type": "P",       "pins": [   75,      48,      36,     36 ]},
+      {"pad": "PA14", "type": "I/O_5T",  "pins": [   76,      49,      37,     37 ]},
+      {"pad": "PA15", "type": "I/O_5T",  "pins": [   77,      50,      38,     38 ]},
+      {"pad": "PC10", "type": "I/O_5T",  "pins": [   78,      51,    null,   null ]},
+      {"pad": "PC11", "type": "I/O_5T",  "pins": [   79,      52,    null,   null ]},
+      {"pad": "PC12", "type": "I/O_5T",  "pins": [   80,      53,    null,   null ]},
+      {"pad": "PD0",  "type": "I/O_5T",  "pins": [   81,    null,    null,   null ]},
+      {"pad": "PD1",  "type": "I/O_5T",  "pins": [   82,    null,    null,   null ]},
+      {"pad": "PD2",  "type": "I/O_5T",  "pins": [   83,      54,    null,   null ]},
+      {"pad": "PD3",  "type": "I/O_5T",  "pins": [   84,    null,    null,   null ]},
+      {"pad": "PD4",  "type": "I/O_5T",  "pins": [   85,    null,    null,   null ]},
+      {"pad": "PD5",  "type": "I/O_5T",  "pins": [   86,    null,    null,   null ]},
+      {"pad": "PD6",  "type": "I/O_5T",  "pins": [   87,    null,    null,   null ]},
+      {"pad": "PD7",  "type": "I/O_5T",  "pins": [   88,    null,    null,   null ]},
+      {"pad": "PB3",  "type": "I/O_5T",  "pins": [   89,      55,      39,     39 ]},
+      {"pad": "PB4",  "type": "I/O_5Tf", "pins": [   90,      56,      40,     40 ]},
+      {"pad": "PB5",  "type": "I/O_5T",  "pins": [   91,      57,      41,     41 ]},
+      {"pad": "PB6",  "type": "I/O_5Tf", "pins": [   92,      58,      42,     42 ]},
+      {"pad": "PB7",  "type": "I/O_5Tf", "pins": [   93,      59,      43,     43 ]},
+      {"pad": "BOOT0","type": "I_B",     "pins": [   94,      60,      44,     44 ]},
+      {"pad": "PB8",  "type": "I/O_5Tf", "pins": [   95,      61,      45,     45 ]},
+      {"pad": "PB9",  "type": "I/O_5Tf", "pins": [   96,      62,      46,     46 ]},
+      {"pad": "PE0",  "type": "I/O_5T",  "pins": [   97,    null,    null,   null ]},
+      {"pad": "PE1",  "type": "I/O_5T",  "pins": [   98,    null,    null,   null ]},
+      {"pad": "VSS",  "type": "P",       "pins": [   99,      63,      47,     47 ]},
+      {"pad": "VDD",  "type": "P",       "pins": [  100,      64,      48,     48 ]}
+    ],
+
+    // 2.2 TYPES
+    // ---------
+    // This section explains what the "type" field meant that was given in the matrix above for each
+    // pad/pin. Also, it lists for each pad type what the compatible pad/pin modes are.
+    // The naming of these types can differ from one MCU to another. For example, a 5V tolerant
+    // digital input-output pin would be of type "I/O/FT" for the CH32V003 MCUs and of type "I/O_5T"
+    // for APM32F411 MCUs.
+    "types": {
+      "I/O_STD": {
+        "description": "digital input-output, 3.3V standard",
+        "mode": [ "FI", "PU", "PD", "PP", "OD", "PP-AF", "OD-AF", "AI" ],
+        "kind": "io",
+        "5v-tolerant": false
+      },
+      "I/O_5T": {
+        "description": "digital input-output, 5V tolerant",
+        "mode": [ "FI", "PU", "PD", "PP", "OD", "PP-AF", "OD-AF", "AI" ],
+        "kind": "io",
+        "5v-tolerant": true
+      },
+      "I/O_5Tf": {
+        "description": "digital input-output, 5V tolerant, with FM+ (Fast Mode Plus) for I2C pins",
+        "mode": [ "FI", "PU", "PD", "PP", "OD", "PP-AF", "OD-AF", "AI" ],
+        "kind": "io",
+        "5v-tolerant": true
+      },
+      "I_B": {
+        "description": "digital input only - dedicated boot0 pin",
+        "kind": "in",
+        "5v-tolerant": false
+      },
+      "I/O_RST": {
+        "description": "bidirectional reset pin with built-in pull-up resistor, 5V tolerant",
+        "kind": "io",
+        "5v-tolerant": false
+      },
+      "P": {
+        "description": "power (VDD) or ground (VSS) pin",
+        "kind": "power",
+        "5v-tolerant": false
+      }
+    },
+
+    // 2.3 MODE
+    // --------
+    // Each GPIO pad/pin can operate in one of the modes listed below. This section is not
+    // intended to be modified. If the MCU has a pad/pin mode not listed below, please
+    // contact us.
+    // TODO: Check if mode below is unchanged.
+    "mode": {
+      "FI"   : {"description": "floating input"},
+      "PU"   : {"description": "pull-up"},
+      "PD"   : {"description": "pull-down"},
+      "PP"   : {"description": "push-pull"},
+      "OD"   : {"description": "open drain"},
+      "PP-AF": {"description": "push-pull alternate function"},
+      "OD-AF": {"description": "open drain alternate function"},
+      "AI"   : {"description": "analog input"}
+    },
+
+    // 2.4 OUTPUT_DRIVE
+    // -----------------
+    // The time it takes for a pad/pin to switch low-to-high or high-to-low is called the 'rise' and
+    // 'fall' time. The rise and fall times depends on the pad/pin's drive current and its capa-
+    // citive load on the board.
+    // Most MCUs allow to select the output drive behavior. Some call it "output speed", others
+    // "drive strength":
+    //
+    //     - "output speed":   Geehy, STMicro and WCH let you choose between "low", "medium", "fast"
+    //                         and sometimes also "high" speed. Some specify the speed in MHz as
+    //                         well.
+    //
+    //     - "drive strength": Texas Instruments and Microchip let you choose the drive strength per
+    //                         pin, sometimes specified in mA.
+    //
+    // Define in the table below the output drive options (speed and/or drive strength) that appear
+    // in the datasheet. Further down, the CONFIG section specifies the bitfield expressions to
+    // achieve the output drive options defined here.
+    // TODO: Interpret values below. Currently these values are ignored.
+    "output_drive": {
+        "LS": {"description": "low speed",    "speed": null, "drive-current": null},
+        "MS": {"description": "medium speed", "speed": null, "drive-current": null},
+        "FS": {"description": "fast speed",   "speed": null, "drive-current": null},
+        "HS": {"description": "high speed",   "speed": null, "drive-current": null}
+    },
+
+    // 2.5 CONFIG
+    // ----------
+    // The CONFIG section specifies all pad configuration settings and the bit fields to be used
+    // to select them. This includes the "mode" and "output_drive" options defined above. Pads that
+    // are not mentioned in this section do not have configuration settings.
+    "config": {
+
+      // Specify the "mode" and "output_drive" options for all GPIO pads/pins in a parametrized way.
+      // Pads that do not fit the pattern below need a separate section.
+      "P{x}{y}": {
+        // PARAMETERS
+        "parameters": {
+          "x": [ "A", "B", "C", "D", "E", "H" ],
+          "y": [ "0", "1", "2", "3", "4", "5", "6", "7",
+                 "8", "9", "10", "11", "12", "13", "14", "15"
+               ]
+        },
+
+        // ENABLE
+        // Some MCUs let you enable/disable an entire port. For example: if you enable/disable port
+        // PA, that would affect all pads PA0, PA1, ... Provide a bitfield expression here to
+        // enable/disable Port x, if applicable. If there's no such enable/disable option, just fill
+        // in "1" or true, which signifies that all pads are always enabled.
+        "enable": "AHB1CLKEN.P{x}EN",
+
+        // MODE
+        // Specify the bitfields that define the "mode" of pad P{x}{y}.
+        // For each value of these bitfields,  list the modes for which this value must be set.
+        "mode": {
+          "GPIO{x}.MODE{y}": {
+            "00": [ "FI", "PU", "PD" ],
+            "01": [ "PP", "OD" ],
+            "10": [ "PP-AF", "OD-AF" ],
+            "11": [ "AI" ]
+          },
+          "GPIO{x}.OMODE{y}": {
+            "0": [ "PP", "PP-AF" ],
+            "1": [ "OD", "OD-AF" ]
+          },
+          "GPIO{x}.PUPD{y}": {
+            "00": [ "FI" ],
+            "01": [ "PU" ],
+            "10": [ "PD" ]
+          }
+        },
+
+        // OUTPUT_DRIVE
+        // Specify the bitfields that define the "output_drive" of pad P{x}{y}.
+        // TODO: Interpret this block. Currently ignored.
+        "output_drive": {
+            "GPIO{x}.OSSEL{y}": {
+                "00": "LS",
+                "01": "MS",
+                "10": "FS",
+                "11": "HS"
+            }
+        },
+
+        // MAP_SELECTOR
+        // Most MCUs don't tie a pad/pin P{x}{y} to just one function (signal). The pads/pins are
+        // usually 'remappable'. The remapping can take place in two ways:
+        //
+        // 1. Central Remapping: Each pad/pin has its own remapping bitfield. The value in that bit-
+        //                       field determines the function (signal) mapping. STMicro and Geehy
+        //                       MCUs apply this method.
+        //
+        // 2. Peripheral Remapping: Each peripheral has a remapping bitfield. The value in that bit-
+        //                          field determines which pads/pins are assigned the functions
+        //                          (signals) from the given peripheral (eg. functions SCK, MISO,
+        //                          MOSI and SS for an SPI peripheral). This means that one bitfield
+        //                          can remap several pads/pins at once!
+        //
+        // The "map_selector" 
+        // 
+        // Specify the parametrized bitfield(s) that determine which alternate function is mapped
+        // onto pad P{x}{y}. Example from Geehy MCU: the bitfield GPIO{x}.ALFSEL{y} would determine
+        // the alternate function for pad P{x}{y}.
+        // Some MCUs
+        "map_selector": "GPIO{x}.ALFSEL{y}",
+
+        // OTHER SETTINGS
+        // TODO: Remove this block, will be replaced by previous.
+        "settings": {
+          "output_speed": {
+            "description": "Maximum output speed",
+            "only_for_mode": [ "PP", "OD", "PP-AF", "OD-AF" ],
+            "selector": "GPIO{x}.OSSEL{y}",
+            "values": {
+              "0b00": "Low speed",
+              "0b01": "Medium speed",
+              "0b10": "Fast speed",
+              "0b11": "High speed"
+            }
+          }
+        }
+      }
+    },
+    "map-AF": "AF0            AF1          AF2         AF3         AF4          AF5                 AF6                  AF7           AF8          AF9            AF10           AF11           AF12        AF13    AF14   AF15     ",
+    "map": {
+      "PA0":  [null        , "TMR2.ETR" , "TMR5.CH1", "TMR8.ETR" , null       , null              , null              , "USART2.CTS", "UART4.TX"  , null         , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PA1":  [null        , "TMR2.CH2" , "TMR5.CH2", null       , null   ,["SPI4.MOSI","I2S4.SD"], null              , "USART2.RTS", "UART4.RX"  , "QSPI.IO3"   , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PA2":  [null        , "TMR2.CH3" , "TMR5.CH3", "TMR9.CH1" , null       , "I2S_CKIN"        , null              , "USART2.TX" , null        , null         , null         , "SMC.D4"     , null      , null  , null, "EVENTOUT"],
+      "PA3":  [null        , "TMR2.CH4" , "TMR5.CH4", "TMR9.CH2" , null       , "I2S2.MCK"        , null              , "USART2.RX" , null        , null         , null         , "SMC.D5"     , null      , null  , null, "EVENTOUT"],
+      "PA4":  [null        , null       , null      , null       , null ,["SPI1.NSS","I2S1.WS"],["SPI3.NSS","I2S3.WS"], "USART2.CK" , null        , null         , null         , "SMC.D6"     , null      , null  , null, "EVENTOUT"],
+      "PA5":  [null        , "TMR2.CH1" , null      , "TMR8.CH1N", null    ,["SPI1.SCK","I2S1.CK"], null              , null        , null        , null         , null         , "SMC.D7"     , null      , null  , null, "EVENTOUT"],
+      "PA6":  [null        , "TMR1.BKIN", "TMR3.CH1", "TMR8.BKIN", null       , "SPI1.MISO"       , "I2S2.MCK"        , null        , null        , "TMR13.CH1"  , null         , "SDIO.CMD"   , null      , null  , null, "EVENTOUT"],
+      "PA7":  [null        , "TMR1.CH1N", "TMR3.CH2", "TMR8.CH1N", null   ,["SPI1.MOSI","I2S1.SD"], null              , null        , "TMR14.CH1" , "QSPI.IO1"   , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PA8":  ["MCO1"      , "TMR1.CH1" , null      , null       , "I2C3.SCL" , "I2S1.SD"         , null              , "USART1.CK" , null        , "USB_FS.SOF" , "SDIO.D1"    , null         , null      , null  , null, "EVENTOUT"],
+      "PA9":  [null        , "TMR1.CH2" , null      , null       , "I2C3.SMBA", null              , null              , "USART1.TX" , null        , "USB_FS.VBUS", "SDIO.D2"    , null         , null      , null  , null, "EVENTOUT"],
+      "PA10": [null        , "TMR1.CH3" , null      , null       , null       , "SPI5.MOSI"   ,["SPI5.MOSI","I2S5.SD"], "USART1.RX" , null        , null         , "USB_FS.ID"  , null         , null      , null  , null, "EVENTOUT"],
+      "PA11": [null        , "TMR1.CH4" , null      , null       , null       , "SPI4.MISO"       , null              , "USART1.CTS", "USART6.TX" , "CAN1.RX"    , "USB_FS.DM"  , "SMC.NE2"    , null      , null  , null, "EVENTOUT"],
+      "PA12": [null        , "TMR1.ETR" , null      , null       , null       , "SPI5.MISO"       , null              , "USART1.RTS", "USART6.RX" , "CAN1.TX"    , "USB_FS.DP"  , "SMC.NE3"    , null      , null  , null, "EVENTOUT"],
+      "PA13": ["JTMS_SWDIO", null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PA14": ["JTCK_SWCLK", null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PA15": ["JTDI"      , "TMR2.ETR" , null      , null       , null ,["SPI1.NSS","I2S1.WS"],["SPI3.NSS","I2S3.WS"], "USART1.TX" , null        , null         , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PB0":  [null        , "TMR1.CH2N", "TMR3.CH3", "TMR8.CH2N", null       , null           ,["SPI5.SCK","I2S5.CK"], null        , null        , "QSPI.CLK"   , null         , "SMC.A24"    , null      , null  , null, "EVENTOUT"],
+      "PB1":  [null        , "TMR1.CH3N", "TMR3.CH4", "TMR8.CH3N", null       , null           ,["SPI5.NSS","I2S5.WS"], null        , null        , "QSPI.CLK"   , null         , "SMC.A25"    , null      , null  , null, "EVENTOUT"],
+      "PB2":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , "QSPI.CLK"   , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PB3":  ["JTDO_SWO"  , "TMR2.CH2" , null      , null       , null ,["SPI1.SCK","I2S1.CK"],["SPI3.SCK","I2S3.CK"], "USART1.RX" , null        , null         , "I2C2.SDA"   , null         , null      , null  , null, "EVENTOUT"],
+      "PB4":  ["JTRST"     , null       , "TMR3.CH1", null       , null       , "SPI1.MISO"       , "SPI3.MISO"       , null        , null        , "I2C3.SDA"   , "SDIO.D0"    , null         , null      , null  , null, "EVENTOUT"],
+      "PB5":  [null        , null       , "TMR3.CH2", null       , "I2C1.SMBA",["SPI1.MOSI","I2S1.SD"],["SPI3.MOSI","I2S3.SD"],null , null        , "CAN2.RX"    , "SDIO.D3"    , null         , null      , null  , null, "EVENTOUT"],
+      "PB6":  [null        , null       , "TMR4.CH1", null       , "I2C1.SCL" , null              , null              , "USART1.TX" , null        , "CAN2.TX"    , "QSPI.NCS"   , "SDIO.D0"    , null      , null  , null, "EVENTOUT"],
+      "PB7":  [null        , null       , "TMR4.CH2", null       , "I2C1.SDA" , null              , null              , "USART1.RX" , null        , null         , null         , "SMC.NL"     , null      , null  , null, "EVENTOUT"],
+      "PB8":  [null        , null       , "TMR4.CH3", "TMR10.CH1", "I2C1.SCL" , null          ,["SPI5.MOSI","I2S5.SD"], null        , "CAN1.RX"   , "I2C3.SDA"   , null         , "SDIO.D4"    , null      , null  , null, "EVENTOUT"],
+      "PB9":  [null        , null       , "TMR4.CH4", "TMR11.CH1", "I2C1.SDA",["SPI2.NSS","I2S2.WS"],null             , null        , "CAN1.TX"   , "I2C2.SDA"   , null         , "SDIO.D5"    , null      , null  , null, "EVENTOUT"],
+      "PB10": [null        , "TMR2.CH3" , null      , null       , "I2C2.SCL",["SPI2.SCK","I2S2.CK"],null             , "USART3.TX" , null        , null         , null         , "SDIO.D7"    , null      , null  , null, "EVENTOUT"],
+      "PB12": [null        , "TMR1.BKIN", null      , null       , "I2C2.SMBA",["SPI2.NSS","I2S2.WS"],["SPI4.NSS","I2S4.WS"],["SPI3.SCK","I2S3.CK"],"USART3.CK","CAN2.RX",null  , "SMC.AD13"   , null      , null  , null, "EVENTOUT"],
+      "PB13": [null        , "TMR1.CH1N", null      , null       , null       ,["SPI2.SCK","I2S2.CK"],["SPI4.SCK","I2S4.CK"], null  , "USART3.CTS", "CAN2.TX"    , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PB14": [null        , "TMR1.CH2N", null      , "TMR8.CH2N", null       , "SPI2.MISO"       , "I2S2ext.SD"      , null        , null        , "TMR12.CH1"  , "SMC.D0"     , "SDIO.D6"    , null      , null  , null, "EVENTOUT"],
+      "PB15": ["RTC.REFIN" , "TMR1.CH3N", null      , "TMR8.CH3N", null       ,["SPI2.MOSI","I2S2.SD"],null           , null        , null        , "TMR12.CH2"  , null         , "SDIO.CK"    , null      , null  , null, "EVENTOUT"],
+      "PC0":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PC1":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , null         , null      , null  , null, "EVENTOUT"],
+      "PC2":  [null        , null       , null      , null       , null       , "SPI2.MISO"       , "I2S2ext.SD"      , null        , null        , null         , null         , "SMC.NWE"    , null      , null  , null, "EVENTOUT"],
+      "PC3":  [null        , null       , null      , null       , null       ,["SPI2.MOSI","I2S2.SD"],null           , null        , null        , null         , null         , "SMC.A0"     , null      , null  , null, "EVENTOUT"],
+      "PC4":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , "QSPI.IO2"   , "SMC.NE4"    , null         , null      , null  , null, "EVENTOUT"],
+      "PC5":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , "QSPI.IO3"   , "SMC.NOE"    , null         , null      , null  , null, "EVENTOUT"],
+      "PC6":  [null        , "TMR3.CH1" , null      , "TMR8.CH1" , null       , "I2S2.MCK"        , null              , null        , "USART6.TX" , null         , "SMC.D1"     , null         , "SDIO.D6" , null  , null, "EVENTOUT"],
+      "PC7":  [null        , "TMR3.CH2" , null      , "TMR8.CH2" , null       ,["SPI2.SCK","I2S2.CK"],"I2S3.MCK"      , null        , "USART6.RX" , null         , null         , "SDIO.D7"    , null      , null  , null, "EVENTOUT"],
+      "PC8":  [null        , "TMR3.CH3" , null      , "TMR8.CH3" , null       , null              , null              , null        , "USART6.CK" , "QSPI.IO2"   , null         , "SDIO.D0"    , null      , null  , null, "EVENTOUT"],
+      "PC9":  ["MCO2"      , "TMR3.CH4" , null      , "TMR8.CH4" , "I2C3.SDA" , "I2S_CKIN"        , null              , null        , null        , "QSPI.IO0"   , null         , "SDIO.D1"    , null      , null  , null, "EVENTOUT"],
+      "PC10": [null        , null       , null      , null       , null       , null              ,["SPI3.SCK","I2S3.CK"],"USART3.TX","UART4.TX"  , "QSPI.IO1"   , null         , "SDIO.D2"    , null      , null  , null, "EVENTOUT"],
+      "PC11": [null        , null       , null      , null       , null       , "I2S3ext.SD"      , "SPI3.MISO"       , "USART3.RX" , "UART4.RX"  , "QSPI.NCS"   , "SMC.D2"     , "SDIO.D3"    , null      , null  , null, "EVENTOUT"],
+      "PC12": [null        , null       , null      , null       , null       , null              ,["SPI3.MOSI","I2S3.SD"],"USART3.CK","UART5.TX" , null         , "SMC.D3"     , "SDIO.CK"    , null      , null  , null, "EVENTOUT"],
+      "PC13": [null        , null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , null         , null      , null  , null, null      ],
+      "PC14": [null        , null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , null         , null      , null  , null, null      ],
+      "PC15": [null        , null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , null         , null      , null  , null, null      ],
+      "PD0":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , "CAN1.RX"    , null         , "SMC.AD2"    , null      , null  , null, "EVENTOUT"],
+      "PD1":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , "CAN1.TX"    , null         , "SMC.AD3"    , null      , null  , null, "EVENTOUT"],
+      "PD2":  [null        , null       , "TMR3.ETR", null       , null       , null              , null              , null        , "UART5.RX"  , null         , "SMC.NWE"    , "SDIO.CMD"   , null      , null  , null, "EVENTOUT"],
+      "PD3":  [null        , null       , null      , null       , null       ,["SPI2.SCK","I2S2.CK"],null            , "USART2.CTS", null        , "QSPI.CLK"   , null         , "SMC.CLK"    , null      , null  , null, "EVENTOUT"],
+      "PD4":  [null        , null       , null      , null       , null       , null              , null              , "USART2.RTS", null        , null         , null         , "SMC.NOE"    , null      , null  , null, "EVENTOUT"],
+      "PD5":  [null        , null       , null      , null       , null       , null              , null              , "USART2.TX" , null        , null         , null         , "SMC.NWE"    , null      , null  , null, "EVENTOUT"],
+      "PD6":  [null        , null       , null      , null       , null       ,["SPI3.MOSI","I2S3.SD"],null           , "USART2.RX" , null        , null         , null         , "SMC.NWAIT"  , null      , null  , null, "EVENTOUT"],
+      "PD7":  [null        , null       , null      , null       , null       , null              , null              , "USART2.CK" , null        , null         , null         , "SMC.NE1"    , null      , null  , null, "EVENTOUT"],
+      "PD8":  [null        , null       , null      , null       , null       , null              , null              , "USART3.TX" , null        , null         , null         , "SMC.AD13"   , null      , null  , null, "EVENTOUT"],
+      "PD9":  [null        , null       , null      , null       , null       , null              , null              , "USART3.RX" , null        , null         , null         , "SMC.AD14"   , null      , null  , null, "EVENTOUT"],
+      "PD10": [null        , null       , null      , null       , null       , null              , null              , "USART3.CK" , null        , null         , null         , "SMC.AD15"   , null      , null  , null, "EVENTOUT"],
+      "PD11": [null        , null       , null      , null       , null       , null              , null              , "USART3.CTS", null        , "QSPI.IO0"   , null         , "SMC.A16"    , null      , null  , null, "EVENTOUT"],
+      "PD12": [null        , null       , "TMR4.CH1", null       , null       , null              , null              , "USART3.RTS", null        , "QSPI.IO1"   , null         , "SMC.A17"    , null      , null  , null, "EVENTOUT"],
+      "PD13": [null        , null       , "TMR4.CH2", null       , null       , null              , null              , null        , null        , "QSPI.IO3"   , null         , "SMC.A18"    , null      , null  , null, "EVENTOUT"],
+      "PD14": [null        , null       , "TMR4.CH3", null       , null       , null              , null              , null        , null        , null         , "SMC.AD0"    , null         , null      , null  , null, "EVENTOUT"],
+      "PD15": [null        , null       , "TMR4.CH4", null       , null       , null              , null              , null        , null        , null         , "SMC.AD1"    , null         , null      , null  , null, "EVENTOUT"],
+      "PE0":  [null        , null       , "TMR4.ETR", null       , null       , null              , null              , null        , null        , null         , null         , "SMC.NBL0"   , null      , null  , null, "EVENTOUT"],
+      "PE1":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , "SMC.NBL1"   , null      , null  , null, "EVENTOUT"],
+      "PE2":  ["TRACECLK"  , null       , null      , null       , null       ,["SPI4.SCK","I2S4.CK"],["SPI5.SCK","I2S5.CK"], null  , null        , "QSPI.IO2"   , null         , "SMC.A23"    , null      , null  , null, "EVENTOUT"],
+      "PE3":  ["TRACED0"   , null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , "SMC.A19"    , null      , null  , null, "EVENTOUT"],
+      "PE4":  ["TRACED1"   , null       , null      , null       , null       ,["SPI4.NSS","I2S4.WS"],["SPI5.NSS","I2S5.WS"], null  , null        , null         , null         , "SMC.A20"    , null      , null  , null, "EVENTOUT"],
+      "PE5":  ["TRACED2"   , null       , null      , "TMR9.CH1" , null       , "SPI4.MISO"       , "SPI5.MISO"       , null        , null        , null         , null         , "SMC.A21"    , null      , null  , null, "EVENTOUT"],
+      "PE6":  ["TRACED3"   , null       , null      , "TMR9.CH2" , null       ,["SPI4.MOSI","I2S4.SD"],["SPI5.MOSI","I2S5.SD"], null, null        , null         , null         , "SMC.A22"    , null      , null  , null, "EVENTOUT"],
+      "PE7":  [null        , "TMR1.ETR" , null      , null       , null       , null              , null              , null        , null        , "QSPI.IO0"   , null         , "SMC.AD4"    , null      , null  , null, "EVENTOUT"],
+      "PE8":  [null        , "TMR1.CH1N", null      , null       , null       , null              , null              , null        , null        , "QSPI.IO1"   , null         , "SMC.AD5"    , null      , null  , null, "EVENTOUT"],
+      "PE9":  [null        , "TMR1.CH1" , null      , null       , null       , null              , null              , null        , null        , "QSPI.IO2"   , null         , "SMC.AD6"    , null      , null  , null, "EVENTOUT"],
+      "PE10": [null        , "TMR1.CH2N", null      , null       , null       , null              , null              , null        , null        , null         , null         , "SMC.AD7"    , null      , null  , null, "EVENTOUT"],
+      "PE11": [null        , "TMR1.CH2" , null      , null       , null       ,["SPI4.NSS","I2S4.WS"],["SPI5.NSS","I2S5.WS"], null  , null        , null         , null         , "SMC.AD8"    , null      , null  , null, "EVENTOUT"],
+      "PE12": [null        , "TMR1.CH3N", null      , null       , null       ,["SPI4.SCK","I2S4.CK"],["SPI5.SCK","I2S5.CK"], null  , null        , null         , null         , "SMC.AD9"    , null      , null  , null, "EVENTOUT"],
+      "PE13": [null        , "TMR1.CH3" , null      , null       , null       , "SPI4.MISO"       , "SPI5.MISO"       , null        , null        , null         , null         , "SMC.AD10"   , null      , null  , null, "EVENTOUT"],
+      "PE14": [null        , "TMR1.CH4" , null      , null       , null       ,["SPI4.MOSI","I2S4.SD"],["SPI5.MOSI","I2S5.SD"], null, null        , null         , null         , "SMC.AD11"   , null      , null  , null, "EVENTOUT"],
+      "PE15": [null        , "TMR1.BKIN", null      , null       , null       , null              , null              , null        , null        , null         , null         , "SMC.AD12"   , null      , null  , null, "EVENTOUT"],
+      "PH0":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , null         , null      , null  , null, null      ],
+      "PH1":  [null        , null       , null      , null       , null       , null              , null              , null        , null        , null         , null         , null         , null      , null  , null, null      ]
+    }
+  },
+
+  //----------------------------------------------------------------------------------------------//
+  //                                        CLOCK SETTINGS                                        //
+  //----------------------------------------------------------------------------------------------//
+  // All settings related to the CLOCK VIEW in Embeetle
+  "clock-tree": {
+    // Peripheral name to use for the clock tree. Defaults to the first SVD peripheral name.
+    "name": "RCM",
+  
+    // SVD peripherals to scan for register and bit field names
+    "svd-peripherals": [ "RCM" ],
+
+    // Clocks defining the clock tree
+    "clocks": {
+      "HSECLK": {
+        "description": "external high-frequency crystal/ceramic oscillator or clock",
+        "kind": "external",
+        "xin": "OSC_IN",
+        "xout": "OSC_OUT",
+        "enable": "HSEEN",
+        "bypass": "HSEBCFG",
+
+        // The "ready" expression is an expression that evaluates to 1 (true)
+        // when the clock is ready. It is intended for clock that are not necessarily
+        // immediately ready for use when enabled,  such as oscillator or PLL clocks.
+        //
+        // It must either be a constant expression that is always 1 (true - the default),
+        // or a single bit field (like below). Other expressions are currently not supported.
+        // Please send a message to johan@embeetle.com if you need another expression here.
+        "ready": "CTRL.HSERDYFLG",
+        "max_freq": "26MHz",
+        "min_freq": "4MHz"
+      },
+      "LSECLK": {
+        "description": "external low-frequency crystal/ceramic oscillator or clock",
+        "kind": "external",
+        "xin": "OSC32_IN",
+        "xout": "OSC32_OUT",
+        "enable": "LSEEN",
+        "bypass": "LSEBCFG",
+        "ready": null,
+        "max_freq": "32.768kHz",
+        "min_freq": "32.768kHz"
+      },
+      "HSICLK": {
+        "description": "internal high-frequency RC oscillator",
+        "kind": "internal",
+        "freq": "16MHz",
+        "trim": "HSITRM",
+        "enable": "HSIEN",
+        "ready": "CTRL.HSIRDYFLG"
+      },
+      "LSICLK": {
+        "description": "internal low-frequency RC oscillator",
+        "peripherals": [ "IWDT" ],
+        "kind": "internal",
+        "freq": "32kHz",
+        "enable": "LSIEN",
+        "ready": "CSTS.LSIRDYFLG"
+      },
+      "_PLLsrc": {
+        "description": "clock source for PLL1 and PLL2",
+        "kind": "mux",
+        "selector": "PLLCLKS",
+        "inputs": [ "HSICLK", "HSECLK" ]
+      },
+      "_PLL1in": {
+        "description": "input clock for PLL1",
+        "kind": "divider",
+        "input": "_PLLsrc",
+        "selector": "PLLB",
+        "minimum": 2
+      },
+      "_PLL1vco": {
+        "todo": "Spread spectrum configuration RCM_SSCCFG",
+        "label": "PLL1 vco",
+        "kind": "multiplier",
+        "input": "_PLL1in",
+        "enable": "PLL1EN",
+        "ready": "CTRL.PLL1RDYFLG",
+        "selector": "PLL1A",
+        "minimum": 50,
+        "maximum": 432
+      },
+      "PLL1CLK": {
+        "kind": "divider",
+        "input": "_PLL1vco",
+        "selector": "PLL1C",
+        "values": {
+          "0b00": 2,
+          "0b01": 4,
+          "0b10": 6,
+          "0b11": 8
+        }
+      },
+      "PLL48CLK": {
+        "peripherals": [ "USB_FS", "SDIO", "RNG" ],
+        "kind": "divider",
+        "input": "_PLL1vco",
+        "selector": "PLLD",
+        "minimum": 2
+      },
+      "_PLL2in": {
+        "description": "input clock for PLL2",
+        "kind": "divider",
+        "input": "_PLLsrc",
+        "selector": "PLL2B",
+        "minimum": 2
+      },
+      "_PLL2vco": {
+        "description": "",
+        "kind": "multiplier",
+        "input": "_PLL2in",
+        "enable": "PLL2EN",
+        "ready": "CTRL.PLL2RDYFLG",
+        "selector": "PLL2A",
+        "minimum": 50,
+        "maximum": 432
+      },
+      "PLL2CLK": {
+        "kind": "divider",
+        "input": "_PLL2vco",
+        "selector": "PLL2C",
+        "minimum": 2
+      },
+      "SYSCLK": {
+        "description": "system clock",
+        "kind": "mux",
+        "selector": "SCLKSEL",
+        "inputs": [ "HSICLK", "HSECLK", "PLL1CLK" ],
+        "status": "SCLKSELSTS",
+        "max_freq": "120MHz"
+      },
+      "HCLK": {
+        "description": "AHB clock signal - also FCLK, the 'free running' Cortex core clock",
+        "peripherals": [ "GPIO", "CRC", "RCM", "SMC", "QSPI", "Core" ],
+        "kind": "divider",
+        "input": "SYSCLK",
+        "selector": "AHBPSC",
+        "values": {
+          "0b0xxx": 1,
+          "0b1000": 2,
+          "0b1001": 4,
+          "0b1010": 8,
+          "0b1011": 16,
+          "0b1100": 64,
+          "0b1101": 128,
+          "0b1110": 256,
+          "0b1111": 512
+        }
+      },
+      "HCLK8": {
+        "description": "Cortex System Clock",
+        "peripherals": [ "SysTick" ],
+        "kind": "divider",
+        "input": "HCLK",
+        "value": 8
+      },
+      "PCLK1": {
+        "alias": "APB1CLK",
+        "kind": "divider",
+        "input": "HCLK",
+        "selector": "APB1PSC",
+        "values": {
+          "0b0xx": 1,
+          "0b100": 2,
+          "0b101": 4,
+          "0b110": 8,
+          "0b111": 16
+        },
+        "max_freq": "60MHz"
+      },
+      "_PCLK1_TMR": {
+        "peripherals": [ "TMR2", "TMR3", "TMR4", "TMR5", "TMR12", "TMR13", "TMR14" ],
+        "kind": "multiplier",
+        "input": "PCLK1",
+        "value": "1 + APB1PSC[2]"
+      },
+      "PCLK2": {
+        "alias": "APB2CLK",
+        "kind": "divider",
+        "input": "HCLK",
+        "selector": "APB2PSC",
+        "values": {
+          "0b0xx": 1,
+          "0b100": 2,
+          "0b101": 4,
+          "0b110": 8,
+          "0b111": 16
+        },
+        "max_freq": "120MHz"
+      },
+      "_PCLK2_TMR": {
+        "peripherals": [ "TMR1", "TMR8", "TMR9", "TMR10", "TMR11" ],
+        "kind": "multiplier",
+        "input": "PCLK1",
+        "value": "1 + APB2PSC[2]"
+      },
+      "ADC1": {
+        "kind": "divider",
+        "input": "PCLK2",
+        "selector": "ADCPRE",
+        "values": {
+          "0b00": 2,
+          "0b01": 4,
+          "0b10": 6,
+          "0b11": 8
+        }
+      },
+      "ADC2": {
+        "kind": "divider",
+        "input": "PCLK2",
+        "selector": "ADCPRE",
+        "values": {
+          "0b00": 2,
+          "0b01": 4,
+          "0b10": 6,
+          "0b11": 8
+        }
+      },
+      "_HSE_RTC": {
+        "kind": "divider",
+        "input": "HSECLK",
+        "selector": "RTCPSC",
+        "enable": "RTCPSC > 1",
+        "minimum": 2
+      },
+      "RTC": {
+        "description": "real-time clock",
+        "peripherals": [ "RTC" ],
+        "kind": "mux",
+        "enable": "RTCSRCSEL != 0",
+        "selector": "RTCSRCSEL-1",
+        "inputs": [ "LSECLK", "LSICLK", "_HSE_RTC" ]
+      },
+      "I2S_CKIN": {
+        // External clock with one input signal
+        // By default,  this will bind to a signal with the same name as the clock.
+        // This can be overridden using xin, i.e. to bind explicitly, use
+        // "xin": "I2S_CKIN" below
+        "description": "external I2S clock",
+        "kind": "external"
+      },
+      "I2SCLK": {
+        "peripherals": [ "I2S1", "I2S2", "I2S3", "I2S4", "I2S5" ],
+        "kind": "mux",
+        "selector": "I2SSEL",
+        "inputs": [ "PLL2CLK", "I2S_CKIN"],
+        "max_freq": "120MHz"
+      },
+      "_MCO1_muxout": {
+        "kind": "mux",
+        "selector": "MCO1SEL",
+        "inputs": [ "HSICLK", "LSECLK", "HSECLK", "PLL1CLK"],
+        "max_freq": "120MHz"
+      },
+      "MCO1": {
+        "label": "MCO pin output clock 1",
+        "description": "microcontroller MCO pin output clock 1",
+        "kind": "divider",
+        "input": "_MCO1_muxout",
+        "selector": "MCO1PSC",
+        "values": {
+          "0b0xx": 1,
+          "0b100": 2,
+          "0b101": 3,
+          "0b110": 4,
+          "0b111": 5
+        }
+      },
+      "_MCO2_muxout": {
+        "kind": "mux",
+        "selector": "MCO2SEL",
+        "inputs": [ "SYSCLK", "PLL2CLK", "HSECLK", "PLL1CLK"]
+      },
+      "MCO2": {
+        "label": "MCO pin output clock 2",
+        "description": "microcontroller MCO pin output clock 2",
+        "kind": "divider",
+        "input": "_MCO2_muxout",
+        "selector": "MCO2PSC",
+        "values": {
+          "0b0xx": 1,
+          "0b100": 2,
+          "0b101": 3,
+          "0b110": 4,
+          "0b111": 5
+        }
+      }
+    }
+  },
+  "busses": [
+    {
+      "name": "AHB1",
+      "clock": "HCLK",
+      "peripherals": [ "GPIOA", "GPIOB", "GPIOC", "GPIOD", "GPIOE", "GPIOH", "CRC", "RCM" ]
+    },
+    {
+      "name": "AHB2",
+      "clock": "HCLK",
+      "peripherals": [ "SMC", "QSPI", "RNG", "USB_FS" ]
+    },
+    {
+      "name": "APB1",
+      "clock": "PCLK1",
+      "peripherals": [ "WWDT", "SPI2", "I2S2", "SPI3", "I2S3", "USART2", "USART3", "UART4", "UART5",
+        "I2C1", "I2C2", "I2C3", "CAN1", "CAN2", "IWDT", "RTC",
+        "TMR2", "TMR3", "TMR4", "TMR5", "TMR12", "TMR13", "TMR14"
+      ]
+    },
+    {
+      "name": "APB2",
+      "clock": "PCLK2",
+      "peripherals": [ "USART1", "USART6", "SPI1", "I2S1", "SYSCFG", "EINT", "SPI4", "I2S4",
+        "SPI5", "I2S5", "COMP1", "COMP2", "SDIO", "ADC1", "ADC2",
+        "TMR1", "TMR8", "TMR9", "TMR10", "TMR11"
+      ]
+    }
+  ],
+  "peripherals": [
+    {
+      "name": "GPIO",
+      "scope": [ "GPIOA", "GPIOB", "GPIOC", "GPIOD", "GPIOE", "GPIOH" ],
+      "custom-signal-modes": [ "FI", "PU", "PD", "PP", "OD" ]      
+    },
+    {
+      "name": "Core",
+      "description": "ARM Cortex M4F with FPU",
+      // Virtual peripheral used to define system-level signals
+      //
+      "signals": {
+        "EVENTOUT": {
+          "description": "Output pulse generated by 'sev' asm instruction to wake-up other MCUs",
+          "mode": [ "PP", "OD" ]
+        }
+      }
+    },
+    {
+      "name": "SysTick",
+      "description": "System Tick Timer",
+      "todo": "add settings"
+    },
+    {
+      "name": "CRC",
+      "description": "Cyclic Redundancy Check",
+      "todo": "add more settings",
+      "reset": "CRCRST",
+      "clock-enable": "AHB1CLKEN.CRCEN"
+    },
+    {
+      "name": "RNG",
+      "description": "Random NUmber Generator",
+      "clock-enable": "AHB2CLKEN.RNGEN",
+      "todo": "add more settings"
+    },
+    {
+        "name": "EINT",
+        "description": "External Interrupt Controller",
+        "todo": "add more settings",
+        "reset": "RNGRST",
+        "clock-enable": "AHB2CLKEN.RNGEN"
+    },
+    {
+      "name": "SYSCFG",
+      "description": "System configuration controller"
+    },
+    {
+      "name": "COMP{x}",
+      "description": "Comparator",
+      "parameters": { "x": [ "1", "2" ] }
+    },
+    {
+      "name": "DBGMCU",
+      "description": "ARM Cortex M4F hardware debug module",
+      // Debug signals must work before system initialization, to allow debugging
+      // of system startup. They cannot rely on settings other than reset values.
+      // Reset mode is PP (also for input signals), and remapping is reset to AF-0.
+      // To reuse pads used by debug signals for other functions, change the alternate
+      // function mapping field or mode.
+      //
+      // The User Manual does not mention the required mode for debug signals.
+      // The above information was onfirmed by Geehy engineering. The SWJCFG field
+      // mentioned in the User Manual (p128) does not exist.
+      "signals": {
+        "JTMS_SWDIO": {
+          "label": "",
+          "mode": "PP"
+        },
+        "JTCK_SWCLK": {
+          "label": "",
+          "mode": "PP"
+        },
+        "JTDI": {
+          "label": "",
+          "mode": "PP"
+        },
+        "JTDO_SWO": {
+          "label": "",
+          "mode": "PP"
+        },
+        "JTRST": {
+          "label": "",
+          "mode": "PP"
+        },
+        "TRACECLK": {
+          "label": "Output clock for tracing",
+          "enable": "TRACE_IOEN & TRACE_MODE != 0",
+          "mode": "PP"
+        },
+        "TRACED{x}": {
+          "label": "Output data {x} for tracing",
+          "parameters": { "x": [ "0", "1", "2", "3" ]},
+          "enable": "TRACE_IOEN && ({x}==0 || ({x}==1 && TRACE_MODE >= 2) || TRACE_MODE == 3)",
+          "mode": "PP"
+        }
+      }
+    },
+    {
+      "name": "RCM",
+      "description": "Reset and Clock Management",
+      "bus": "AHB1",
+      "signals": {
+        // The user manual does not mention the mode for external clock inputs OSC*.
+        // Geehy engineering confirmed that there is no need to configure the mode.
+        // Enabling the external clock will automatically configure them as clock inputs,
+        // regardless of the configured GPIO mode. In this situation,  do not specify
+        // any modes for OSC* signals; the chip config tool will know what to do.
+        "OSC_IN": {
+          "description": "High speed external clock crystal+ or input",
+          "map": "PH0"
+        },
+        "OSC_OUT": {
+          "description": "High speed external clock crystal-",
+          // For this chip, OSC_OUT needs to be enabled even if HSECLK is in
+          // bypass mode. The default enable expression - "1" - is fine.
+          // For a chip where this is not the case, add
+          // "enable": "!<bypass_expression>" below.
+          "map": "PH1"
+        },
+        "OSC32_IN": {
+          "description": "Low speed external clock crystal+ or input",
+          "map": "PC14"
+        },
+        "OSC32_OUT": {
+          "description": "Low speed external clock crystal-",
+          "map": "PC15"
+        },
+        // MCO1 and MCO2 signals have the same name as a clock,
+        // and are therefore connected.
+        "MCO1": {
+          "label": "MCU clock output 1",
+          "mode": "PP"
+        },
+        "MCO2": {
+          "label": "MCU clock output 2",
+          "mode": "PP"
+        },
+        "I2S_CKIN": {
+          "description": "I2S external clock",
+          "mode": "FI"
+        }
+      }
+    },
+    {
+      "name": "RTC",
+      "clock": "_RTC",
+      "bus": "APB1",
+      "signals": {
+        "REFIN": {
+          "label": "RTC reference input, 50Hz or 60Hz",
+          "enable": "RCLKDEN",
+          "mode": "FI"
+        }
+      }
+    },
+    {
+      "name": "IWDT",
+      "clock": "LSICLK",
+      "bus": "APB1",
+      "todo": "add settings, handle special way of setting IWDT"
+    },
+    {
+      "name": "WWDT",
+      "bus": "APB1",
+      "clock-enable": "APB1CLKEN.WWDTEN"
+    },
+    {
+      "name": "TMR{x}",
+      "parameters": { "x": [ "1", "2", "3", "4", "5", "8", "9", "10", "11", "12", "13", "14" ] },
+      "bus": {
+        "APB1": "{x}==2|{x}==3|{x}==4|{x}==5|{x}==12|{x}==13|{x}==14",
+        "APB2": "{x}==1|{x}==8|{x}==9|{x}==10|{x}==11"
+      },
+      // 2 3 4 5 12 13 14: APB1  others: APB2
+      // "clock-enable": "APBiCLKEN.TMRxEN",
+      "signals": {
+        "ETR": {
+          "description": "External trigger signal",
+          "only-if": "{x} < 9",
+          "mode": "FI",
+          "enable": "TRGSEL == 0b111 && MSMEN && SMFSEL != 0b000"
+        },
+        "CH{y}": {
+          "description": "Input or output channel",
+          "only-if": "{x} < 9 || (({x}==9||{x}==12) && {y} < 3) || {y}==1",
+          "parameters": { "y": [ "1", "2", "3", "4" ] },
+          "enable": "CC{y}EN",
+          "mode": {
+            "CC{y}SEL == 0b00": [ "PP", "OD" ],
+            "CC{y}SEL != 0b00": [ "FI", "PU", "PD" ]
+          }
+        },
+        "CH{y}N": {
+          "description": "Complementary output channel",
+          "only-if": "{x}==1 || {x}==8",
+          "parameters": { "y": [ "1", "2", "3" ] },
+          "enable": "CC{y}NEN",
+          "mode": [ "PP", "OD" ]
+        },
+        "BKIN": {
+          "description": "Braking signal",
+          "only-if": "{x}==1 || {x}==8",
+          "enable": "BRKEN",
+          "mode": [ "FI", "PU", "PD" ]
+        }
+      },
+      "enable": "CNTEN",
+      "settings": [
+        {
+          "description": "Update disable",
+          "selector": "UD",
+          "values": {
+            "0": "Enable update event (UEV)",
+            "1": "Disable update event"
+          }
+        },
+        {
+          "description": "Counter Direction",
+          "only-if": "{x} < 9",
+          "selector": "CNTDIR",
+          "values": {
+            "0": "Count up",
+            "1": "Count down"
+          }
+        }
+      ]
+    },
+    {
+      // ======================================================================
+      // |                              USART{x}                              |
+      // ======================================================================
+
+      // TOP-LEVEL FIELDS
+      // ================
+      // "name":
+      // Name for this peripheral. Can contain 'x' placeholder
+      "name": "USART{x}",
+
+      // "description":
+      // Short description of the peripheral
+      "description": "Universal synchronous/asynchronous receiver transmitter USART{x}",
+
+      // "parameters":
+      // Values for 'x' or other placeholders
+      "parameters": { "x": [ "1", "2", "3", "6" ] },
+
+      // "enable":
+      // The bitfield (or bitfield expression) that must resolve to '1' to enable this peripheral.
+      // The bitfield (or bitfields in the expression) are searched for throughout the SVD file.
+      // Sometimes more than one bitfield is found with the same name. For example, a search on
+      // "UEN" yields:
+      //
+      //  | peripheral | register | bitfield |
+      //  |------------|----------|----------|
+      //  | USART1     | CTRL1    | UEN      |
+      //  | USART2     | CTRL1    | UEN      |
+      //  | USART3     | CTRL1    | UEN      |
+      //  | USART6     | CTRL1    | UEN      |
+      //  | UART4      | CTRL1    | UEN      |
+      //  | UART5      | CTRL1    | UEN      |
+      //
+      // The tool automatically figures out which bitfield is the relevant one, based on the current
+      // peripheral being covered here (being USARTx). If there's still an ambiguity, the register
+      // name might need to be added to the bitfields in the bitfield expression, like 'CTRL1.UEN'
+      // instead of 'UEN'. The fully qualified name of a bitfield is always:
+      //     '<peripheral>.<register>.<bitfield>'
+      // for example:
+      //     'USART1.CTRL1.UEN'
+      // but it is rarely needed to use the fully qualified name.
+      "enable": "UEN",
+      "clock-enable": "{bus}CLKEN.USART{x}EN",
+
+      // TODO: comments by Kristof
+      //"clock-enable": "{bus}CLKEN.USARTEN",
+
+      // SIGNALS SECTION
+      // ===============
+      // "signals":
+      // Each sub-item in "signals" describes one of the peripherals' external I/O signals, for
+      // example "CK", "TX", "RX", ...
+      "signals": {
+        "CK": {
+          // "description":
+          // A short description of the signal
+          "description": "USART clock",
+
+          // "enable":
+          // The bitfield (or bitfield expression) that must resolve to '1' to enable this signal.
+          "enable": "CLKEN",
+
+          // "mode":
+          // Each pad/pin can operate in one of these modes:
+          //  - "FI": Floating input
+          //  - "PU": Pull-up
+          //  - "PD": Pull-down
+          //  - "PP": Push-pull (will convert to PP-AF, except for GPIO)
+          //  - "OD": Open Drain (will convert to OD-AF, except for GPIO)
+          //  - "AI": Analog Input
+          // The format for the value here can be:
+          // - A single mode string, eg. "PP"
+          // - An array of mode strings, eg. [ "FI", "PU" ]
+          // - A dictionary with the keys being bitfield expressions and the values being mode
+          //   strings, eg. { "HDEN == 0": "PP-AF", "HDEN == 1": "OD-AF" }
+          "mode": "PP"
+        },
+        "TX": {
+          // "description":
+          // A short description of the signal
+          "description": "USART data transmit",
+
+          // "enable":
+          // The bitfield (or bitfield expression) that must resolve to '1' to enable this signal.
+          "enable": "TXEN",
+
+          // "mode":
+          // When USART enters half-duplex mode (HDEN set to 1), the TX pin is used for both
+          // transmitting and receiving data. In full-duplex mode (HDEN set to 0), the TX pin is
+          // only used for transmitting data.
+          // In full-duplex mode, the TX pin should be set to "PP", while in half-duplex mode
+          // it should be "OD", because then the TX should be floating while receiving data.
+          "mode": {
+            "HDEN == 0": "PP",
+            "HDEN == 1": "OD"
+          }
+        },
+        "RX": {
+          // "description":
+          // A short description of the signal
+          "description": "USART data receive",
+
+          // "enable":
+          // The bitfield (or bitfield expression) that must resolve to '1' to enable this signal.
+          // RXEN must be set, and HDEN cleared (which means full-duplex mode)
+          "enable": "RXEN && !HDEN", 
+          
+          // "mode":
+          "mode": [ "FI", "PU" ]
+        },
+        "CTS": {
+          // "description":
+          // A short description of the signal
+          "description": "USART clear to send",
+
+          // "enable":
+          // The bitfield (or bitfield expression) that must resolve to '1' to enable this signal.
+          "enable": "CTSEN",
+
+          // "mode":
+          // The User Manual mentions the mode for CTS as "output" (table 77 in chapter 19.4). However,
+          // that must be a mistake. The CTS signal is an input to the MCU, as shown in figure 74 in
+          // chapter 19.4.11.
+          // Since it's an active-low signal, I suppose a pull-up resistor is allright. I think that's
+          // why Johan chose for both "FI" and "PU" here.
+          "mode": [ "FI", "PU" ]
+        },
+        "RTS": {
+          // "description":
+          // A short description of the signal
+          "description": "USART request to send",
+
+          // "enable":
+          // The bitfield (or bitfield expression) that must resolve to '1' to enable this signal.
+          "enable": "RTSEN",
+
+          // "mode":
+          // The User Manual mentions the mode for RTS as "input" (table 77 in chapter 19.4). However,
+          // that must be a mistake. The CTS signal is an output to the MCU, as shown in figure 74 in
+          // chapter 19.4.11.
+          "mode": "PP"
+        }
+      },
+
+      // SETTINGS SECTION
+      // ================
+      // "settings":
+      // This array lists all the user-visible widgets, such as:
+      //     - drop-down widgets
+      //     - checkboxes
+      //     - textfields (to fill in)
+      //
+      "settings": [
+        // ELEMENT 1: BAUD RATE
+        // --------------------
+        {
+          "label": "Baud rate",
+          "name": "BAUD",
+          "selector": "fixed({bus.clock}) / (fixed((2-OSMCFG)*8) * (IBR:FBR)/16)"
+        },
+
+        // ELEMENT 2: OVERSAMPLING RATE
+        // ----------------------------
+        {
+          "label": "Oversampling rate",
+          "name": "OVS",
+          "selector": "(2-OSMCFG)*8",
+          "values": {
+            "16": "16 times oversampling",
+            "8": "8 times oversampling"
+          }
+        },
+
+        // ELEMENT 3: WORD LENGTH
+        // ----------------------
+        {
+          // "label":
+          // The label you see in the GUI
+          "label": "Word length",
+
+          // "description":
+          // A few words of description, possibly shown on a right-button click
+          "description": "Word Length",
+
+          // "selector":
+          // The bitfield (or bitfield expression) that is given the value of the selected option
+          "selector": "DBLCFG:PCEN",
+
+          // "values":
+          // The possible values for this setting. The key is the value given to the "selector"
+          // expression.
+          "values": {
+            "0b00": "8 bits (no parity)",
+            "0b01": "8 bits (including parity)",
+            "0b10": "9 bits (no parity)",
+            "0b11": "9 bits (including parity)"
+          }
+        },
+
+        // ELEMENT 4: PARITY
+        // -----------------
+        {
+          "description": "Parity",
+          "predicate": "PCEN == 1",
+          "selector": "PCFG",
+          "values": {
+            "0b0": "Even",
+            "0b1": "Odd"
+          }
+        },
+
+        // ELEMENT 5: DATA DIRECTION
+        // -------------------------
+        {
+          "description": "Data Direction",
+          "selector": "TXEN:RXEN",
+          "values": {
+            "0b10": "Transmit only",
+            "0b01": "Receive only",
+            "0b11": "Receive and Transmit"
+          }
+        },
+
+        // ELEMENT 6: HARDWARE FLOW CONTROL
+        // --------------------------------
+        {
+          "description": "Hardware Flow Control",
+          "selector": "RTSEN:CTSEN",
+          "values": {
+            "0b00": "None",
+            "0b01": "CTS only",
+            "0b10": "RTS only",
+            "0b11": "RTS/CTS"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UART{x}",
+      "todo": "add missing settings",
+      "parameters": { "x": [ "4", "5" ] },
+      "enable": "UEN",
+      "bus": "APB1",
+      "signals": {
+        "TX": {
+          "description": "UART data transmit",
+          "enable": "TXEN",
+          "mode": {
+            "HDEN == 0": "PP",
+            "HDEN == 1": "OD"
+          }
+        },
+        "RX": {
+          "description": "UART data receive",
+          "enable": "RXEN && !HDEN",
+          "mode": {
+            "HDEN == 0": [ "FI", "PU" ]
+          }
+        }
+      },
+      "settings": [
+        {
+          "description": "Mode",
+          "selector": "HDEN:LINMEN:IREN",
+          "values": {
+            "0b000": "Full duplex mode",
+            "0b100": "Single line half duplex mode",
+            "0b010": "LIN master mode",
+            "0b001": "Infrared (IrDA) function mode"
+          }
+        }
+      ]
+    },
+    {
+      // ========================================================
+      // | SPIx DESCRIPTION FOR EMBEETLE CHIP CONFIGURATOR TOOL |
+      // ========================================================
+
+      // TOP-LEVEL FIELDS
+      // ================
+      // "name":
+      // Name for this peripheral. Can contain 'x' placeholder
+      "name": "SPI{x}",
+
+      // "parameters":
+      // Values for 'x' or other placeholders
+      "parameters": { "x": ["1", "2", "3", "4", "5"] },
+
+      // "description":
+      // Short description of the peripheral
+      "description": "Serial peripheral interface SPI{x}",
+
+      // "todo":
+      // A reminder or note field, not used by the tool
+      "todo": "add missing settings",
+
+      // "enable":
+      // The bitfield (or bitfield expression) that must resolve to '1' to enable this peripheral.
+      // The bitfield (or bitfields in the expression) are searched for throughout the SVD file.
+      // Sometimes more than one bitfield is found with the same name. For example, a search on
+      // "SPIEN" yields:
+      //
+      //  | peripheral | register | bitfield |
+      //  |------------|----------|----------|
+      //  | I2S2ext    | CTRL1    | SPIEN    |
+      //  | I2S3ext    | CTRL1    | SPIEN    |
+      //  | SPI1       | CTRL1    | SPIEN    |
+      //  | SPI2       | CTRL1    | SPIEN    |
+      //  | SPI3       | CTRL1    | SPIEN    |
+      //  | SPI4       | CTRL1    | SPIEN    |
+      //  | SPI5       | CTRL1    | SPIEN    |
+      //
+      // The tool automatically figures out which bitfield is the relevant one, based on the current
+      // peripheral being covered here. If there's still an ambiguity, the register name might need
+      // to be added to the bitfields in the bitfield expression, like 'CTRL1.SPIEN' instead of
+      // 'SPIEN'. The fully qualified name of a bitfield is always:
+      //     '<peripheral>.<register>.<bitfield>'
+      // for example:
+      //     'SPI1.CTRL1.SPIEN'
+      // but it is rarely needed to use the fully qualified name.
+      "enable": "SPIEN & MODESEL==0",
+
+      // The bus to which the peripheral is connected. This determines the clock frequency,
+      // and also marks the bus as used when the peripheral is enabled.
+      "bus": {
+        "APB1": "x==2|x==3",
+        "APB2": "x==1|x==4|x==5"
+      },
+      //"clock-enable": "{bus}CLKEN.SPIxEN",
+
+      // SIGNALS SECTION
+      // ===============
+      // "signals":
+      // Each sub-item in "signals" describes one of the peripherals' external I/O signals, for
+      // example "SCK", "MOSI", "MISO" and "NSS".
+      "signals": {
+
+        "SCK": {
+          // "description": Short description of the I/O signal
+          "description": "clock",
+
+          // "enable": A bitfield expression indicating when this signal should be active. If this
+          // signal is always active (provided of course that the entire peripheral is switched on),
+          // the value can simply be '1', or the entire "enable" field might be omitted.
+          "enable": "1",
+
+          // "mode":
+          // Each pin on this MCU operates in one of these modes:
+          //
+          // | MODE   | DESCRIPTION                   |
+          // | ------ | ----------------------------- |
+          // | FI     | floating input                |
+          // | PU     | pull-up                       |
+          // | PD     | pull-down                     |
+          // | PP     | push-pull                     |
+          // | OD     | open drain                    |
+          // | PP-AF  | push-pull alternate function  |
+          // | OD-AF  | open drain alternate function |
+          // | AI     | analog input                  |
+          // 
+          // Now, the mode of this particular signal we're considering (signal "SCK" in this case)
+          // could be fixed, for example:
+          //
+          // "mode": "PP"
+          //
+          // Or a precondition can be given, to turn the signal into one or the other mode:
+          //
+          // "mode": {
+          //  "<bitfield-expression-1>" : "FI",
+          //  "<bitfield-expression-2>" : "PP"
+          // }
+          //
+          // Sometimes, a list of modes can be given that are all a valid choice, eg:
+          // -> [ "FI", "PU", "PD" ]
+          // -> [ "PP", "OD" ]
+          // 
+          "mode": {
+            "MSMCFG==0": "FI",
+            "MSMCFG==1": "PP"
+          }
+        },
+        "MOSI": {
+          "description": "master out slave in",
+          "mode": {
+            "BMEN==0 && MSMCFG==1": "PP",
+            "BMEN==0 && MSMCFG==0": "FI",
+            "BMEN==1 && MSMCFG==1": "OD"
+          }
+        },
+        "MISO": {
+          "description": "master in slave out",
+          "mode": {
+            "BMEN==0 && MSMCFG==0": "PP",
+            "BMEN==0 && MSMCFG==1": "FI",
+            "BMEN==1 && MSMCFG==0": "OD"
+          }
+        },
+        "NSS": {
+          "description": "chip select",
+          "enable": "(MSMCFG==0 && !SSEN) || (MSMCFG==1 && SSOEN)",
+          "mode": {
+            "MSMCFG==0": [ "FI", "PU", "PD" ],
+            "MSMCFG==1": [ "PP", "OD" ]
+          }
+        }
+      },
+
+      // SETTINGS SECTION
+      // ================
+      // "settings":
+      // This array lists all the user-visible widgets, such as:
+      //     - drop-down widgets
+      //     - checkboxes
+      //     - textfields (to fill in)
+      //
+      "settings": [
+        // ELEMENT 1: "ROLE"
+        // -----------------
+        {
+          // "label":
+          // The label you see in the UI
+          "label": "Role",
+
+          // "description":
+          // A few words of description, possibly shown on a right-button click
+          "description": "Role",
+
+          // "selector":
+          // A bitfield or bitfield expression
+          "selector": "MSMCFG",
+
+          // "values":
+          // Values are given in a dictionary, indicating that this is a dropdown menu. The keys
+          // from the dictionary "0" and "1" are assigned to the selector. The right-hand-side of
+          // the dictionary is what the user sees in the dropdown.
+          "values": {
+            "0": "Slave mode",
+            "1": "Master mode"
+          }
+        },
+
+        // ELEMENT 2: "COMMUNICATION MODE"
+        // -------------------------------
+        {
+          // "label":
+          // The label you see in the UI
+          "label": "Communication mode",
+
+          // "description":
+          // A few words of description, possibly shown on a right-button click
+          "description": "Communication mode can be:\n - full duplex: MOSI and MISO at the same time\n - half duplex: master MOSI to/from slave MISO, where BMOEN selects direction\n - unidirectional: MOSI only or MISO only",
+          
+          // "selector":
+          // A bitfield or bitfield expression
+          "selector": "BMEN",
+
+          // "values":
+          // Values are given in a dictionary, indicating that this is a dropdown menu. The keys
+          // from the dictionary "0" and "1" are assigned to the selector. The right-hand-side of
+          // the dictionary is what the user sees in the dropdown.
+          "values": {
+            "0": "Full duplex or unidirectional",
+            "1": "Half duplex"
+          }
+        },
+
+        // ELEMENT 3: "RECEIVE ONLY"
+        // -------------------------
+        {
+          // "label":
+          // The label you see in the UI
+          "label": "Receive only",
+
+          // "description":
+          // A few words of description, possibly shown on a right-button click
+          "description": "Receive only",
+
+          // "predicate":
+          // Only show this UI element if the bitfield or bitfield expression on the right-hand-side
+          // solves to '1'.
+          "predicate": "MSMCFG==0",
+
+          // "selector":
+          // A bitfield or bitfield expression.
+          // If not followed by a "values" field, as is the case here, then we can assume this UI
+          // element is a simple checkbox to set the bitfield (or bitfield expression) selector to
+          // '0' or '1'.
+          "selector": "RXOMEN"
+        },
+
+        // ELEMENT 4: "FRAME FORMAT MODE"
+        // ------------------------------
+        {
+          "description": "Frame format mode",
+          "predicate": "MSMCFG==0",
+          "selector": "FRFCFG",
+          "values": {
+            "0": "Motorola mode",
+            "1": "TI mode"
+          }
+        },
+
+        // ELEMENT 5: "NSS MODE"
+        // ---------------------
+        {
+          "label": "NSS mode",
+          "description": "In hardware NSS mode,  the NSS level is determined by hardware. In software NSS mode,  it is determined by setting the ISSEL bit field",
+          "selector": "SSEN",
+          "values": {
+            "0": "Hardware NSS mode",
+            "1": "Software NSS mode (use ISSEL)"
+          }
+        },
+
+        // ELEMENT 6: "NSS OUTPUT ENABLE"
+        // ------------------------------
+        {
+          "label": "NSS output enable",
+          "description": "SS output enable for master mode",
+          "predicate": "MSMCFG==1",
+          "selector": "SSOEN"
+        },
+
+        // ELEMENT 7: "CLOCK POLARITY"
+        // ---------------------------
+        {
+          "description": "Clock polarity",
+          "predicate": "!FRFCFG",
+          "selector": "CTRL1.CPOL",
+          "values": {
+            "0": "Idle low",
+            "1": "Idle high"
+          }
+        },
+
+        // ELEMENT 8: "CLOCK PHASE"
+        // ------------------------
+        {
+          "description": "Clock phase",
+          "predicate": "!FRFCFG",
+          "selector": "CPHA",
+          "values": {
+            "0": "Sample data at leading edge",
+            "1": "Sample data at trailing edge"
+          }
+        },
+
+        // ELEMENT 9: "BIT ORDER"
+        // ----------------------
+        {
+          "description": "Bit order",
+          "selector": "LSBSEL",
+          "values": {
+            "0": "MSB first",
+            "1": "LSB first"
+          }
+        },
+
+        // ELEMENT 10: "DATA FRAME SIZE"
+        // -----------------------------
+        {
+          "description": "Data frame size",
+          "selector": "DFLSEL",
+          "values": {
+            "0": "8 bit data frame",
+            "1": "16 bit data frame"
+          }
+        },
+
+        // ELEMENT 11: "BAUD RATE DIVIDER"
+        // -------------------------------
+        {
+          "label": "Baud rate divider",
+          "description": "Baud rate divider, baud rate = Fpclk/DIV",
+          "selector": "BRSEL",
+          "values": {
+            "0b000": "DIV=2",
+            "0b001": "DIV=4",
+            "0b010": "DIV=8",
+            "0b011": "DIV=16",
+            "0b100": "DIV=32",
+            "0b101": "DIV=64",
+            "0b110": "DIV=128",
+            "0b111": "DIV=256"
+          }
+        },
+
+        // ELEMENT 12: "RECEIVE DMA"
+        // -------------------------
+        {
+          "label": "Receive DMA",
+          "description": "Receive buffer DMA enable",
+          "selector": "RXDEN"
+        },
+
+        // ELEMENT 13: "TRANSMIT DMA"
+        // --------------------------
+        {
+          "label": "Transmit DMA",
+          "description": "Transmit buffer DMA enable",
+          "selector": "TXDEN"
+        },
+
+        // ELEMENT 14: "ERROR INTERRUPT"
+        // -----------------------------
+        {
+          "label": "Error interrupt",
+          "description": "Error interrupt enable",
+          "selector": "ERRIEN"
+        },
+
+        // ELEMENT 15: "RECV BUF NOT EMPTY INTERRUPT"
+        // ------------------------------------------
+        {
+          "label": "Recv buf not empty interrupt",
+          "description": "Receive buffer not empty interrupt enable",
+          "selector": "RXBNEIEN"
+        },
+
+        // ELEMENT 16: "XMIT BUF EMPTY INTERRUPT"
+        // --------------------------------------
+        {
+          "label": "Xmit buf empty interrupt",
+          "description": "Transmit buffer empty interrupt enable",
+          "selector": "TXBEIEN"
+        },
+
+        // ELEMENT 17: "CRC ENABLE"
+        // ------------------------
+        {
+          "label": "CRC enable",
+          "description": "CRC enable",
+          "selector": "CRCEN"
+        },
+
+        // ELEMENT 18: "CRC POLYNOMIAL"
+        // ----------------------------
+        {
+          "label": "CRC polynomial",
+          "description": "CRC polynomial",
+          "selector": "CRCPOLY"
+        }
+      ]
+    },
+    {
+      "name": "I2S{x}",
+      "parameters": { "x": ["1", "2", "3", "4", "5"] },
+      "description": "Inter-IC sound interface I2S{x}",
+      "todo": "add settings",
+      "scope": "SPI{x}",
+      "clock": "I2SCLK",
+      "enable": "I2SEN & MODESEL==1 & DATALEN != 0b11",
+      "bus": {
+        "APB1": "{x}==2|{x}==3",
+        "APB2": "{x}==1|{x}==4|{x}==5"
+      },
+      "signals": {
+        "CK": {
+          "description": "I2S serial clock, a.k.a. bit clock",
+          "mode": {
+            "I2SMOD[0]": [ "PP", "OD" ],
+            "!I2SMOD[0]": [ "FI", "PU", "PD" ]
+          }
+        },
+        "WS": {
+          "description": "I2S word select, a.k.a. left-right clock",
+          "mode": {
+            "I2SMOD[0]": [ "PP", "OD" ],
+            "!I2SMOD[0]": [ "FI", "PU", "PD" ]
+          }
+        },
+        "SD": {
+          "description": "I2S serial data",
+          "mode": {
+            "I2SMOD[1]": [ "FI", "PU", "PD" ],
+            "!I2SMOD[1]": [ "PP", "OD" ]
+          }
+        },
+        "MCK": {
+          "description": "I2S master clock",
+          "mode": [ "PP", "OD" ],
+          "enable": "MCOEN"
+        }
+      }
+    },
+    {
+      "name": "I2S{z}ext",
+      "parameters": { "z": ["2", "3"] },
+      "description": "Inter-IC sound interface I2S{z}ext for full duplex",
+      "enable": "I2SEN",
+      "bus": "APB1",
+      "todo": "add settings",
+      "signals": {
+        "SD": {
+          "description": "",
+          "mode": {
+            "I2SMOD[1]": [ "PP", "OD" ],
+            "!I2SMOD[1]": [ "FI", "PU", "PD" ]
+          }
+        }
+      }
+    },
+    {
+      "name": "QSPI",
+      "description": "Quad serial peripheral interface",
+      "todo": "add missing settings",
+      "clock-enable": "AHB2CLKEN.QSPIEN",
+      "enable": "EN",
+      "signals": {
+        "CLK": {
+          "description": "clock",
+          "mode": {
+            "SLAEN==0": "PP",
+            "SLAEN==1": "FI"
+          }
+        },
+        "NCS": {
+          "description": "chip select",
+          "mode": {
+            "SLAEN==0": ["PP", "OD"],
+            "SLAEN==1": "FI"
+          }
+        },
+        "IO{x}": {
+          "label": "data",
+          "parameters": { "x": [ "0", "1", "2", "3" ] },
+          "enable": "FRF==2 || (FRF==1 && {x}<2) || {x}==0",
+          "mode": "PP"
+        }
+      },
+      "settings": [
+        {
+          "label": "Role",
+          "selector": "SLAEN",
+          "values": {
+            "0": "Master mode",
+            "1": "Slave mode"
+          }
+        },
+        {
+          "label": "Data frame size",
+          "description": "Select the data frame length. When the data frame size is programmed to be less than 32 bits, the receive data will be automatically right aligned by the receiving logic, and the high bit will be filled with the receive FIFO zero. Before writing the transmit FIFO, the transmission data must be right adjusted. The transmission logic ignores the unused high bits when transferring data.",
+          "selector": "DFS+1",
+          "minimum": 4,
+          "maximum": 32
+        },
+        {
+          "description": "Clock polarity",
+          "selector": "CTRL1.CPOL",
+          "values": {
+            "0": "Idle low",
+            "1": "Idle high"
+          }
+        },
+        {
+          "description": "Clock phase",
+          "selector": "CPHA",
+          "values": {
+            "0": "Sample at leading edge",
+            "1": "Sample at trailing edge"
+          }
+        },
+        {
+          "label": "Transport mode",
+          "description": "Select the transmission mode of serial communication. This field does not affect the repeatability of the transmission, and only indicates whether the receive or transmit data is valid. In the transmit-only mode, the data received from external device is invalid and is not stored in the receive FIFO memory. In the receive-only mode, the data transmitted is invalid. After the first write to the transmit FIFO, the same word will be retransmitted during transmission. In the transmit and receive mode, both the transmit and receive data are valid. The data received from the external device are stored in the receive FIFO memory.\n - Transmit and receive: not applicable to enhanced SPI operation mode\n - Transmit-only, or write in enhanced SPI operation mode\n - Receive-only, or read in enhanced SPI operation mode\n - EEPROM read mode: not applicable to enhanced SPI operation mode",
+          "selector": "TXMODE",
+          "values": {
+            "0b00": "Transmit and receive",
+            "0b01": "Transmit-only",
+            "0b10": "Receive-only",
+            "0b11": "EEPROM read"
+          }
+        },
+        {
+          "label": "Enable chip selection reversal",
+          "description": "When working in normal SPI mode and the clock phase (SCPH) is 0, this register controls the chip selection signal line between data frames 1: Between continuous frames, the chip selection signal line will be reversed; when the chip selection signal line is at high level, the level of CLK signal will be default value.",
+          "selector": "SSTEN"
+        },
+        {
+          "label": "SPI frame format",
+          "description": "Select the data frame format to transmit/receive data",
+          "selector": "FRF",
+          "values": {
+            "0b00": "(SPI_STANDARD): Standard SPI",
+            "0b01": "(SPI_DUAL): Dual SPI",
+            "0b10": "(SPI_QUAD): Quad SPI"
+          }
+        },
+        {
+          "label": "Number of data frames",
+          "description": "The number of data frames continuously received by QSPI. QSPI continues to receive serial data until the number of data frames received equals the requested number. You can receive up to 64kb data in continuous transmission.",
+          "predicate": "TXMODE == 0b10 || TXMODE == 0b11",
+          "selector": "NDF+1",
+          "minimum": 1,
+          "maximum": "64k"
+        },
+        {
+          "label": "Transmission mode",
+          "description": "Choose whether QSPI transmits the instruction/address in standard SPI mode or the SPI mode selected in the ctrl0.spi_frf field.\n - (TT0): Transmit the instruction and address in standard SPI mode\n - (TT1): Transmit the instruction in standard SPI mode. Transmit the address in FRF specified mode\n - (TT2): Transmit the instruction and address in FRF specified mode",
+          "selector": "IAT",
+          "values": {
+            "0b00": "(TT0) both in std mode",
+            "0b01": "(TT1) ins std, addr FRF",
+            "0b10": "(TT2) both in FRF mode"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SMC",
+      "description": "Static Memory Controller",
+      //"clock-enable": "AHB2CLKEN.SMCEN",
+      "todo": "add missing settings",
+      "signals": [
+        {
+          "name": "NE{x}",
+          "label": "Chip selection signal {x}",
+          "description": "External memory is divided into 4 blocks that can be served by 4 distinct external devices.\nNE{x} selects device {x}. NE{4:1] is decoded from the AHB bus HADR[27:26].",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "mode": [ "PP", "OD" ]
+        },
+        {
+          "name": "NL",
+          "label": "Effective address signal",
+          "alias": "NADV",
+          "enable-todo": "for NOR-flash",
+          "mode": "PP"
+        },
+        {
+          "name": "NBL{x}",
+          "label": "Effective address signal",
+          "parameters": { "x": [ "0", "1" ] },
+          "enable-todo": "for PSRAM",
+          "mode": "PP"
+        },
+        {
+          "name": "CLK",
+          "label": "Synchronous clock signal",
+          "mode": "PP"
+        },
+        {
+          "name": "AD{x}",
+          "label": "Address and data line {x}",
+          "description": "Address line {x} is also used for data line {x} when multiplexing. This depends on the settings.",
+          "parameters": { "x": [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"] },
+          "enable-todo": "PC card mode && x <= 10 || ...",
+          "mode": "PP"
+        },
+        {
+          "name": "A0",
+          "label": "Address line 0",
+          "enable-todo": "PC card mode && x <= 10 || ...",
+          "mode": "PP"
+        },
+        {
+          "name": "A{x}",
+          "label": "Address line {x}",
+          "description": "Address line {x} is also used for data line {x} when multiplexing. This depends on the settings.",
+          "parameters": { "x": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"] },
+          "aka": "AD{x}"
+        },
+        {
+          "name": "A{x}",
+          "label": "Address line {x}",
+          "parameters": { "x": [ "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"] },
+          "enable-todo": "PC card mode && {x} <= 10 || ...",
+          "mode": "PP"
+        },
+        {
+          "name": "ALE",
+          "aka": "A17"
+        },
+        {
+          "name": "CLE",
+          "aka": "A16"
+        },
+        {
+          "name": "D{x}",
+          "label": "Data line {x} (not multiplexed with address)",
+          "parameters": { "x": [ "0", "1", "2", "3", "4", "5", "6", "7"] },
+          "enable-todo": "PC card mode && {x} <= 10 || ...",
+          "mode": "PP"
+        },
+        {
+          "name": "D{x}",
+          "label": "Data line {x} (multiplexed with address line {x})",
+          "parameters": { "x": [ "8", "9", "10", "11", "12", "13", "14", "15"] },
+          "aka": "AD{x}"
+        },
+        {
+          "name": "NOE",
+          "label": "Read enable signal",
+          "alias": "NRE",
+          "mode": [ "PP", "OD" ]
+        },
+        {
+          "name": "NWE",
+          "label": "Write enable signal",
+          "mode": [ "PP", "OD" ],
+          "alias": "NEW"
+        },
+        {
+          "name": "NWAIT",
+          "label": "Signal that memory device requires SMC to wait",
+          "mode": "FI"
+        },
+        {
+          "name": "NCE{x}",
+          "parameters": { "x": [ "2", "3" ] },
+          "enable-todo": "NAND flash",
+          "mode": "PP"
+        },
+        {
+          "name": "INT{x}",
+          "parameters": { "x": [ "2", "3" ] }
+        },
+        {
+          "name": "INTR",
+          "enable-todo": "PC card",
+          "label": "PC card interrupt signal"
+        },
+        {
+          "name": "NCE4_1",
+          "enable-todo": "PC card"
+        },
+        {
+          "name": "NCE4_2",
+          "enable-todo": "PC card"
+        },
+        {
+          "name": "NIORD",
+          "enable-todo": "PC card",
+          "label": "I/O space output enable"
+        },
+        {
+          "name": "NIOWR",
+          "enable-todo": "PC card",
+          "label": "I/O space write enable"
+        },
+        {
+          "name": "NREG",
+          "enable-todo": "PC card",
+          "label": "Selection of common space or attribute space access"
+        },
+        {
+          "name": "CD",
+          "enable-todo": "PC card",
+          "label": "PC card detection signal"
+        },
+        {
+          "name": "NIOS16",
+          "enable-todo": "PC card",
+          "label": "Data transmission width of 16-bit transmission I/O space (must be grounded)"
+        }
+      ],
+      "enable": "CSCTRL1.MBKEN | CSCTRL2.MBKEN | CSCTRL3.MBKEN | CSCTRL4.MBKEN",
+      "settings": [
+        {
+          "label": "Enable memory bank {x}",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "predicate-todo": "NOR flash or PSRAM",
+          "selector": "CSCTRL{x}.MBKEN"
+        },
+        {
+          "label": "Enable address/data multiplexing for memory bank {x}",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "predicate": "CSCTRL{x}.MBKEN",
+          "selector": "CSCTRL{x}.ADMUXEN"
+        },
+        {
+          "label": "Memory type for memory bank {x}",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "predicate": "CSCTRL{x}.MBKEN",
+          "selector": "CSCTRL{x}.MTYPECFG",
+          "values": {
+            "0b00": "SRAM, ROM",
+            "0b01": "PSRAM",
+            "0b10": "NORFlash"
+          }
+        },
+        {
+          "label": "Data bus width for memory bank {x}",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "predicate": "CSCTRL{x}.MBKEN",
+          "selector": "CSCTRL{x}.MDBWIDCFG",
+          "values": {
+            "0b00": "8 bits",
+            "0b01": "16 bits"
+          }
+        },
+        {
+          "label": "NORFlash memory access enable for memory bank {x}",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "predicate": "CSCTRL{x}.MBKEN",
+          "selector": "CSCTRL{x}.NORFMACCEN"
+        },
+        {
+          "label": "Burst mode enable for bank {x}",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "predicate": "CSCTRL{x}.MBKEN",
+          "selector": "CSCTRL{x}.BURSTEN"
+        },
+        {
+          "label": "Wrapped burst mode for bank {x}",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "predicate": "CSCTRL{x}.MBKEN & CSCTRL{x}.BURSTEN",
+          "selector": "CSCTRL{x}.WRAPBEN"
+        },
+        {
+          "label": "Wait timing for bank {x}",
+          "description": "This bit is used to configure whether the memory generates NWAIT signal in the period before the waiting state or during the waiting period; this bit is effective only in burst mode.",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "predicate": "CSCTRL{x}.MBKEN & CSCTRL{x}.BURSTEN",
+          "selector": "CSCTRL{x}.WTIMCFG",
+          "values": {
+            "0": "NWAIT effective before waiting",
+            "1": "NWAIT effective while waiting"
+          }
+        },
+        {
+          "label": "Wait signal polarity for memory bank {x}",
+          "parameters": { "x": [ "1", "2", "3", "4" ] },
+          "predicate": "CSCTRL{x}.MBKEN",
+          "selector": "CSCTRL{x}.WSPOLCFG",
+          "values": {
+            "0": "Active low",
+            "1": "Active high"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SDIO",
+      "description": "Secure digital input/output interface SDIO",
+      "enable": "PWRCTRL==0b11",
+      "todo": "add settings",
+      "signals": {
+        "CK": {
+          "label": "Synchronous clock signal",
+          "description": "MMC/SD/SD I/O card clock, clock line from master to card",
+          "mode": "PP"
+        },
+        "CMD": {
+          "label": "Card command signal",
+          "description": "MMC/SD/SD I/O card command, bidirectional command signal",
+          "mode": "PP"
+        },
+        "D{x}": {
+          "label": "Card data bus",
+          "description": "MMC/SD/SD I/O card data, bidirectional data bus",
+          "parameters": { "x": [ "0", "1", "2", "3", "4", "5", "6", "7" ] },
+          "mode": "PP"
+        }
+      }
+    },
+    {
+      // ======================================================================
+      // |                               I2C{x}                               |
+      // ======================================================================
+      // TOP-LEVEL FIELDS
+      // ================
+      // "name":
+      // Name for this peripheral. Can contain 'x' placeholder
+      "name": "I2C{x}",
+
+      // "description":
+      // Short description of the peripheral
+      "description": "Internal integrated circuit interface I2C{x}",
+
+      // "parameters":
+      // Values for 'x' or other placeholders
+      "parameters": { "x": ["1", "2", "3"]},
+
+      // "enable":
+      // The bitfield (or bitfield expression) that must resolve to '1' to enable this peripheral.
+      // The bitfield (or bitfields in the expression) are searched for throughout the SVD file.
+      // Sometimes more than one bitfield is found with the same name. For example, a search on
+      // "UEN" yields:
+      //
+      //  | peripheral | register | bitfield |
+      //  |------------|----------|----------|
+      //  | I2C1       | CTRL1    | I2CEN    |
+      //  | I2C2       | CTRL1    | I2CEN    |
+      //  | I2C3       | CTRL1    | I2CEN    |
+      //
+      // The tool automatically figures out which bitfield is the relevant one, based on the current
+      // peripheral being covered here (being I2Cx). If there's still an ambiguity, the register
+      // name might need to be added to the bitfields in the bitfield expression, like 'CTRL1.I2CEN'
+      // instead of 'I2CEN'. The fully qualified name of a bitfield is always:
+      //     '<peripheral>.<register>.<bitfield>'
+      // for example:
+      //     'I2C1.CTRL1.I2CEN'
+      // but it is rarely needed to use the fully qualified name.
+      "enable": "I2CEN",
+
+      // SIGNALS SECTION
+      // ===============
+      // "signals":
+      // Each sub-item in "signals" describes one of the peripherals' external I/O signals, for
+      // example "SCL" and "SDA".
+      "signals": {
+        "SCL": {
+          // "label":
+          // The label for the signal in the GUI
+          "label": "Clock signal",
+
+          // "description":
+          // A short description of the signal
+          "description": "I2C Clock Signal",
+
+          // "enable":
+          // The bitfield (or bitfield expression) that must resolve to '1' to enable this signal.
+          "enable": "1",
+
+          // "mode":
+          // Each pad/pin can operate in one of these modes:
+          //  - "FI": Floating input
+          //  - "PU": Pull-up
+          //  - "PD": Pull-down
+          //  - "PP": Push-pull
+          //  - "OD": Open Drain
+          //  - "AI": Analog Input
+          // The format for the value here can be:
+          // - A single mode string, eg. "PP"
+          // - An array of mode strings, eg. [ "FI", "PU" ]
+          // - A dictionary with the keys being bitfield expressions and the values being mode
+          //   strings, eg. { "MY_BITFIELD == 0": "PP", "MY_BITFIELD == 1": "OD" }
+          "mode": "OD"
+        },
+        "SDA": {
+          // "label":
+          // The label for the signal in the GUI
+          "label": "Data signal",
+
+          // "description":
+          // A short description of the signal
+          "description": "I2C Data Signal",
+
+          // "enable":
+          // The bitfield (or bitfield expression) that must resolve to '1' to enable this signal.
+          "enable": "1",
+
+          // "mode":
+          // Open-Drain Alternate Function mode
+          "mode": "OD"
+        },
+        "SMBA": {
+          // "label":
+          // The label for the signal in the GUI
+          "label": "SMBus alert signal",
+
+          // "description":
+          // A short description of the signal
+          "description": "",
+
+          // "enable":
+          // The bitfield (or bitfield expression) that must resolve to '1' to enable this signal.
+          "enable": "SMBEN",
+
+          // "mode":
+          // Open-Drain Alternate Function mode
+          "mode": "OD"
+        }
+      },
+
+      // DEFINITIONS SECTION
+      // ===================
+      // Provide placeholders for bitfield expressions here (note that 'bitfield expressions' usually
+      // consists of bitfields, but can also contain clock names etc.).
+      "definitions": [
+        {
+          "name": "f_SCL",
+          "value": "fixed(PCLK1) / ((2+SPEEDCFG)*CLKS)"
+        }
+      ],
+
+      // SETTINGS SECTION
+      // ================
+      // "settings":
+      // This array lists all the user-visible widgets, such as:
+      //     - drop-down widgets
+      //     - checkboxes
+      //     - textfields (to fill in)
+      // NOTE:
+      // The MCU automatically selects Master or Slave mode depending on whether it initiates or
+      // responds to communication. There's no dedicated "Master/Slave" configuration bit.
+      // Here's how it works:
+      //
+      //   - Initially, the I2C peripheral defaults to Slave mode after enabling (I2CEN bit in
+      //     CTRL1 set to 1).
+      //
+      //   - When your software explicitly sets the START bit (set bit 8 in CTRL1), the peripheral
+      //     switches automatically from Slave mode to Master mode and initiates communication.
+      //
+      //   - After transmitting a STOP condition (set bit 9 in CTRL1), or if arbitration is lost,
+      //     the peripheral automatically returns to Slave mode.
+      // 
+      // The MSFLG read-only bit (bit 0 of register STS2) reflects the current operating mode of
+      // the peripheral:
+      // - MSFLG == 0: Slave mode
+      // - MSFLG == 1: Master mode
+      //
+      "settings": [
+        // ELEMENT 1: I2C SPEED
+        // --------------------
+        // Only relevant in master mode.
+        // To set the speed of the I2C SCL line, take the following steps:
+        //
+        // (1) Set Speed Mode CLKCTRL.SPEEDCFG bit:
+        //     - 0b0: Standard mode (max 100kHz)
+        //     - 0b1: Fast mode (max 400kHz)
+        //
+        // (2) Set Duty Cycle CLKCTRL.FDUTYCFG bit. We'll assume for simplicity that this
+        //     bit is always 0.
+        //
+        // (3) Calculate and set CLKCTRL.CLKS bitfield (bits 0 to 11 from the CLKCTRL register):
+        //     - For standard mode: f_SCL = PCLK1 / (2 * CLKS)
+        //     - For fast mode:     f_SCL = PCLK1 / (3 * CLKS)
+        //{
+        //  "label": "I2C Speed",
+        //  "description": "I2C Master Mode Speed",
+        //  "selector": "f_SCL",
+        //  // TODO: Specify that the I2C{x}.CTRL2.CLKFCFG bitfield must match exactly the
+        //  //       speed of the APB bus (PCLK1).
+        //  "default": "100000"
+        //},
+
+        // ELEMENT 2: CLOCK STRETCH MODE
+        // -----------------------------
+        // Only relevant in slave mode.
+        {
+          "label": "Clock Stretch Mode",
+          "description": "In slave mode, allow this MCU to hold the SCL line low to temporarily pause data transmission, buying time to process data or prevent buffer overruns.",
+          "selector": "!CLKSTRETCHD",
+          "default": "0b1"
+        },
+
+        // ELEMENT 3: SLAVE ADDRESS
+        // ------------------------
+        // Only relevant in slave mode.
+        // Provide the address for this device in slave mode. We stick to the 7-bit addressing scheme
+        // for simplicity. That means:
+        // - bitfield I2C{x}.SADDR1.ADDR7 is valid
+        // - bitfield I2C{x}.SADDR1.ADDR0 is invalid
+        // - bitfield I2C{x}.SADDR1.ADDR10 is invalid
+        // - bitfield I2C{x}.SADDR1.ADDRLEN must remain 0b0
+        //
+        // We also stick to a single address scheme, which means we ignore register I2C{x}.SADDR2
+        {
+          "label": "Slave Address",
+          "description": "I2C Slave Address",
+          "selector": "SADDR1.ADDR7",
+          "default": "0x08"
+          // TODO: Specify that the valid range of slave addresses is 0x08 to 0x77. Address 0x00
+          //       is reserved for broadcasts, all other addresses (0x01–0x07 and 0x78–0x7F) for
+          //       special functions or future use.
+        },
+
+        // ELEMENT 4: RESPOND TO BROADCAST
+        // -------------------------------
+        // Only relevant in slave mode.
+        // Allow this device to respond to broadcast messages (aka "general call" messages).
+        {
+          "label": "Respond to Broadcast",
+          "description": "In slave mode, allow this device to respond to broadcast messages (aka 'general call' messages).",
+          "selector": "CTRL1.SRBEN",
+          "default": "0b0"
+        }
+      ]
+    },
+    {
+      "name": "USB_FS",
+      "description": "USB full speed interface",
+      "clock-enable": "AHB2CLKEN.OTGFSEN",
+      "enable": "PWEN",
+      "todo": "add settings, figure out signal modes, ...",
+      "svd-name": "USB_FS_GLOBAL",
+      "signals": {
+        "DP": {
+          "label": "D+",
+          "mode": "PP"
+        },
+        "DM": {
+          "label": "D-",
+          "mode": "PP"
+        },
+        "SOF": {
+          "label": "Start of frame",
+          "mode": "PP"
+        },
+        "ID": {
+          "label": "OTG ID signal",
+          "mode": "PP"
+        },
+        "VBUS": {
+          "label": "VBUS",
+          "description": "",
+          "mode": "PP"
+        }
+      }
+    },
+    {
+      "name": "CAN{x}",
+      "description": "Controller Area Network CAN{x}",
+      "parameters": { "x": ["1", "2"]},
+      "enable": "!SLEEPREQ",
+      "todo": "add settings, figure out signal modes, ...",
+      "signals": {
+        "TX": {
+          "label": "Clock signal",
+          "mode": "OD"
+        },
+        "RX": {
+          "label": "Data signal",
+          "mode": "FI"
+        }
+      }
+    },
+    {
+      "name": "ADC{x}",
+      "description": "Analog-digital converter ADC{x}",
+      "parameters": { "x": ["1", "2"]},
+      "enable": "APB2CLKEN.ADC{x}EN & ADCEN",
+      "reset": "ADC{x}RST",
+      "signals": {
+        "IN{y}": {
+          "parameters": { "y": ["0", "1", "2", "3", "4", "5", "6", "7", "8",
+                                "9", "10", "11", "12", "13", "14", "15"]},
+          "label": "Analog input ADC{x}_IN{y}",
+          "mode": "AI",
+          "TODO": "Enable only used analog inputs"
+        }
+      },
+      "map": {
+        "IN0":  "PA0",
+        "IN1":  "PA1",
+        "IN2":  "PA2",
+        "IN3":  "PA3",
+        "IN4":  "PA4",
+        "IN5":  "PA5",
+        "IN6":  "PA6",
+        "IN7":  "PA7",
+        "IN8":  "PB0",
+        "IN9":  "PB1",
+        "IN10": "PC0",
+        "IN11": "PC1",
+        "IN12": "PC2",
+        "IN13": "PC3",
+        "IN14": "PC4",
+        "IN15": "PC5"
+      }
+    }
+  ],
+  "svd_data": "chip_config.svd"
+}

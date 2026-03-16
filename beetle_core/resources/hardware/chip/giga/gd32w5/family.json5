@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'gd32w5'
+// ============================
+// This file contains very basic data for the 'gd32w5' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "gd32w5",
+    "kind":               "chipfamily",
+    "active":             false,
+    "icon":               "icons/chip/giga_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "giga"
+}

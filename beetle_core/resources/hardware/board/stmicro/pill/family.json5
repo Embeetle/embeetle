@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'pill'
+// ===========================
+// This file contains very basic data for the 'pill' boardfamily. More detailed data is given in the
+// specific boardfiles.
+{
+    "name":               "pill",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/blue_pill.png",
+    "synonyms":           [],
+    "manufacturer":       "stmicro"
+}

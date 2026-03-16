@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'curiosity-nano'
+// =====================================
+// This file contains very basic data for the 'curiosity-nano' boardfamily. More detailed data is
+// given in the specific boardfiles.
+{
+    "name":               "curiosity-nano",
+    "kind":               "boardfamily",
+    "active":             false,
+    "icon":               "icons/board/curiosity-nano.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

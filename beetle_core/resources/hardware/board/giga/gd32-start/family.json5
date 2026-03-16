@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'gd32-start'
+// =================================
+// This file contains very basic data for the 'gd32-start' boardfamily. More detailed data is given
+// in the specific boardfiles.
+{
+    "name":               "gd32-start",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/gd32start.png",
+    "synonyms":           [],
+    "manufacturer":       "giga"
+}

@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'sam3x'
+// ===========================
+// This file contains very basic data for the 'sam3x' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "sam3x",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/microchip-atmel_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'pic16f'
+// ============================
+// This file contains very basic data for the 'pic16f' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "pic16f",
+    "kind":               "chipfamily",
+    "active":             false,
+    "icon":               "icons/chip/microchip_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

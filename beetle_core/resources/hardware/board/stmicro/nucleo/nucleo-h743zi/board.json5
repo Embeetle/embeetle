@@ -1,0 +1,104 @@
+// DATA FOR BOARD 'nucleo-h743zi'
+// ==============================
+// This file contains all the basic data for the 'nucleo-h743zi'. The data presented in this file
+// can (potentially) override data in the corresponding 'chip.json5' file.
+//
+// NOTE: If the data in the corresponding 'chip.json5' file is good, there is no need to override it
+// here.
+{
+    // MAIN DATA
+    // ---------
+    // This is the most basic information from the 'nucleo-h743zi' board.
+    "name":         "nucleo-h743zi",
+    "kind":         "board",
+    "boardfamily":  "nucleo",
+    "manufacturer": "stmicro",
+    "active":       true,
+    "icon":         "icons/board/nucleo.png",
+    "link":         "https://embeetle.com/#supported-hardware/stmicro/boards/nucleo-h743zi",
+    "synonyms":     [],
+    "user_leds":    {
+        "LD1": "PB0",
+        "LD2": "PB7",
+        "LD3": "PB14"
+    },
+    "user_buttons": {
+        "B1": "PC13"
+    },
+
+
+    // HARDWARE
+    // --------
+    // The chip is obviously fixed, the probe is more flexible, but we specify a default one here.
+    // Note that the actual hardware for a sample project is determined by the 'hardware.json5' file
+    // in the sample project.
+    "chip":          "stm32h743zi",
+    "default_probe": "stlink-v2-1",
+
+
+    // WEBPAGE DATA
+    // ------------
+    // This is data mainly used for the webpage.
+    //     - "purchase_links"
+    //     Provide for each distributor (farnell, digikey, ...) the order number and a weblink.
+    // 
+    //     - "references"
+    //     These are the references shown at the bottom of the webpage. There's some freedom in
+    //     which keys to provide. Common ones are: 'webpage', 'schematic', 'design_files'. Use other
+    //     fields as placeholders: '{name}' will be replaced with 'nucleo-h743zi'.
+    "purchase_links": {
+        "farnell": {
+            "order_code": "3106010",
+            "link_base": "https://uk.farnell.com/",
+            "link_suffix": "3106010"
+        },
+        "digikey": {
+            "order_code": "497-17786-ND",
+            "link_base": "https://www.digikey.com/en/products/detail/stmicroelectronics/",
+            "link_suffix": "NUCLEO-H743ZI/7809236"
+        },
+        "mouser": {
+            "order_code": "511-NUCLEO-H743ZI",
+            "link_base": "https://mou.sr/",
+            "link_suffix": "3NpuFVG"
+        },
+        "lcsc": {
+            "order_code": "C138786",
+            "link_base": "https://www.lcsc.com/product-detail/",
+            "link_suffix": "Development-Boards-Kits_STMicroelectronics-NUCLEO-H743ZI_C138786.html"
+        }
+    },
+    "references":     {
+        "webpage": "https://www.st.com/en/evaluation-tools/{name}.html",
+        "schematic": null,
+        "documentation": "https://www.st.com/en/evaluation-tools/{name}.html#documentation",
+        "design_files": "https://www.st.com/en/evaluation-tools/{name}.html#cad-resources"
+    },
+
+
+    // OVERRIDE CHIP DATA
+    // ------------------
+    // Override (some of) the data in the corresponding 'chip.json5' file. To override a certain
+    // key-value pair, add a '++', '--' or '~~' token at the end of the key, like:
+    //     - "key++": <value>
+    //     The board value gets added to the chip value. This only works if the chip value is a list
+    //     or a dictionary. Typical example is adding a compiler flag.
+    // 
+    //     - "key--": <value>
+    //     The board value gets subtracted from the chip value. This only works if the chip value is
+    //     a list or dictionary. Typical example is deleting a compiler flag.
+    // 
+    //     - "key~~": <value>
+    //     The board value replaces entirely the chip value.
+    // This system also works for nested key-value pairs.
+    // [Nothing to override]
+
+
+    // MISCELLANEOUS
+    // -------------
+    // Anything I haven't ordered yet.
+    "arduino_params": {
+        "fqbn": null,
+        "core": null
+    }
+}

@@ -1,0 +1,15 @@
+__pycache__
+embeetle.ini
+.mypy_cache
+config.ini
+.idea
+.mypy_cache
+compiled_files.txt
+/trace_file.txt
+cache/
+copied_embeetle/
+frozen_embeetle/
+to_exe/compiled_files.txt
+profile.log
+trace*.out
+.python-version

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 48 48"
+   height="256"
+   width="256"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="edit.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.1445312"
+     inkscape:cx="76.007286"
+     inkscape:cy="128.4663"
+     inkscape:window-width="1920"
+     inkscape:window-height="730"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <path
+     fill="#8f5902"
+     fill-rule="evenodd"
+     d="M44.6549 10.1957C47.1223 13.4851 46.0145 17.736 43.1069 20.6437L19.0316 44.7189C18.4876 45.2628 17.7981 45.636 17.0341 45.726C15.1813 45.9442 11.0448 46.2294 4.11274 45.6924C3.15016 45.6179 2.38194 44.8497 2.30738 43.8871C1.77044 36.955 2.05557 32.8185 2.27385 30.9656C2.36385 30.2017 2.73699 29.5121 3.28091 28.9682L27.3561 4.89289C30.2637 1.98527 34.5146 0.877501 37.8041 3.34489C38.9158 4.17875 40.1469 5.22652 41.4601 6.53971C42.7733 7.85288 43.821 9.08402 44.6549 10.1957Z"
+     clip-rule="evenodd"
+     id="path2"
+     style="fill:#8f5902;fill-opacity:1" />
+  <path
+     fill="#babdb6"
+     fill-rule="evenodd"
+     d="M18.612 45.0833C17.3466 43.221 14.88 39.8541 11.5131 36.4871C8.14656 33.1206 4.78003 30.6542 2.91761 29.3887C2.57297 29.8512 2.34207 30.3876 2.27385 30.9666C2.05557 32.8195 1.77044 36.956 2.30738 43.8881C2.38194 44.8506 3.15016 45.6189 4.11274 45.6934C11.0448 46.2304 15.1813 45.9452 17.0341 45.727C17.6132 45.6587 18.1495 45.4279 18.612 45.0833Z"
+     clip-rule="evenodd"
+     id="path4"
+     style="fill:#babdb6;fill-opacity:1" />
+  <path
+     fill="#2e3436"
+     fill-rule="evenodd"
+     d="M8.08232 45.9292C7.57973 45.1948 6.6361 43.9185 5.35982 42.6422C4.08205 41.3645 2.80429 40.4201 2.07031 39.918C2.11886 41.1231 2.195 42.4447 2.30675 43.8873C2.38131 44.8499 3.14952 45.6181 4.11211 45.6927C5.55511 45.8045 6.87698 45.8806 8.08232 45.9292Z"
+     clip-rule="evenodd"
+     id="path6"
+     style="fill:#2e3436;fill-opacity:1" />
+</svg>

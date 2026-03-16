@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'pca'
+// ==========================
+// This file contains very basic data for the 'pca' boardfamily. More detailed data is given in the
+// specific boardfiles.
+{
+    "name":               "pca",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/pca.png",
+    "synonyms":           [],
+    "manufacturer":       "nordic"
+}

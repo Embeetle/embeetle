@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'm263'
+// ==========================
+// This file contains very basic data for the 'm263' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "m263",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/nuvoton_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "nuvoton"
+}

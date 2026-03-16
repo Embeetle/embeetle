@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'attiny'
+// ============================
+// This file contains very basic data for the 'attiny' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "attiny",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/microchip_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

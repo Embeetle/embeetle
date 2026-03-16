@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'rpi-pico'
+// ===============================
+// This file contains very basic data for the 'rpi-pico' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "rpi-pico",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/frdm.png",
+    "synonyms":           [],
+    "manufacturer":       "raspberry-pi"
+}

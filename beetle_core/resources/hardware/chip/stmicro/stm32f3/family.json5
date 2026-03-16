@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'stm32f3'
+// =============================
+// This file contains very basic data for the 'stm32f3' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "stm32f3",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/stmicro_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "stmicro"
+}

@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'stm32wb'
+// =============================
+// This file contains very basic data for the 'stm32wb' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "stm32wb",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/stmicro_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "stmicro"
+}

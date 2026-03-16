@@ -1,0 +1,115 @@
+# REQUIREMENTS FILE FOR EMBEETLE
+# ==============================
+# Install packages:
+#     $ pip install -r requirements.txt
+#
+# Upgrade packages:
+#     $ pip install --upgrade -r requirements.txt --no-cache-dir
+#
+# Fresh install:
+#     $ pip install --upgrade --force-reinstall -r requirements.txt --no-cache-dir
+
+# Docker
+# ------
+# !!! IMPORTANT !!!
+# This requirements.txt file is not automatically invoked during our Docker
+# procedure. Therefore, any new package you add here should be duplicated in:
+# 'embeetle/build-in-docker/beetle-builder-pyqt6/Dockerfile'
+
+# CMake (Windows)
+# ---------------
+# Install CMake for Windows and make sure it's added to the PATH during the
+# installation procedure.
+# On my computer, I accepted the default installation folder:
+# 'C:/Program Files/CMake/'
+# https://cmake.org/download/
+
+# Required for running
+# --------------------
+astyle-py>=1.1.0
+certifi>=2025.1.31
+chardet>=5.2.0
+colorama>=0.4.6
+feedparser>=6.0.11
+hypothesis>=6.131.9
+lowbar>=2.2.1
+markdown>=3.8
+packaging>=25.0
+pydantic==1.10.17
+pieces_os_client>=4.1.1
+pyelftools>=0.32
+pygments>=2.19.1
+PyQt6>=6.9.0
+PyQt6-Qt6>=6.7.3
+PyQt6-QScintilla>=2.14.1
+PyQt6-sip>=13.10.0
+pyserial>=3.5
+pyte>=0.8.2
+regex>=2024.11.6
+requests>=2.32.3
+watchdog>=6.0.0
+xmltodict>=0.14.2
+Jinja2>=3.1.6
+telnetlib3>=2.0.4; python_version >= "3.13"
+
+# Required for building
+# ---------------------
+--extra-index-url https://marcelotduarte.github.io/packages/
+cx_Freeze>=8.2.0
+Cython>=3.0.12
+
+# Required only on Windows
+# ------------------------
+pywin32>=310; platform_system == "Windows"
+pywinpty>=2.0.15; platform_system == "Windows"
+winshell>=0.6; platform_system == "Windows"
+
+# Required only on Linux
+# ----------------------
+ptyprocess>=0.7.0; platform_system != "Windows"
+
+# Windows Code Signing
+# --------------------
+# To install the SafeNet software for code signing with the Sectigo USB dongle:
+# https://www.sectigo.com/knowledge-base/detail/set-up-sectigo-token-using-safe-net-for-certificates
+#
+#     STEP 1:
+#     Receive dongle (sent by post)
+# 
+#     STEP 2:
+#     Download SafeNet
+#     https://www.sectigo.com/knowledge-base/detail/SafeNet-Authentication-Client-Download-for-Sectigo-Certificates-on-eToken
+#     This downloads a file `SAC 10.9 R1 GA.zip`
+#     
+#     Unzip the file, look for this:
+#     `C:\Users\krist\Downloads\SAC 10.9 R1 GA\SAC 10.9 R1 GA\Msi\x64\610-013075-006-SafeNetAuthenticationClient-x64-10.9-R1_Rev A.msi`
+#     
+#     Go through the installation process. It will install Safenet Authentication Client 10.9 R1 to
+#     `C:\Program Files\SafeNet\Authentication`
+# 
+#     STEP 3:
+#     Open "SafeNet Authentication Client" from the start menu.
+#     An icon appears in the status bar from Windows (near the clock).
+#     Double click the icon there to launch the UI.
+#
+#     STEP 4:
+#     To avoid having to enter the Token Password again and again (with the
+#     Windows `signtool`, see next), you need to enable the "single logon"
+#     feature in SafeNet:
+#         -> open SafeNet Authentication Client
+#         -> settings (the gear icon)
+#         -> Client Settings
+#         -> Advanced tab
+#         -> Enable single logon
+#         -> save
+#
+# You also need the Windows `signtool`:
+# https://learn.microsoft.com/en-us/windows/win32/seccrypto/signtool
+# 
+#     STEP 1:
+#     Download Windows SDK:
+#     https://learn.microsoft.com/en-us/windows/apps/windows-sdk/
+#
+#     STEP 2:
+#     Install the Windows SDK. Then add the signtool to PATH:
+#     `C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64`

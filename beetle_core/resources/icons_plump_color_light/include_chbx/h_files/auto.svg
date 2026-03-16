@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 48 48"
+   height="256"
+   width="256"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="magnifier.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.40478516"
+     inkscape:cx="-296.45356"
+     inkscape:cy="74.113389"
+     inkscape:current-layer="svg6" />
+  <circle
+     cx="22"
+     cy="22"
+     r="17"
+     fill="#95c2f2"
+     id="circle2" />
+  <path
+     fill="#507ab7"
+     fill-rule="evenodd"
+     d="M32.6589 38.9261C29.5733 40.8732 25.9183 42 22 42C10.9543 42 2 33.0457 2 22C2 10.9543 10.9543 2 22 2C33.0457 2 42 10.9543 42 22C42 25.9267 40.8684 29.589 38.9135 32.6788C39.0069 32.7561 39.1003 32.8334 39.1936 32.9106L39.1936 32.9106C41.0121 34.4153 42.8028 35.897 44.5692 37.5446C46.3069 39.1655 46.5229 41.6182 44.8795 43.3344C44.6464 43.5779 44.3918 43.838 44.1139 44.1155C43.8359 44.393 43.5753 44.6471 43.3314 44.8799C41.6122 46.5203 39.1553 46.3047 37.5316 44.57C35.8811 42.8067 34.3968 41.0191 32.8895 39.2037C32.8127 39.1113 32.7358 39.0187 32.6589 38.9261ZM36 22C36 29.732 29.732 36 22 36C14.268 36 8 29.732 8 22C8 14.268 14.268 8 22 8C29.732 8 36 14.268 36 22Z"
+     clip-rule="evenodd"
+     id="path4" />
+</svg>

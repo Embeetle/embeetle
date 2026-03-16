@@ -1,0 +1,561 @@
+Questions
+---------
+
+1. For a peripheral input signal, does the pad need to be in an input mode (FI,
+   PD, PU)?  Or can it be in AF-PP mode or AF-OD mode, where the peripheral will
+   disable output?
+
+2. Setting values:  use general expression literal syntax? (now binary only)
+
+
+
+
+
+
+
+
+
+
+# Observations
+# ------------
+#
+# - there is a dintinction between a pin (on the outside of the package) and a
+#   pad (internally on the chip). Pad are bonded to pins when the chip is
+#   packaged, and sometimes, more than one pad is bonded to the same pin.  Pads
+#   are a property of the series, and pins are a property of the part.  The GPIO
+#   peripheral configures pads, not pins, but if two or more pads are bonded to
+#   the same pin, at most one of them can be configured as output.
+#
+# - a pin can be used simultanuously for multiple input signals but not for
+#   multiple output signals (typically wired nor functionality)
+#
+# - the same signal may require different pad configurations depending on
+#   peripheral settings, so let's configure pads based on peripheral settings.
+#   In some cases, there are options; these should be part of the peripheral
+#   settings.
+#
+# - some microcontrollers can select signals per pad, others have peripheral
+#   settings that select pads for multiple signals at the same time
+#
+# - to keep configuration simple,  let's assign at most one signal per pin
+#
+# - if multiple signal-to-pad assignments are controlled by the same setting,
+#   then selecting one of them also selects the others; so, if one of the other
+#   affected pads already has a different assignment controlled by a different
+#   setting, we need to warn the user (conflict)
+#
+# - we want to provide signal-to-pad mapping both on the pad and on the
+#   peripheral, regardless of whether the mapping is per pad or shared; the same
+#   is true for other pad settings, such as PU/PD/PP/OD or speed
+#
+# - some peripherals do not require all signals to be mapped to peripherals;
+#   in that case, the peripheral user interface should have tick marks to enable
+#   optional signals
+#
+# - core config data should contain the necessary information to configure the
+#   user interface as well as to generate code from user input
+#
+# User interface configuration needs
+# ----------------------------------
+#
+# - generic package information, such as the number of pns and the layout
+#
+# - series name
+#
+# - part names with corresponding package and pin number to pad name mapping
+#
+# - pad capabilities;  often,  many pads have the same capabilities,  so we
+#   may want to define a pad type,  and then define capabilities per type
+#
+# - settings for signal-to-pad mapping, per pad and/or per peripheral
+#
+# A pin can either be unassigned or claimed by a single peripheral. GPIO is
+# considered a peripheral.  The user interface should allow only one peripheral
+# to claim a given pin. If more than one peripheral claims the same pin,
+# behavior is undefined.  It is therefore not important what happens when
+# multiple peripherals claim the same pin. The core config data does not need to
+# contain that information.
+#
+# Pad to signal mapping links a pad to a signal controlled by an enable bit
+# and a selection bit field. Both bit fields are optional. The enable bit can be
+# virtual: an input does not need to be disabled, as long as it is ignored by
+# the firmware.
+#
+# We can try to insert the description of mapping to an existing description of
+# a pad, peripheral or signal, to avoid duplication and to group related
+# information.  However, achieving this requires more than one format for
+# pad-to-signal mapping, and duplication cannot always be avoided.
+#
+#  - If a bit field maps multiple signals of a peripheral together, it is most
+#    conveniently added to the peripheral description. We can use a single
+#    construct for the bit field, requiring duplication of pad and signal
+#    names. This is not possible when there is no bit field involved in the
+#    mapping (fixed mapping).
+#
+#  - If a bit field maps a single pad, we can add it to the pad description.
+#    This avoids duplication of the pad name, at the cost of duplicating the
+#    names of the bit field and the signal.
+#
+#  - If a bit field maps only a single signal, we can add it to the signal
+#    description, duplicating the pad names. This can also work when no bit
+#    field is involved (fixed mapping).
+#
+# A basic pad-to-signal map in peripheral context has the following format:
+#
+# "peripherals" {
+#     "<peripheral-name>": {
+#         "map": {
+#             "bit-field-1": {
+#                 "signal-1": [ "pad-1", "pad-2", ... ],
+#                 "signal-2": [ "pad-3", "pad-4", ... ],
+#                 ...
+#             },
+#             "bit-field-2": {
+#                 "signal-3": [ "pad-1", "pad-2", ... ],
+#                 "signal-4": [ "pad-3", "pad-4", ... ],
+#                 ...
+#             }
+#         },
+#         ...
+#     }
+# }
+#
+# This resembles the tables given in some reference manuals, e.g. CH32V003RM
+# page 55 to 56.
+#
+# The same bit field or pad name can occur in multiple map statements, but each
+# signal name can occur only once in a map; in other words, each signal has
+# only one bit field that can be used to configure it.
+#
+# Each list must contain 2^n pad names, where n is the width of the bit field.
+# The signal is assigned to the i'th pad, where i is the value of the bit
+# field.  If a signal is not assigned to any pad for a given value of the bit
+# field, replace the corresponding list entry by null.
+#
+# We also allow a different format instead of a list:
+#
+#            "signal-name-1": {
+#                "bit-pattern-1": "pad-1",
+#                "bit-pattern-2:  "pad-2",
+#            }, ...
+#
+# In this case, each bit pattern is a string consisting of n characters '0', '1'
+# or 'x', where n is again the width of the bit field. The pad is assigned to
+# the signal if the binary value of the bit field matches the bit pattern. An
+# 'x' matches either '0' or '1', and a '0' or '1' match themselves. If more than
+# one bit pattern matches a value, the one with the smallest number of 'x's
+# wins. A draw is an error. No match means no pad assignment.
+#
+# For a fixed mapping, we can skip the bit field level,  and replace the pad list
+# by a single pad name:
+#
+# "peripherals" {
+#     "<peripheral-name>": {
+#         "map": {
+#             "signal-1": "pad-1",
+#             "signal-2": "pad-2",
+#             ...
+#         },
+#         ...
+#     }
+# }
+#
+# A map for a single signal can be added to the signal description:
+#
+# "peripherals" {
+#     "<peripheral-name>": {
+#         "signals": {
+#             "signal-name-1": {
+#                 ...
+#                 "map": { "bit-field-1": [ "pad-1", "pad-2", ... ] }
+#             },
+#             "signal-name-2": {
+#                 ...
+#                 "map": "pad-3"
+#             },
+#             ...
+#         }
+#         ...
+#     }
+# }
+#
+# A map for a pad can look as follows:
+#
+# "pads": {
+#     "pad-name-1": {
+#         "map": { "bit-field-1": [ "signal-1", "signal-2", ... ] },
+#         ...
+#     },
+#     "pad-name-2": {
+#         "map": "signal-1",
+#         ...
+#     },
+#     ...
+# }
+#
+# Alternatively, we can collect the mapping for all pads in one statement, to
+# more closely resemble the typical table in the documentation:
+#
+# "map": {
+#     "bit-field-1": { "pad-1": [ "signal-1", "signal-2", ... ]}, 
+#     "bit-field-2": { "pad-2", [ "signal-3", "signal-4", ... ]}, 
+#     ...
+# }
+#
+# Compared to the map statements within peripherals, this reverses the role of
+# pad and signal. The signal list must have 2^n entries for a bit field with
+# width n.  Signals can be null for undefined map entries. We can also allow
+# bit pattern notation, avoiding the need for null entries:
+#
+# "map": {
+#     "bit-field-1": { "pad-1": {
+#             "bit-pattern-1: "signal-1",
+#             "bit-pattern-2: "signal-2",
+#             ...
+#     }},
+#     ...
+# }
+#
+# For GPIO, the signal name is equal to the pad name, and no remapping is
+# possible. Signal names already need to be listed, so that we can add
+# capabilities and options; so listing the signals again in a map seems
+# unnecessary. We can make signal-name-equals-pad-name the default.
+#
+# If signal names are not globally unique, they can be prefixed by their
+# peripheral names. For example, if both TIM1 and TIM2 have a CH1 signal, we
+# can refer to them as TIM1.CH1 and TIM2.CH1, respectively. Some data sheets and
+# other documents use '_' instead of '.' as a separator between peripheral name
+# and signal name; we can allow that as long as the result is unambiguous
+# (e.g. peripheral names never have '_'), but use '.' on output for clarity.
+# Inside peripheral descriptions, we can default the peripheral name prefix,
+# requiring an explicit prefix to refer to signals of other peripherals.
+#
+# A similar approach is used for bit field names and register names: if a bit
+# field name is not globally unique, it can be prefixed by the register name,
+# with a '.' separator or optionally an '_'.
+#
+# Conflict detection and handling; enable and optional flags
+# ----------------------------------------------------------
+#
+# Signals can be optional; we can add `"optional": true` for optional
+# signals. Optional output signals need an enable bit, or a disable bit
+# field and value, to avoid conflicts. It is important to know which input
+# signals of a peripheral are optional: if only optional signals have no pad
+# mapping for a given part, the peripheral can still be used for that part, but
+# if required signals have no pad mapping, the peripheral is unusable.
+#
+# We can use `"disable": "bit-field"` (1 bit wide) or `"disable": [ "bit-field",
+# "value" ]` (can be more than one bit wide, and specific value disables) on an
+# optional signal. In that case, it is automatically also optional; there is
+# no need to add the "optional" attribute explicitly.  We can also use
+# `"enable": "bit-field"` if the bit field must be 1 to enable the signal.
+# `"enable": "bit-field"` is equivalent to `"disable": [ "bit-field", "0" ]`.
+# `"disable": "bit-field"` is equivalent to `"disable": [ "bit-field", "1" ]`.
+#
+# A conflict occurs when two or more peripherals claim the same pin. This can
+# happen when the user changes a mapping bitfield, or enables a peripheral or
+# peripheral signal. We can either resolve conflicts immediately, or list them
+# (maybe by marking the conflicted pins). We can also show a subtle warning near
+# the widgets or options that will cause a conflict when selected. And we can
+# refuse to generate code until all conflicts are resolved.
+#
+# We need to be able to determine when a peripheral claims the pins to which its
+# signals are mapped. In many cases, this corresponds to an enable bit for the
+# peripheral and/or the signal, but this is not always true.
+#
+# For example, there is not necessarily an enable bit for a GPIO input: the
+# decision to use a GPIO pad as digital input does not imply any specific
+# configuration. From the user point of view, it requires that no other
+# peripheral uses that pad, so many other configuration bits are involved. There
+# might also be more than one bit involved. For example, for the CH32V003
+# series, the decision to use a pad as GPIO output requires the MODE bits to be
+# set to 01, 10 or 11, depending on the desired speed. Mode is 00 for an input.
+#
+# So, in a way, the choice to use a pad for a specific signal is a virtual
+# decision, especially for an input pad. The same pad can technically be used as
+# input by many peripheral; there is no configuration conflict, the conflict is
+# purely conceptual, or due to hardware external to the chip.
+#
+# We don't want to bother the user with the details of registers and bit fields.
+# Let's provide a conceptual 'enable' flag for each signal.
+#
+# Do we need a similar flag per peripheral? We can try to derive that
+# automatically: a peripheral is enabled as soon as one of its signals is
+# enabled. The issue with that approach is that for some peripherals, it is not
+# possible to disable all signals individually, so enabling one signal may
+# automatically also enable other signals. So yes, we do need an 'enable' flag
+# per peripheral as well.
+#
+# It is possible that some peripherals cannot be disabled, or that some
+# signals cannot be disabled individually, so we need to inform the user
+# interface whether a given peripheral or signal can be disabled. Let's
+# provide an 'optional' flag that is true for peripherals and signals that can
+# be disabled.
+#
+# A GPIO peripheral is typically not only responsible for digital I/O, but also
+# for pad configuration with options like speed and PU/PD (for inputs) and PP/OD
+# (for outputs). In this case, the GPIO peripheral needs to be enabled to
+# configure its pads, even if they are only used by other peripherals. This
+# might not be obvious to the user, so we should not provide an 'enable' flag
+# for such a GPIO peripheral (iow, the peripheral should not be optional); the
+# responsibility to enable a GPIO peripheral should be taken by code generation.
+#
+# We can also provide a similar 'enable' flag for clocks; but not all clocks can
+# be disabled, so we also need to provide the 'optional' flag for clocks.
+#
+# For code generation, we do need to know which bit fields to set to enable a
+# peripheral signal. We allow an 'enable' json tag for each clock, peripheral
+# and signal.  This is a logical expression in terms of bit fields. The
+# default value is '1'.  TODO
+#
+#
+# Generic options
+# ---------------
+#
+# We can generate generic user interface widgets for most RW fields.  The SVD
+# provides these fields, but unfortunately, it does not provide a description of
+# the values. We can add this to the json, by almost literally copying the
+# register definitions in the reference manual.  For example:
+#
+#      "options": {
+#        "PLS": {
+#          "desc": "PVD voltage monitoring threshold setting. See the 
+#                   Electrical Characteristics section of the datasheet for
+#                   detailed instructions.",
+#          "values": {
+#            "000": "2.85V rising edge/2.7V falling edge.",
+#            "001": "3.05V rising edge/2.9V falling edge.",
+#            "010": "3.3V rising edge/3.15V falling edge.",
+#            "011": "3.5V rising edge/3.3V falling edge.",
+#            "100": "3.7V rising edge/3.5V falling edge.",
+#            "101": "3.9V rising edge/3.7V falling edge.",
+#            "110": "4.1V rising edge/3.9V falling edge.",
+#            "111": "4.4V rising edge/4.2V falling edge."
+#          }
+#        },
+#        ...
+#      }
+#
+# The reset value is assumed to be zero, unless explicitly added. Values can be
+# integers, or quoted binary strings, or hexadecimal strings starting with 0x
+# (?).
+#
+# Not all writable fields should generate user interface widgets; for example,
+# clock settings and remapping are handled differently. Also, for some well know
+# peripherals, we may want to offer a custom made widget.
+#
+#
+
+Take 1
+------
+
+Peripherals have an 'enable' expression. The peripheral's registers can only be
+accessed when 'enable' is true. It does not otherwise affect the peripheral's
+functioning.
+
+Signals also have an 'enable' expression. Signals only access a pin if they
+are mapped to a pin and their enable expression is true. It is not necessary
+
+The default enable expression is '1' (true) for both peripherals and signals.
+This means that there are two ways to disable a signal: make it's enable
+expression false, or map it to null.
+
+
+Take 2
+======
+
+Peripherals
+-----------
+
+Peripherals of the current part are the peripherals of the series for which all
+required signals can be mapped to a pin of the part (at the same time -
+although this last constraint is not checked yet). Peripherals can be added to
+and removed from a configuration (by the user, using the UI).
+
+Signals and pin claims
+------------------------
+
+Peripheral settings determine which signals of a peripheral are enabled
+through the signal's "enable" expression. The expression may refer to SFR bit
+field values, which reflect the peripheral's settings. When a peripheral is
+added, its enabled signals claim their pins.
+
+However, it is not always possible to determine an "enable" expression for all
+signals. For example, whether a GPIO pin is used as input is not reflected by
+any SFR bit field, so cannot be captured in an expression. It can only be
+determined by looking at the firmware.
+
+A better approach might be to turn this around: the user selects which pins he
+wants to use, and this forces the corresponding enable expressions to
+true. Depending on the expression, it may or may not be possible to do this
+automatically. If there is only one way to do it, we can do it
+automatically. Otherwise, the user will have to do it by configuring the
+peripheral's settings.
+
+The advantage of this approach is that it is easy to determine which signals
+claim a pin, so also easy to detect conflicts.
+
+Conflicts
+---------
+
+When an enabled signal of an added peripheral is mapped to a pin, it claims
+that pin. When a signal claims a pin, it forces one of the signal's modes
+onto the pad. If there is more than one, we choose the first one, and the user
+interface must offer a way to select another one.
+
+If more than one signal claims a pin, a conflict occurs. The configuration
+will report conflicts using callbacks. It will not automatically resolve them.
+No code can be generated while a conflict exists.
+
+There are some UI design decisions to be made here.  
+
+1. Should the list show only enabled signals of peripherals that were added to
+the configuration, or also other signals?
+
+2. If it also shows other signals, should selecting them automatically add the
+   peripheral and/or enable the signal?
+
+3. If multiple signal-to-pad mappings are linked due to a shared remap
+   setting, should we still allow selecting the mapping on the pin, or
+   single-pin settings on the peripheral?
+
+4. If a requested signal-to-pin mapping can be realized in several ways,
+   which way should be chosen? Offer the user a choice between all possibilities,
+   only non-conflicting possibilities,  or just choose one?
+
+These are decisions that can be made in the UI. The model and configuration
+provide all the necessary information:
+- which peripheral a signal belongs to (Signal.peripheral),
+- which peripherals have been added to the configuration (Config.has_peripheral
+  and Config.peripherals),
+- which signals a given pin can potentially provide (Part.signals_for_pin),
+- (TODO) which signals are enabled (Config.is_signal_enabled),
+- (TODO) what is the list of available mapping options for a given signal or
+  pin,  what are the additional mappings implied by each option, and which
+  of them conflict with existing mappings?
+
+
+
+
+
+
+
+The core config and model software will not automatically add a peripheral or
+enable or enable a signal when it is mapped.
+
+Automatic mapping
+-----------------
+
+We will attempt to implement automatic mapping and automatic conflict resolution
+later.
+
+Automatic mapping will require a way to assign signals to a group of
+equivalent signals; examples are GPIO and ADC. Signals in a group must have
+the same settings and modes. The user should be able to set the required number
+of signals from each group, give them names and change their settings
+including pad settings.
+
+With or without automatic mapping, it should remain possible to manually assign
+signals to pins, including signals belonging to a group. These pre-mapped
+signals should not be considered for automatic mapping.
+
+
+
+
+A signal can be assigned to a group.
+
+
+
+
+
+
+I need some help with terminology, or maybe to clarify a concept. I will try to
+explain below. Please excuse me if the explanation is not 100% clear yet; this
+is my attempt to clarify it.
+
+In the description of an MCU for the config tool (json file), I am adding an
+expression describing when a signal is actually "used" by its peripheral. The
+idea is that you cannot assign two or more such signals to the same pin; that
+would be a conflict.
+
+In my terminology, a signal is "used" (by its peripheral) when it is either an
+output, or if the input value of the signal directly affects the operation of
+the peripheral.
+
+A GPIO configured as input does not "use" its pin; the value on the pins does
+not affect the behavior of the GPIO peripheral, and if you don't read it from
+firmware, it has no effect. Such a pin does not conflict with any other use of
+the pin, so the pin can be safely reused for another function.
+
+If you configure a USART for hardware flow control, the CTS (Clear To Send)
+signal is an input, but it is used internally to control whether bytes in the
+output buffer are transmitted or not, so as long as hardware flow control is
+enabled, this signal cannot be reused for another signal.
+
+To reliably detect conflicts, I need to know the difference between these two
+situations, so I need an expression - in terms of SFR bit fields - that tells me
+whether a peripheral actually uses a given signal, or not.
+
+Also, if a signal is "used" by its peripheral (in its current configuration), we
+should give a warning if it is not mapped to any pin at all.
+
+Initially, I used "enable" instead of "use" in the json file, but that doesn't
+feel right: a GPIO input pin is not "disabled", you can still read it from
+firmware. It is also still "used", from firmware, so "used" doesn't feel right
+either.
+
+Is there an example other than a GPIO input where an input is only used when it
+is read by firmware? Would a MISO or RX signal qualify? Maybe, but there is an
+easy work-around: we can allow the user to "disable" MISO or RX, and this can be
+implemented by not using an alternate function mode on the corresponding pin.
+
+In general we can allow the user to disable any input signal. Whether an output
+signal is enabled purely depends on SFR bitfield settings; this will be
+represented by an "enable" expression. 
+
+Together, this provides enough information to detect conflicts (two enabled
+signals assigned to the same pin) and missing assignments (an enabled signal not
+mapped to any pin), as well as implement automatic pin assignment.
+
+In most situations, we can the chip 
+
+To detect conflict detection, missing pinFor GPIO inputs, this
+has no effect
+
+There is however one exception, one situation that we cannot handle
+
+If we want to be able to verify that every "used" signal is enabled, we will
+need the "used" expression
+
+
+CH32V003
+--------
+
+TIM2.ETR and TIM2.CH1 are always assigned to the same pad.
+
+The mode for TIM2.ETR is FI.  The mode for TIM2.CH1 can be FI or PP-AF.
+
+How can we know that this is OK, even if both ETR and CH1 are enabled? Maybe
+even if CH1 is in PP-AF mode?  Accept this is there is a mapping that assigns
+both to the same pad?  That doesn't work when mapping is done per pad, but that
+is irrelevant: with that style, you cannot assign two signals to the same
+pad. So yes, that is an option. But is it actually OK?
+
+
+
+Package description
+-------------------
+
+If we define our own format: 
+
+For packages with pins at the edges, we would need:
+
+- a basic rectangle width x height
+
+- number of pins on each side (can be zero)
+
+- a marker for the corner where the numbering starts (like a small circle, or a
+  cut-off corner, or ???)
+
+Based on that, we can position the pins on the edges (spread them evenly) and
+add a label centered in the rectangle.

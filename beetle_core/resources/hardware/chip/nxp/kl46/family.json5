@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'kl46'
+// ==========================
+// This file contains very basic data for the 'kl46' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "kl46",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/nxp_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "nxp"
+}

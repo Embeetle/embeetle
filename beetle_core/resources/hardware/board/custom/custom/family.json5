@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'custom'
+// =============================
+// This file contains very basic data for the 'custom' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "custom",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/custom_board.png",
+    "synonyms":           [],
+    "manufacturer":       "custom"
+}

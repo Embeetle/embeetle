@@ -1,0 +1,6 @@
+{
+  "kind"     : "manufacturer",
+  "active"   : false,
+  "icon"     : "icons/logo/espressif.png",
+  "synonyms" : []
+}

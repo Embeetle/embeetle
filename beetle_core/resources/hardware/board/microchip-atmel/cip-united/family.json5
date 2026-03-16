@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'cip-united'
+// =================================
+// This file contains very basic data for the 'cip-united' boardfamily. More detailed data is given
+// in the specific boardfiles.
+{
+    "name":               "cip-united",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/curiosity-nano.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

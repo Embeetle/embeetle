@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'apm32f0'
+// =============================
+// This file contains very basic data for the 'apm32f0' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "apm32f0",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/geehy_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "geehy"
+}

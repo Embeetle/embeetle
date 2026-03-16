@@ -1,0 +1,91 @@
+// TOOL CATEGORIES
+// ===============
+// For each tool category (eg. 'COMPILER_TOOLCHAIN', 'BUILD_AUTOMATION' and 'FLASHTOOL'), Embeetle
+// stores one unique ID (eg. 'openocd_wch_0.11.0_dev02415_32b') which precisely identifies a very
+// specific tool. This gets stored in '<project>/.beetle/dashboard_config.btl' and gets shown in the
+// Dashboard
+
+{
+    "COMPILER_TOOLCHAIN": {
+        "icon": "icons/tools/compiler_toolchain.png",
+        "uid_pattern": {
+            "none":        {"icon": "icons/tools/compiler_toolchain.png" , "uid_shortname": "NONE"             , "relevant_treepaths": [] },
+            "*gnu*arm*":   {"icon": "icons/tools/gnu_arm.png"            , "uid_shortname": "GNU ARM"          , "relevant_treepaths": [] },
+            "*gcc*arm*":   {"icon": "icons/tools/gnu_arm.png"            , "uid_shortname": "GNU ARM"          , "relevant_treepaths": [] },
+            "*gnu*riscv*": {"icon": "icons/tools/gnu_riscv.png"          , "uid_shortname": "GNU RISCV"        , "relevant_treepaths": [] },
+            "*mips*mti*":  {"icon": "icons/tools/gnu.png"                , "uid_shortname": "MIPS MTI"         , "relevant_treepaths": [] },
+            "*clang*arm*": {"icon": "icons/tools/clang.png"              , "uid_shortname": "CLANG ARM"        , "relevant_treepaths": [] },
+            "*llvm*arm*":  {"icon": "icons/tools/clang.png"              , "uid_shortname": "LLVM ARM"         , "relevant_treepaths": [] },
+            "*xtensa*":    {"icon": "icons/tools/gnu_esp32.png"          , "uid_shortname": "GNU XTENSA ESP32" , "relevant_treepaths": [] },
+            "*gnu*avr*":   {"icon": "icons/tools/gnu_avr.png"            , "uid_shortname": "GNU AVR"          , "relevant_treepaths": [] },
+            "*xc8*":       {"icon": "icons/tools/xc_compiler.png"        , "uid_shortname": "XC8"              , "relevant_treepaths": [] },
+            "*xc16*":      {"icon": "icons/tools/xc_compiler.png"        , "uid_shortname": "XC16"             , "relevant_treepaths": [] },
+            "*xc32*":      {"icon": "icons/tools/xc_compiler.png"        , "uid_shortname": "XC32"             , "relevant_treepaths": [] },
+            "*xpack*gcc*": {"icon": "icons/tools/gnu.png"                , "uid_shortname": "GNU GCC"          , "relevant_treepaths": [] }
+        }
+    },
+
+    "BUILD_AUTOMATION": {
+        "icon": "icons/tools/build_automation.png",
+        "uid_pattern": {
+            "none":        {"icon": "icons/tools/build_automation.png" , "uid_shortname": "NONE"     , "relevant_treepaths": [] },
+            "*gnu*make*":  {"icon": "icons/tools/gnu_arm.png"          , "uid_shortname": "GNU MAKE" , "relevant_treepaths": [] },
+            "*make*":      {"icon": "icons/tools/gnu_arm.png"          , "uid_shortname": "MAKE"     , "relevant_treepaths": [] }
+        }
+    },
+
+    "FLASHTOOL": {
+        "icon": "icons/tools/flashtool.png",
+        "uid_pattern": {
+            "none":                   {"icon": "icons/tools/flashtool.png"            , "uid_shortname": "NONE"                , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE", "GDB_FLASHFILE", "BOOTLOADER_FILE", "BOOTSWITCH_FILE", "PARTITIONS_CSV_FILE" ] },
+            "*openocd*giga*":         {"icon": "icons/tools/openocd_giga.png"         , "uid_shortname": "OPENOCD GIGADEVICE"  , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*openocd*nuvoton*":      {"icon": "icons/tools/openocd_nuvoton.png"      , "uid_shortname": "OPENOCD NUVOTON"     , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*openocd*atmosic*":      {"icon": "icons/tools/openocd_atmosic.png"      , "uid_shortname": "OPENOCD ATMOSIC"     , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*openocd*riscv*":        {"icon": "icons/tools/openocd.png"              , "uid_shortname": "OPENOCD RISCV"       , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*openocd*wch*":          {"icon": "icons/tools/openocd.png"              , "uid_shortname": "OPENOCD WCH"         , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*openocd*hpmicro*":      {"icon": "icons/tools/openocd.png"              , "uid_shortname": "OPENOCD HPMICRO"     , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*openocd*cip*":          {"icon": "icons/tools/openocd.png"              , "uid_shortname": "OPENOCD CIP"         , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*openocd*geehy*":        {"icon": "icons/tools/openocd.png"              , "uid_shortname": "OPENOCD GEEHY"       , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*openocd*synwit*":       {"icon": "icons/tools/openocd.png"              , "uid_shortname": "OPENOCD SYNWIT"      , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*openocd*":              {"icon": "icons/tools/openocd.png"              , "uid_shortname": "OPENOCD"             , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "OPENOCD_CHIPFILE", "OPENOCD_PROBEFILE" ] },
+            "*built*in*":             {"icon": "icons/tools/flashtool_none.png"       , "uid_shortname": "BUILT IN"            , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "GDB_FLASHFILE"    ] },
+            "*avrdude*":              {"icon": "icons/tools/avrdude.png"              , "uid_shortname": "AVRDUDE"             , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "BOOTLOADER_FILE"  ] },
+            "*wchisp*":               {"icon": "icons/tools/wchisp.png"               , "uid_shortname": "WCHISP"              , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK"  ] },
+            "*bossac*":               {"icon": "icons/tools/bossac.png"               , "uid_shortname": "BOSSAC"              , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "BOOTLOADER_FILE"  ] },
+            "*esptool*":              {"icon": "icons/tools/esptool.png"              , "uid_shortname": "ESPTOOL"             , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "BOOTLOADER_FILE", "BOOTSWITCH_FILE", "PARTITIONS_CSV_FILE" ] },
+            "*pymcuprog*":            {"icon": "icons/tools/pymcuprog.png"            , "uid_shortname": "PYMCUPROG"           , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK", "PACKPATH"         ] },
+            "*fermionic*flash*prog*": {"icon": "icons/tools/fermionic-flash-prog.png" , "uid_shortname": "FERMIONIC FLASHPROG" , "relevant_treepaths":  ["BUTTONS_BTL", "BUILD_DIR", "BIN_FILE", "ELF_FILE",  "LINKERSCRIPT", "MAKEFILE", "DASHBOARD_MK", "FILETREE_MK"] }
+        }
+    }
+}
+
+// When adding the new 'fermionic-flash-prog' tool, I did the following:
+// 1. Add tool above.
+// 2. Add tool pattern.                              version_extractor.py => get_patterns()
+// 3. Let executable be found.                       version_extractor.py => extract_executable()
+// 4. Add version flag (eg. --version or --help).    version_extractor.py => extract_toolversion() => # Start
+// 5. Add call to dedicated extract function.        version_extractor.py => extract_toolversion() => # Extract
+// 6. Implement dedicated extract function.          version_extractor.py => extract_toolversion() => __extract_fermionic_flashprog_version()
+//
+
+
+
+// 8. Check probe/chip compatibilities.              toolpath_seg.py => update_states()
+//
+// 9. Check probe/chip compatibilities intro wiz.    page_zero_tools.py => create_line_for_toolcat() => prepare_combobox()
+//                                                                         update_line_for_toolcat()
+//
+// 10. Check probe compatibilities.                  probe.py => is_compatible()
+//                                                   probe_unicum.py => get_compatible_flashtools()
+//                                                   probe.txt => column 5
+//
+// 11. Check chip compatibilities.                   chip.py => is_compatible_with_compiler()
+//                                                   chip_unicum.py => is_compatible_with_compiler()
+//                                                   chip.txt => _CHIP_FAMILY => columns 6 and 7
+//
+// 12. Check dashboard_mk_generator.py
+//
+// 13. If tool interacts with $(COM), check if the COM-port needs backslashes
+//     on Windows for COM > 10. Then check:
+//         - console_widget.py => __filter_command_list() => keyreplace()
+//         - makefile_target_executer.py => get_make_command_list()

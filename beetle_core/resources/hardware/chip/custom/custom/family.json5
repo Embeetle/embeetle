@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'custom'
+// ============================
+// This file contains very basic data for the 'custom' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "custom",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/dialog/warning.png",
+    "synonyms":           [],
+    "manufacturer":       "custom"
+}

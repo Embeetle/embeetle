@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'hpm6700'
+// =============================
+// This file contains very basic data for the 'hpm6700' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "hpm6700",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/hpmicro_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "hpmicro"
+}

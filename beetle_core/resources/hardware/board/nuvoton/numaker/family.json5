@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'numaker'
+// ==============================
+// This file contains very basic data for the 'numaker' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "numaker",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/numaker.png",
+    "synonyms":           [],
+    "manufacturer":       "nuvoton"
+}

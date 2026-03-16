@@ -1,0 +1,2927 @@
+{
+    "name"                     : "Obsidian",
+    "is_dark"                  : true,
+    "tooltip"                  : "Obsidian",
+    "image_file"               : "icons/theme/theme-obsidian.png",
+    "form_background_file"     : "figures/backgrounds/background_grid_ultralight.png",
+    "home_window_logo_image"   : "figures/splash/home_screen_dark.png",
+
+    // MOVING TABS
+    // ===========
+    // The GUI allows to grab a tab by its header and drag it. Then you can drop it on top of
+    // another tab, or squeeze it in between two tabs. While dragging the tab, areas are shown
+    // where you can drop it. These areas are passive by default, and active when you hover over
+    // them with the tab in your hand. We call these areas "dock points".
+    "dock_point_color_active"  : "#ff6c6c6c", // Dock point when hovering over it with a tab in your hand
+    "dock_point_color_passive" : "#776c6c6c", // Dock point
+
+    // BACKGROUND
+    // ==========
+    "form_background"    : "#ff242424", // Window background
+    "general_background" : "#ff242424", // ?
+    "dark_background"    : "#ff202020", // Background for textboxes
+    "menubar_background" : "#ff242424", // Backgound for top-level menubar (e.g. "File", "Help", ..)
+    "menu_background"    : "#ff000000", // Background for dropdown or pop-out menus under menubar items
+
+    // TOOLTIP
+    // =======
+    "tool_tip_font"       : "#fff0f0f0", // Font on tooltip
+    "tool_tip_background" : "#ff000000", // Background of tooltip
+    "tool_tip_border"     : "#fff0f0f0", // Border around tooltip
+
+    // SPLITTER
+    // ========
+    // The GUI has a fine splitter line between adjacent tab bodies
+    "splitter_handle_background" : "#ff404040", // Splitter line regular color
+    "splitter_handle_hover"      : "#556c6c6c", // Splitter line when hovered
+    "splitter_handle_pressed"    : "#ff6c6c6c", // Splitter line when pressed and dragged
+                                                // (to enlarge or squeeze the tab body size)
+
+    // PIECES AI
+    // =========
+    // The user can open 'Pieces AI' in a tab, to chat with the AI. Like any chat application, this
+    // tab has two major part: the 'question' part where you can type your question for the AI, and
+    // the 'answer' part where the AI displays its replies.
+    "pieces_question_background" : "#ff242424", // Background of question textfield
+    "pieces_question_border"     : "#ff242424", // Border around question textfield
+    "pieces_answer_background"   : "#ff000000", // Background of answer textfield
+    "pieces_answer_border"       : "#ff242424", // Border around answer textfield
+
+    // BUTTONS
+    // =======
+    "dropdown_border" : "#ff8a8a8a", // Border around dropdown widgets
+    "button_border"   : "#ff8a8a8a", // Border around buttons and textfields
+
+    // REGULAR BUTTON & UNCHECKED TOGGLE BUTTON
+    "button_unchecked"       : "#ff505050", // Background
+    "button_unchecked_hover" : "#ff727272", // Background when hovered
+    "button_unchecked_font"  : "#fff0f0f0", // Font
+
+    // CHECKED TOGGLE BUTTON
+    "button_checked"       : "#ffd0d0d0", // Background
+    "button_checked_hover" : "#ffdfdfdf", // Background when hovered
+    "button_checked_font"  : "#ff000000", // Font
+
+    // POSITIVE MESSAGE BUTTON (eg. update available)
+    "button_good_border"         : "#ff00ff00", // Border
+    "button_good_unchecked"      : "#ff73d216", // Background
+    "button_good_unchecked_font" : "#fff0f0f0", // Font
+    "button_good_checked_font"   : "#fff0f0f0", // Font if checked (must be a toggle button)
+
+    // NEGATIVE MESSAGE BUTTON (eg. error or warning detected)
+    "button_error_border"           : "#ffff0000", // Border
+    "button_error_unchecked"        : "#ffcc0000", // Background
+    "button_error_unchecked_font"   : "#fff0f0f0", // Font
+    "button_error_checked_font"     : "#fff0f0f0", // Font if checked (must be a toggle button)
+    "button_warning_border"         : "#f0f0f000", // Border
+    "button_warning_unchecked"      : "#fff57900", // Background
+    "button_warning_unchecked_font" : "#ff000000", // Font
+    "button_warning_checked_font"   : "#ff000000", // Font if checked (must be a toggle button)
+
+    // TABLES
+    // ======
+    // For example: the table in the CREATE PROJECT window
+    "table_header" : "#ff242424", // Background table header
+    "table_grid"   : "#ff8b8b8b", // Grid lines in table
+
+    // SCROLLBAR
+    // =========
+    // Long thin track at the edge of a tab body (eg. editor tab) with a movable "handle" which
+    // can be dragged to navigate vertically or horizontally through content exceeding the visible
+    // area of the tab body.
+    "scroll_bar": {
+        "background"   : "#ff404040", // Color of the track behind the movable handle
+        "handle"       : "#ff1d1d1d", // Color of the movable handle
+        "handle_hover" : "#ff141414", // Color of the movable handle when hovered
+        "show_arrows"  : false,       // Show arrows at each end of the scrollbar track
+        "arrow_up"     : "icons/arrow/chevron/chevron_up.svg",
+        "arrow_down"   : "icons/arrow/chevron/chevron_down.svg",
+        "arrow_left"   : "icons/arrow/chevron/chevron_left.svg",
+        "arrow_right"  : "icons/arrow/chevron/chevron_right.svg"
+    },
+
+    // CONSOLE
+    // =======
+    // The console that executes shell commands for clean, build and flash. The
+    // console usually has a black background (regardless of the theme) and
+    // white default font. We define some other font colors too (such as red,
+    // green, ...) in a way that displays nicely on the black background.
+    "console": {
+        "background": "#ff000000",
+        "border": "#ff2e3436",
+        "fonts":
+        {
+            "default": "#ffffffff",
+            "black": "#ff000000",
+            "red": "#ffef2929",
+            "green": "#ffa1e85b",
+            "yellow": "#fffce94f",
+            "blue": "#ff8fb3d9",
+            "magenta": "#ff8fb3d9",
+            "cyan": "#ff8fb3d9",
+            "white": "#ffffffff",
+            "purple": "#ffc5a4c1",
+            "info": "#ffffffff",    // white
+            "warning": "#fffce94f", // yellow
+            "error": "#ffef2929",   // red
+            "sa": "#ff8fb3d9",      // cyan
+            "teal": "#ff4ec9b0",
+            "path": "#ffc5e478"
+        }
+    },
+
+    // EDITOR
+    // ======
+    // -*-*- NOTE ABOUT TEXT SELECTION COLORS IN THE EDITOR -*-*-
+    // Text selection coloring in the editor is quite complex. the following three rules apply:
+    //
+    // 1) When selecting text, the background color is theme["fonts"]["selection"]["background"]
+    // (no need to be transparent, it really is a background color) and the text color is set to
+    // theme["fonts"]["selection"]["color"].
+    //
+    // 2) As soon as your selection covers an entire token, the editor puts an extra overlay color
+    // on top: theme["indication"]["selection"]. Beware, this is an overlay color, so it must be
+    // transparent! This overlay is not only put on the token you selected, but also on all nearby
+    // tokens with the same name.
+    //
+    // 3) Finally, keep in mind that theme["cursor_line_overlay"] color is an extra overlay on top
+    // of the current editor line (in which the cursor is located). It is always on the current
+    // editor line, regardless of any text being selected there or not.
+    //
+    // When applying these three rules, you can conclude that the apparent background color of a
+    // token you select, is actually a mix of:
+    // - theme["fonts"]["selection"]["background"]
+    // - theme["indication"]["selection"]
+    // - theme["cursor_line_overlay"]
+    //
+    // The apparent text color is then a mix of:
+    // - theme["fonts"]["selection"]["color"]
+    // - theme["indication"]["selection"]
+    // - theme["cursor_line_overlay"]
+    //
+    // Applying the three rules on the nearby tokens with the same name, you get an apparent
+    // background color as a mix of:
+    // - theme["editor_background"]
+    // - theme["indication"]["selection"]
+    //
+    // And the apparent text color of these nearby tokens as a mix of:
+    // - theme["fonts"]["selection"]["color"]
+    // - theme["indication"]["selection"]
+    //
+    // -*-*- END OF NOTE -*-*-
+
+    "editor_background"   : "#ff242424", // Editor background color
+    "cursor"              : "#fff0f0f0", // Color of the cursor itself
+    "cursor_line_overlay" : "#30d2d2d2", // Overlay color on text line in which cursor is located.
+                                         // Warning: this color is an overlay on the text, so it
+                                         // must be transparent!
+
+    "cursor_line_frame" : false, // Decide if you want the previous color from "cursor_line_overlay"
+                                // to be used as a thin frame around the line in which the cursor
+                                // is located (like VSCode does) or as a background color (actually
+                                // an overlay color) that covers the entire line (like JetBrains
+                                // does). For a thin frame, enter `true`. For the entire background,
+                                // enter `false`.
+                                // Note: if you choose for a thin frame, you should make the color
+                                // stand out a little more.
+
+    "fold_margin": {               // Fold Margin is currently unused
+        "foreground": "#ff5f5f5f", // Text color in fold margin
+        "background": "#ff1c1c1c"  // Background color fold margin
+    },
+    "line_margin": {               // Line Margin shows the code line numbers
+        "foreground": "#ffd0d0d0", // Text color in line margin
+        "background": "#ff1c1c1c"  // Background color line margin
+    },
+
+    "indication": {
+        "highlight" : "#5000ff00", // Overlay color on highlighted text in the editor. Text is
+                                   // highlighted when, for example, searching a token with Ctrl+F.
+                                   // Warning: This color is an overlay on the text, so it must be
+                                   // transparent!
+
+        "selection" : "#40c8c8c8", // See NOTE ABOUT TEXT SELECTION COLORS IN THE EDITOR.
+
+        "replace"   : "#5032b4ff", // Overlay color on replaced text in the editor. Currently there
+                                   // is a bug, see https://forum.embeetle.com/t/highlighting-replaced-text-not-working/1017
+
+        "symbol"    : "#ff9d9dff", // Text color given to a token that is recognized as a C/C++
+                                   // symbol when you hover over it with the mouse.
+
+        "error"     : "#ffffa0a0", // Text color in debugger console for error messages. Also used
+                                   // as background color in the editor when flashing a line that
+                                   // contains an error. If used as background color, it's a true
+                                   // background color - not an overlay. So it can be opaque.
+
+        "warning"   : "#ffedd400", // Same as previous, but for warnings instead of errors.
+
+        "hover"     : "#ff606060", // Used as a temporary background color for a myriad of user
+                                   // interface elements while the mouse hovers over them. For
+                                   // example: items in the Filetree, Dashboard, ...
+
+        "background_selection" : "#64c8c8c8" // Overlay color on all unselected text in the editor
+                                             // when you do a search operation on selected text.
+                                             // This overlay color must be transparent and intends
+                                             // to grey out the non-relevant text during the search
+                                             // (make it somewhat less visible).
+                                             // Note: we have a bug in the implementation for
+                                             // 'search in selection':
+                                             // https://forum.embeetle.com/t/issue-in-editor-search-in-selection-functionality/1019
+    },
+    "text_differ": {
+        "indicator_unique_1_color": "#50ffffff", // Background color for all text that is unique to
+                                                 // to the original document (so must be removed).
+                                                 // Usually this color is a bit red and is preceded
+                                                 // by a red `-` sign in the margin.
+
+        "indicator_unique_2_color": "#50ad7fa8", // Background color for all text that is unique to
+                                                 // the new document (so it must be added). Usually
+                                                 // this color is a bit green and is preceded by a
+                                                 // green `+` sign in the margin.
+
+        "indicator_similar_color" : "#508ae234"  // Background color for all text that is almost
+                                                 // similar between both documents. Usually this
+                                                 // color is a bit blue and is preceded by a blue
+                                                 // `=` sign in the margin.
+    },
+    "tab_headers": {
+        // Standard (not indicated) tab header. 'Not indicated' means that the user is NOT working
+        // in the encapsulating tab widget, the focus is on another one (by 'tab widget' I mean the
+        // widget that contains all the tabs, side-by-side, and their bodies).
+        "standard": {
+            // The tab header that is showing its body (index matches). Even though the body is
+            // shown, keep in mind that the user is now working in some tab body in another tab
+            // widget! Hence 'not indicated'.
+            "current_index": {
+                "color"      : "#ffffffff", // Text color
+                "background" : "#ff101010", // Background color
+                "border"     : "#ff606060"  // Border
+            },
+            // A tab header not showing its body (index doesn't match).
+            "other_index": {
+                "color"      : "#ff000000", // Text color
+                "background" : "#ff101010", // Background color
+                "border"     : "#ff606060"  // Border
+            }
+        },
+
+        // Standard indicated tab header. 'Indicated' means that the user is working right now in
+        // a tab body inside the encapsulating tab widget.
+        "standard_indicated": {
+            // The user is working right now in the body that belongs to this tab header.
+            "current_index": {
+                "color"      : "#ff000000", // Text color
+                "background" : "#ffd0d0d0", // Background color
+                "border"     : "#ff606060"  // Border
+            },
+            // A tab header not showing its body (index doesn't match).
+            "other_index": {
+                "color"      : "#ffffffff", // Text color
+                "background" : "#ff101010", // Background color
+                "border"     : "#ff606060"  // Border
+            }
+        },
+
+        // Tab header from a file, opened in the editor, that is inside the compiler toolchain.
+        "inside_compiler": {
+            "current_index": {
+                "color"      : "#ff173560", // Text color
+                "background" : "#ffa4c1e0", // Background color
+                "border"     : "#ff606060"  // Border
+            },
+            "other_index": {
+                "color"      : "#ff204a87", // Text color
+                "background" : "#ffbfd3e9", // Background color
+                "border"     : "#ff606060"  // Border
+            }
+        },
+
+        // Tab header from a file, opened in the editor, that is excluded from the project.
+        "excluded_from_project": {
+            "current_index": {
+                "color"      : "#ff660000", // Text color
+                "background" : "#fffaa7a7", // Background color
+                "border"     : "#ff606060"  // Border
+            },
+            "other_index": {
+                "color"      : "#ffa40000", // Text color
+                "background" : "#fffddbdb", // Background color
+                "border"     : "#ff606060"  // Border
+            }
+        },
+
+        // Tab header from a file, opened in the editor, that is outside the project folder.
+        "outside_project": {
+            "current_index": {
+                "color"      : "#fff0f0f0", // Text color
+                "background" : "#ff5c3566", // Background color
+                "border"     : "#ff000000"  // Border
+            },
+            "other_index": {
+                "color"      : "#ff204a87", // Text color
+                "background" : "#ffad7fa8", // Background color
+                "border"     : "#ff000000"  // Border
+            }
+        },
+
+        // The close button on the right side of the tab header. Usually a cross. Clicking this
+        // button closes the tab.
+        "close_button": {
+            "passive": {
+                "standard" : "icons/tab/close_white.png",
+                "hover"    : "icons/tab/close_white_hover.png",
+                "press"    : "icons/tab/close_white_press.png"
+            },
+            "active": {
+                "standard" : "icons/tab/close.png",
+                "hover"    : "icons/tab/close_hover.png",
+                "press"    : "icons/tab/close_press.png"
+            }
+        }
+    },
+
+    // SHADE
+    // Each theme has its own 'theme color' which is prominent throughout the theme. For example:
+    //   - air      => light blue
+    //   - crystal  => light grey
+    //   - graphite => black
+    //   - obsidian => black (but deeper)
+    //   - water    => dark blue
+    //
+    // The `shade` list starts from white (or black for a dark theme) and makes its way to a dark
+    // color (or white color for a dark theme), thereby passing through the 'theme color' on the
+    // way.
+    // The colors in this list are then used from time to time in the user interface.
+    "shade": [
+        "#ff404040",
+        "#ff3c3c3c",
+        "#ff383838",
+        "#ff343434",
+        "#ff303030",
+        "#ff2c2c2c",
+        "#ff282828",
+        "#ff242424",
+        "#ff202020",
+        "#ff1c1c1c",
+        "#ff181818",
+        "#ff141414",
+        "#ff101010",
+        "#ff0c0c0c",
+        "#ff080808",
+        "#ff040404",
+        "#ff000000"
+    ],
+    "tree_widget_branch_images": {
+        "node_open_first_with_siblings"   : "icons/treeview/node-open-first-with-siblings-bright.png",
+        "node_closed_first_with_siblings" : "icons/treeview/node-closed-first-with-siblings-bright.png",
+        "f"                               : "icons/treeview/f-bright.png",
+        "node_closed_only"                : "icons/treeview/node-closed-only-bright.png",
+        "node_closed_middle"              : "icons/treeview/node-closed-middle-bright.png",
+        "node_closed_last"                : "icons/treeview/node-closed-last-bright.png",
+        "node_open_only"                  : "icons/treeview/node-open-only-bright.png",
+        "node_open_middle"                : "icons/treeview/node-open-middle-bright.png",
+        "node_open_last"                  : "icons/treeview/node-open-last-bright.png",
+        "t"                               : "icons/arrow/spacer/TSpacer.png",
+        "t-add"                           : "icons/arrow/spacer/TSpacer_ad.png",
+        "l"                               : "icons/arrow/spacer/LSpacer.png",
+        "l-add"                           : "icons/arrow/spacer/LSpacer_ad.png",
+        "line"                            : "icons/arrow/spacer/ISpacer.png",
+        "expand_arrow"                    : "icons/arrow/spacer/arrow.png"
+    },
+    "fonts": {
+        "default": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        "selection": {
+            // See NOTE ABOUT TEXT SELECTION COLORS IN THE EDITOR for the complete mechanism behind
+            // coloring selected text.
+            "color": "#f0f0f0",
+            "bold": false,
+            "background": "#0078d7"
+        },
+        "red": {
+            "color": "#fff57979",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        "green": {
+            "color": "#ff9ee757",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        "blue": {
+            "color": "#ff80a9d4",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        "purple": {
+            "color": "#ffcdb1ca",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        "grey": {
+            "color": "#ffd3d7cf",
+            "bold": false,
+            "background": "#ffffffff"
+        },
+        "lightgrey": {
+            "color": "#ff888a85",
+            "bold": false,
+            "background": "#ffffffff"
+        },
+        // Languages: C/C++
+        "advanced_keyword": {
+            "color": "#ffe1f0ff",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "array": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#f0f0f0e0"
+        },
+        // Languages: C/C++, Python
+        "array_parenthesis": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Assembly
+        "asm": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: ASP
+        "asp_at_start": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#f0f0f000"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_comment_doc": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_comment_line": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_default": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_double_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_number": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_regex": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffffbbb0"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_single_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_start": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_symbol": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_unclosed_string": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffbfbbb0"
+        },
+        // Languages: JavaScript (ASP)
+        "asp_java_script_word": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffdfdf7f"
+        },
+        // Languages: Python (ASP)
+        "asp_python_class_name": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_default": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_double_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_function_method_name": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_identifier": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_number": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_operator": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_single_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_start": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python (ASP)
+        "asp_python_triple_double_quoted_string": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: Python (ASP)
+        "asp_python_triple_single_quoted_string": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffcfefcf"
+        },
+        // Languages: ASP
+        "asp_start": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffffdf00"
+        },
+        // Languages: VBScript (ASP)
+        "aspvb_script_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ffcfcfef"
+        },
+        // Languages: VBScript (ASP)
+        "aspvb_script_default": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffcfcfef"
+        },
+        // Languages: VBScript (ASP)
+        "aspvb_script_identifier": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffcfcfef"
+        },
+        // Languages: VBScript (ASP)
+        "aspvb_script_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffcfcfef"
+        },
+        // Languages: VBScript (ASP)
+        "aspvb_script_number": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ffcfcfef"
+        },
+        // Languages: VBScript (ASP)
+        "aspvb_script_start": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: VBScript (ASP)
+        "aspvb_script_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffcfcfef"
+        },
+        // Languages: VBScript (ASP)
+        "aspvb_script_unclosed_string": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff7f7fff"
+        },
+        // Languages: ASP.NET
+        "aspxc_comment": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python, Perl
+        "assignment": {
+            "color": "#ffffc98c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "at_rule": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: HTML/XML
+        "attribute": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python, Shell
+        "backquote_string": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Shell/Bash
+        "backtick_here_document": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffddd0dd"
+        },
+        // Languages: Shell/Bash
+        "backtick_here_document_var": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffddd0dd"
+        },
+        // Languages: Shell/Bash
+        "backticks": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ffa08080"
+        },
+        // Languages: Shell/Bash
+        "backticks_var": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffa08080"
+        },
+        // Languages: C/C++
+        "bad_directive": {
+            "color": "#ffffddcc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python, Ruby, Perl
+        "bad_string_character": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ffff0000"
+        },
+        // Languages: Python
+        "base_85_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Basic
+        "basic_functions": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffd0ffd0"
+        },
+        // Languages: Nim
+        "basic_keyword": {
+            "color": "#ff8c8cff",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript, PHP, Ruby
+        "block_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "block_foreach": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "block_if": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Assembly
+        "block_macro": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "block_regex": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "block_regex_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "block_while": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "call_convention": {
+            "color": "#ffe1f0ff",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: Nim
+        "case_of": {
+            "color": "#ffc68cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: XML
+        "cdata": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#fffff0f0"
+        },
+        // Languages: Nim
+        "char_literal": {
+            "color": "#ff8ce8ff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript, PHP
+        "character": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Nim
+        "class": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "class_name": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "class_selector": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ruby
+        "class_variable": {
+            "color": "#ffde8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "clip_property": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Shell/Bash
+        "command": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ada, Assembly, C/C++, Nim, Oberon/Modula-2/Component Pascal, RouterOS, LinkerScript, Makefile
+        "comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "comment_bang": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ffe0f0ff"
+        },
+        // Languages: Python
+        "comment_block": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, Python, Perl
+        "comment_box": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#fff0fff0"
+        },
+        // Languages: C/C++, Java
+        "comment_doc": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "comment_doc_keyword": {
+            "color": "#ffd8e9ff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "comment_doc_keyword_error": {
+            "color": "#ffffddcc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "comment_keyword": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, Python, Shell, Ruby
+        "comment_line": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "comment_line_doc": {
+            "color": "#fffcfcfc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python, Perl, Shell
+        "comment_line_hash": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Pascal
+        "comment_nested": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Lisp, Scheme
+        "comment_parenthesis": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python, Ruby, Shell
+        "continuation": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#fff0e080"
+        },
+        // Languages: Lua
+        "coroutines_io_system_facilities": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffffd0d0"
+        },
+        // Languages: CSS
+        "css_1_property": {
+            "color": "#ff8caeff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "css_2_property": {
+            "color": "#ff8cdeff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "css_3_property": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: User-defined (C/C++, Python, Java)
+        "custom_keyword": {
+            "color": "#fffafa89",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "data_section": {
+            "color": "#ffec8282",
+            "bold": false,
+            "background": "#fffff0d8"
+        },
+        // Languages: Verilog/VHDL
+        "declare_input_output_port": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Verilog/VHDL
+        "declare_input_port": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Verilog/VHDL
+        "declare_output_port": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "decorator": {
+            "color": "#ffffd38c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C++, JavaScript
+        "default_value": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Nim
+        "definition": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python, Java, HTML/XML
+        "delimiter": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C++11 and later
+        "demoted_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "dictionary_parenthesis": {
+            "color": "#ffd8e9ff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Diff
+        "diff_similar": {
+            "color": "#ff8c8c8c",
+            "bold": false
+        },
+        // Languages: Diff
+        "diff_unique_1": {
+            "color": "#fff0f0f0",
+            "bold": false
+        },
+        // Languages: Diff
+        "diff_unique_2": {
+            "color": "#fff0f0f0",
+            "bold": false
+        },
+        // Languages: POV
+        "directive": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: RouterOS
+        "disabled": {
+            "color": "#ffa0a0a0",
+            "bold": false,
+            "background": "#ffd2d2d2"
+        },
+        // Languages: C++, Java, Python, JavaScript, C#, PHP, Ruby, Rust
+        "doccomment": {
+            "color": "#ffffa0a0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Nim
+        "documentation_comment": {
+            "color": "#ffffa0a0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: LinkerScript
+        "dot": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python, JavaScript, Java, C#, PHP, Ruby
+        "dotted_operator": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Bash, Shell script
+        "double_quoted_here_document": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffddd0dd"
+        },
+        // Languages: Bash, Shell script
+        "double_quoted_here_document_var": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffddd0dd"
+        },
+        // Languages: C/C++, Java, JavaScript, Python, PHP, Ruby, C#, Go, Swift, Kotlin, TypeScript, Perl, Shell, PowerShell, JSON
+        "double_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Template languages, Shell scripts
+        "double_quoted_string_var": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: LinkerScript
+        "dunder": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PostScript
+        "dsc_comment": {
+            "color": "#fffcfcfc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PostScript
+        "dsc_comment_value": {
+            "color": "#ffd8e9ff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: HTML, XML
+        "entity": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, Python, JavaScript, PHP, Ruby, compiler error highlighting
+        "error": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff990000"
+        },
+        // Languages: C/C++, Java, JavaScript, Python, PHP, Ruby, C#, Go, Swift, Rust, Perl, Shell, JSON, RegEx
+        "escape_sequence": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: JavaScript, C/C++, Rust
+        "expand_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#f0f0f080"
+        },
+        // Languages: LinkerScript
+        "extra": {
+            "color": "#ffffb08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "extended_css_property": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: JavaScript, Python, Ruby, PHP
+        "extended_function": {
+            "color": "#ffffe9f6",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "extended_pseudo_class": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "extended_pseudo_element": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Shell, Batch
+        "external_command": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Makefile
+        "filter": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript, Python, Rust, Go (bitwise operations)
+        "flags": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "format_body": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#fffff0ff"
+        },
+        // Languages: C/C++, Python
+        "format_identifier": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript, Python, PHP, Ruby, C#, Go, Swift, Kotlin, TypeScript, Rust, Perl, Lua
+        "function": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "function_method_name": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: None
+        "fuzzy": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python
+        "global": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C++
+        "global_class": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: LinkerScript
+        "group": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: RouterOS
+        "hash": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffffe0ff"
+        },
+        // Languages: Perl, Ruby, PowerShell
+        "hash_quoted_string": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C
+        "header": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Shell scripts, Perl
+        "here_document": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffddd0dd"
+        },
+        // Languages: Shell scripts, Perl
+        "here_document_delimiter": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffddd0dd"
+        },
+        // Languages: LinkerScript
+        "hex_number": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Assembly
+        "hex_string": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Shell, Batch
+        "hide_command_char": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript, Python, Ruby, PHP, Go, syntax highlighting
+        "highlighted_identifier": {
+            "color": "#fffdfeff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: HTML
+        "html_comment": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: HTML
+        "html_double_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: HTML
+        "html_number": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: HTML
+        "html_single_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: HTML
+        "html_value": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ffffefff"
+        },
+        // Languages: CSS
+        "id_selector": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python, C/C++, Java, and most programming languages
+        "identifier": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ruby
+        "immediate_eval_literal": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "important": {
+            "color": "#ffffc68c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: JSON, XML, URI/IRI specifications
+        "iri": {
+            "color": "#ffcdb1ca",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: JSON, XML, URI/IRI specifications
+        "iri_compact": {
+            "color": "#ffcdb1ca",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_comment": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_comment_bang": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_comment_doc": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_comment_doc_keyword": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_comment_doc_keyword_error": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_comment_keyword": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_comment_line": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_comment_line_doc": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Verilog
+        "inactive_declare_input_output_port": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Verilog
+        "inactive_declare_input_port": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Verilog
+        "inactive_declare_output_port": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_default": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_double_quoted_string": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_escape_sequence": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C++
+        "inactive_global_class": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_hash_quoted_string": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_identifier": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_keyword": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_keyword_set_2": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_number": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_operator": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Verilog
+        "inactive_port_connection": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "inactive_pre_processor": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "inactive_pre_processor_comment": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "inactive_pre_processor_comment_line_doc": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "inactive_preprocessor": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C++
+        "inactive_raw_string": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: JavaScript, Perl, Ruby, C/C++
+        "inactive_regex": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_single_quoted_string": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, IDL
+        "inactive_string": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Verilog
+        "inactive_system_task": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, Python, JavaScript, PHP, TODO/FIXME in disabled code
+        "inactive_task_marker": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C#, Python
+        "inactive_triple_quoted_verbatim_string": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, Python, JavaScript, Ruby, PHP, syntax errors in disabled code
+        "inactive_unclosed_string": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, Python, user-defined keywords in disabled code
+        "inactive_user_keyword_set": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python, Java, user-defined literals in disabled code
+        "inactive_user_literal": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C#, Java, special IDs in disabled code
+        "inactive_uuid": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C#
+        "inactive_verbatim_string": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: None
+        "inconsistent": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ruby, Python
+        "instance_variable": {
+            "color": "#ffff8ce0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Fortran
+        "intrinsic_function": {
+            "color": "#ffff8cb6",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: TCL
+        "itcl_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#fffff0f0"
+        },
+        // Languages: JavaScript
+        "java_script_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JavaScript
+        "java_script_comment_doc": {
+            "color": "#fffcfcfc",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JavaScript
+        "java_script_comment_line": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JavaScript
+        "java_script_default": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JavaScript
+        "java_script_double_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JavaScript
+        "java_script_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JavaScript
+        "java_script_number": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JavaScript
+        "java_script_regex": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffffbbb0"
+        },
+        // Languages: JavaScript
+        "java_script_single_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JavaScript
+        "java_script_start": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: JavaScript
+        "java_script_symbol": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JavaScript
+        "java_script_unclosed_string": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffbfbbb0"
+        },
+        // Languages: JavaScript
+        "java_script_word": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#fff0f0ff"
+        },
+        // Languages: JSON, YAML
+        "key": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ada, Assembly, C/C++, Oberon/Modula-2/Component Pascal, Makefile
+        "keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ada
+        "keyword_1": {
+            "color": "#ff8cff8c",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: Ada
+        "keyword_2": {
+            "color": "#ffff8cc6",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: Ada
+        "keyword_3": {
+            "color": "#ff8cffff",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript
+        "keyword_doc": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Assembly
+        "keyword_operator": {
+            "color": "#fff1d8ff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C++, Java, Python, JavaScript, secondary keyword categories
+        "keyword_secondary": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript
+        "keyword_set_2": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CMake
+        "keyword_set_3": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CMake
+        "keyword_set_5": {
+            "color": "#ffcd8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ruby
+        "keyword_set_6": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: AVS
+        "keyword_set_7": {
+            "color": "#ffffddcc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "keyword_set_8": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "keyword_set_9": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Assembly, linker directives
+        "keyword_ld": {
+            "color": "#ff9ee757",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Assembly
+        "label": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Diff
+        "line_added": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Diff
+        "line_changed": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript, Python, PHP, Ruby, C#, Go, Swift, Kotlin, Rust, Perl, Shell, SQL, Assembly
+        "line_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Diff
+        "line_removed": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript, Python, PHP, Ruby, C#, Go, Swift, Kotlin, TypeScript, Rust, SQL, Lua
+        "literal": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "literal_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffe0ffff"
+        },
+        // Languages: Nim
+        "long_string": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Nim
+        "longstring": {
+            "color": "#ffff8c8c",
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "media_rule": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PO (Gettext translation files)
+        "message_context": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PO (Gettext translation files)
+        "message_context_text": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PO (Gettext translation files)
+        "message_context_text_eol": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PO (Gettext translation files)
+        "message_id": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PO (Gettext translation files)
+        "message_id_text": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PO (Gettext translation files)
+        "message_id_text_eol": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PO (Gettext translation files)
+        "message_string": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PO (Gettext translation files)
+        "message_string_text": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PO (Gettext translation files)
+        "message_string_text_eol": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "modifier": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Oberon/Modula-2/Component Pascal
+        "module": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Oberon/Modula-2/Component Pascal
+        "module_name": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Nim
+        "multiline_comment": {
+            "color": "#ff88f8f8",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Nim
+        "multiline_documentation": {
+            "color": "#fff3e1ff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python, Ruby, C#, variable and function names
+        "name": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "nested_block_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: None
+        "no_warning": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ada, C/C++, Nim, Oberon/Modula-2/Component Pascal, Python
+        "number": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: POV
+        "objects_csg_appearance": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffffd0d0"
+        },
+        // Languages: C/C++, Nim, RouterOS
+        "operator": {
+            "color": "#ff8afcfc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: XML, HTML
+        "other_in_tag": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ada
+        "package": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, Python, JavaScript, function parameters
+        "parameter": {
+            "color": "#ff8caeff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Shell scripts, Bash
+        "parameter_expansion": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#f0f0f0e0"
+        },
+        // Languages: Ruby
+        "percent_string_q": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ruby
+        "percent_stringq": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ruby
+        "percent_stringr": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffa0ffa0"
+        },
+        // Languages: Ruby
+        "percent_stringw": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#f0f0f0e0"
+        },
+        // Languages: Ruby
+        "percent_stringx": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ffa08080"
+        },
+        // Languages: PHP
+        "php_comment": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: PHP
+        "php_comment_line": {
+            "color": "#fff2f2f2",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: PHP
+        "php_default": {
+            "color": "#ff6969bf",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: PHP
+        "php_double_quoted_string": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: PHP
+        "php_double_quoted_variable": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: PHP
+        "php_keyword": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: PHP
+        "php_number": {
+            "color": "#ffffe28c",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: PHP
+        "php_operator": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: PHP
+        "php_single_quoted_string": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: PHP
+        "php_start": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffffefbf"
+        },
+        // Languages: PHP
+        "php_variable": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#fffff8f8"
+        },
+        // Languages: None
+        "plugin": {
+            "color": "#ff8cd9ff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, JavaScript, PHP, multiline comments
+        "plus_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C++, Java, Ruby, operator overloading
+        "plus_keyword": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: None
+        "plus_prompt": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ffe0ffe0"
+        },
+        // Languages: Perl
+        "pod": {
+            "color": "#ff70cc70",
+            "bold": false,
+            "background": "#ffc0ffc0"
+        },
+        // Languages: Perl
+        "pod_verbatim": {
+            "color": "#ff70cc70",
+            "bold": false,
+            "background": "#ffc0ffc0"
+        },
+        // Languages: Verilog
+        "port_connection": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "position": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Nim
+        "pragma": {
+            "color": "#fffff0e1",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Assembly, C/C++
+        "pre_processor": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "pre_processor_comment": {
+            "color": "#ffd9ff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "pre_processor_comment_line_doc": {
+            "color": "#fffcfcfc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "pre_processor_parenthesis": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python, JavaScript, PHP, Ruby, standard library functions
+        "predefined_functions": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffd0d0ff"
+        },
+        // Languages: C/C++, Java, Python, JavaScript, built-in identifiers
+        "predefined_identifiers": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "preprocessor": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ada, Oberon/Modula-2/Component Pascal
+        "procedure": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ada, Oberon/Modula-2/Component Pascal
+        "procedure_parenthesis": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: JavaScript, Python, C#, Java, Ruby
+        "property": {
+            "color": "#ff80a9d4",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C, C++, Java, Python, JavaScript, TODO/FIXME comments
+        "programmer_comment": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "pseudo_class": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "pseudo_element": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "python_class_name": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_default": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_double_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_function_method_name": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_identifier": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_number": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_operator": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_single_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_start": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "python_triple_double_quoted_string": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: Python
+        "python_triple_single_quoted_string": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffefffef"
+        },
+        // Languages: SQL, C/C++, Python, quoted identifiers
+        "quoted_identifier": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: SQL, C/C++, JavaScript, quoted keywords
+        "quoted_keyword": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#fffff0f0"
+        },
+        // Languages: SQL, Python, special operator syntax highlighting
+        "quoted_operator": {
+            "color": "#fff0f0f0",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python, Perl, SQL, Ruby, quoted string literals
+        "quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#fffff0f0"
+        },
+        // Languages: Perl
+        "quoted_string_q": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "quoted_string_qq": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "quoted_string_qq_var": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "quoted_string_qr": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "quoted_string_qr_var": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "quoted_string_qw": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "quoted_string_qx": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "quoted_string_qx_var": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffa08080"
+        },
+        // Languages: C++, Python
+        "raw_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C++, C#, JavaScript, reference types and pointers
+        "reference": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "regex": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffa0ffa0"
+        },
+        // Languages: Perl, Ruby
+        "regex_var": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Perl
+        "scalar": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffffe0e0"
+        },
+        // Languages: HTML
+        "script": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Assembly, INI files, config sections
+        "section": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffe0f0f0"
+        },
+        // Languages: SGML
+        "sgml_block_default": {
+            "color": "#ff8585f2",
+            "bold": false,
+            "background": "#ffcccce0"
+        },
+        // Languages: SGML
+        "sgml_command": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: SGML
+        "sgml_comment": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: SGML
+        "sgml_default": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: SGML
+        "sgml_double_quoted_string": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: SGML
+        "sgml_entity": {
+            "color": "#ffbfbfbf",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: SGML
+        "sgml_error": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ffff6666"
+        },
+        // Languages: SGML, HTML, XML
+        "sgml_parameter": {
+            "color": "#ff85f285",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: SGML, HTML, XML
+        "sgml_parameter_comment": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: SGML, HTML, XML
+        "sgml_single_quoted_string": {
+            "color": "#ffffb28c",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: SGML, HTML, XML
+        "sgml_special": {
+            "color": "#ffbfcfff",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: Shell, Perl
+        "single_quoted_here_document": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffddd0dd"
+        },
+        // Languages: PHP, Python, Ruby, JavaScript, Perl, Shell scripts
+        "single_quoted_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: All programming languages, whitespace highlighting
+        "spaces": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python, JavaScript, PHP, special characters
+        "special": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python, JavaScript, PHP, Ruby, standard library functions
+        "standard_function": {
+            "color": "#f0f0f0cc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, Python, mathematical and logical operators
+        "standard_operator": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Java, Python, PHP, Ruby, Go, standard library packages
+        "standard_package": {
+            "color": "#ffccffcc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, C#, Rust, TypeScript, standard library types
+        "standard_type": {
+            "color": "#ffccffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Shell
+        "stderr": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffff8080"
+        },
+        // Languages: Shell
+        "stdin": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffff8080"
+        },
+        // Languages: Shell
+        "stdout": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffff8080"
+        },
+        // Languages: LinkerScript
+        "standard": {
+            "color": "#ffcb8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ada, Assembly, C/C++, Nim, Oberon/Modula-2/Component Pascal, Makefile
+        "string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ruby, Perl, Python, Shell, JavaScript, string delimiters
+        "string_left_quote": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffeeeeee"
+        },
+        // Languages: Ruby, Perl, Python, Shell, JavaScript, string delimiters
+        "string_right_quote": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffeeeeee"
+        },
+        // Languages: Lua
+        "string_table_maths_functions": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffd0d0ff"
+        },
+        // Languages: Shell, Perl, PHP
+        "string_variable": {
+            "color": "#ffffa98c",
+            "bold": false,
+            "background": "#ffeeeeee"
+        },
+        // Languages: Perl
+        "subroutine_prototype": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Shell, Makefile
+        "substitution": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ffeffff0"
+        },
+        // Languages: Shell, Makefile
+        "substitution_brace": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Shell, Makefile
+        "substitution_var": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: None
+        "success": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, JavaScript, Ruby, Python, punctuation and delimiters
+        "symbol": {
+            "color": "#f0f0f08c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Assembly
+        "symbol_table": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffe0e0e0"
+        },
+        // Languages: Verilog
+        "system_task": {
+            "color": "#ffffddcc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: All programming languages, tab character highlighting
+        "tab": {
+            "color": "#fff0f0f0",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: All programming languages, tab character highlighting
+        "tabs": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python, Makefile, YAML, mixed whitespace highlighting
+        "tabs_after_spaces": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: HTML, XML
+        "tag": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Makefile
+        "target": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, Python, JavaScript, PHP, TODO/FIXME comments
+        "task_marker": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: TCL
+        "tcl_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: All programming languages, plain text in comments/docs
+        "text": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: TCL/Tk
+        "tk_command": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffffd0d0"
+        },
+        // Languages: TCL/Tk
+        "tk_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffe0fff0"
+        },
+        // Languages: Verilog
+        "top-keyword": {
+            "color": "#ffe1f0ff",
+            "background": "#ff000000",
+            "bold": true
+        },
+        // Languages: Verilog
+        "top_keyword": {
+            "color": "#ffe1f0ff",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: Ruby
+        "translation": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#fff0e080"
+        },
+        // Languages: Python, Ruby
+        "triangular_bracing": {
+            "color": "#ffffbe8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "triple_double_quoted_string": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python, C#
+        "triple_quoted_verbatim_string": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "triple_single_quoted_string": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Python
+        "triple_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Java, C#, Rust, TypeScript, data types
+        "type": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++
+        "typedefs": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: Ada
+        "types_modifiers_items": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#f0f0f0d0"
+        },
+        // Languages: C/C++, Java, Python, JavaScript, Ruby, PHP, syntax error highlighting
+        "unclosed_string": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffe0c0e0"
+        },
+        // Languages: Python
+        "under_dunder": {
+            "color": "#ffffbe8c",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: HTML, XML
+        "unknown_attribute": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "unknown_property": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "unknown_pseudo_class": {
+            "color": "#ffff8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: HTML, XML
+        "unknown_tag": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C#, Rust
+        "unsafe": {
+            "color": "#ffff8c8c",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python, Java, user-defined keywords
+        "user_keyword": {
+            "color": "#ffffddcc",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C/C++, Python, Java, user-defined keyword collections
+        "user_keyword_set": {
+            "color": "#ff9d8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C++11, user-defined literals and custom constants
+        "user_literal": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: C#
+        "uuid": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: CSS
+        "value": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: PHP, Shell scripts, template languages, variable references
+        "variable": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: VBScript
+        "vb_script_comment": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: VBScript
+        "vb_script_default": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: VBScript
+        "vb_script_identifier": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: VBScript
+        "vb_script_keyword": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: VBScript
+        "vb_script_number": {
+            "color": "#ff8cffff",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: VBScript
+        "vb_script_start": {
+            "color": "#ff8c8c8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: VBScript
+        "vb_script_string": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ffefefff"
+        },
+        // Languages: VBScript
+        "vb_script_unclosed_string": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff7f7fff"
+        },
+        // Languages: C#
+        "verbatim_string": {
+            "color": "#ff8cff8c",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: None
+        "warning": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: All programming languages, whitespace highlighting
+        "whitespace": {
+            "color": "#fff0f0f0",
+            "bold": true,
+            "background": "#ff000000"
+        },
+        // Languages: XML
+        "xml_end": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: XML
+        "xml_start": {
+            "color": "#ffff8cff",
+            "bold": false,
+            "background": "#ff000000"
+        },
+        // Languages: XML
+        "xml_tag_end": {
+            "color": "#ff8c8cff",
+            "bold": false,
+            "background": "#ff000000"
+        }
+    }
+}

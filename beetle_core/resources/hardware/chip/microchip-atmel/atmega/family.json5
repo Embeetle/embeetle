@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'atmega'
+// ============================
+// This file contains very basic data for the 'atmega' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "atmega",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/microchip-atmel_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

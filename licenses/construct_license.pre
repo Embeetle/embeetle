@@ -1,0 +1,39 @@
+About construct
+===============
+<b>Construct</b> is a Python library for declarative parsing and building of binary
+data. Pyelftools uses the construct library for structured parsing of a binary
+stream. The construct website is <a href="http://construct.readthedocs.org">http://construct.readthedocs.org</a>
+
+Pyelftools forked construct 2, with some modifications for Python 3
+and bug fixes. See <a href="https://github.com/eliben/pyelftools/tree/master/elftools/construct">https://github.com/eliben/pyelftools/tree/master/elftools/construct</a>
+
+Pyelftools carries construct around because construct has been abandoned for
+a long time and didn't get bugfixes; it also didn't work with Python 3.
+
+These days (Feb 2018) construct is maintained again, but its APIs have
+underwent extensive changes that would require rewriting all of the
+construct-facing code in pyelftools. The author of Pyelftools is still evaluating
+the pros/cons of this effort. See <a href="https://github.com/eliben/pyelftools/issues/180">https://github.com/eliben/pyelftools/issues/180</a>
+for details.
+
+Construct license
+=================
+Copyright (C) 2009 Tomer Filiba, 2010-2011 Corbin Simpson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

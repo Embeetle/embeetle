@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'apm32-tiny'
+// =================================
+// This file contains very basic data for the 'apm32-tiny' boardfamily. More detailed data is given
+// in the specific boardfiles.
+{
+    "name":               "apm32-tiny",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/apm32-mini.png",
+    "synonyms":           [],
+    "manufacturer":       "geehy"
+}

@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'gd32-dev'
+// ===============================
+// This file contains very basic data for the 'gd32-dev' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "gd32-dev",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/gd32start.png",
+    "synonyms":           [],
+    "manufacturer":       "giga"
+}

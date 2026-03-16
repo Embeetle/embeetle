@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'kl27'
+// ==========================
+// This file contains very basic data for the 'kl27' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "kl27",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/nxp_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "nxp"
+}

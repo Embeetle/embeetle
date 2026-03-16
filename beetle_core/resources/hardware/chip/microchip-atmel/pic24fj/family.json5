@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'pic24fj'
+// =============================
+// This file contains very basic data for the 'pic24fj' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "pic24fj",
+    "kind":               "chipfamily",
+    "active":             false,
+    "icon":               "icons/chip/microchip_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "microchip-atmel"
+}

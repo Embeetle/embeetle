@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'disco'
+// ============================
+// This file contains very basic data for the 'disco' boardfamily. More detailed data is given in
+// the specific boardfiles.
+{
+    "name":               "disco",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/discovery.png",
+    "synonyms":           [],
+    "manufacturer":       "stmicro"
+}

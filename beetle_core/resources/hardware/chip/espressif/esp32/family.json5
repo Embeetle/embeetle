@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'esp32'
+// ===========================
+// This file contains very basic data for the 'esp32' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "esp32",
+    "kind":               "chipfamily",
+    "active":             false,
+    "icon":               "icons/chip/espressif_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "espressif"
+}

@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'gd32-eval'
+// ================================
+// This file contains very basic data for the 'gd32-eval' boardfamily. More detailed data is given
+// in the specific boardfiles.
+{
+    "name":               "gd32-eval",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/gd32eval.png",
+    "synonyms":           [],
+    "manufacturer":       "giga"
+}

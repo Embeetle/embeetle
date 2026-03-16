@@ -1,0 +1,3 @@
+resources/packages
+__pycache__
+.~lock.*#

@@ -1,0 +1,17 @@
+__pycache__
+embedoffice.ini
+config.ini
+.idea
+hardware_cache
+
+# Don't exclude the build folders itself
+!/projects/**/build
+
+# Exclude everything in the build folders
+/projects/**/build/*
+
+# Make exception for projFiles.txt
+!/projects/**/build/projFiles.txt
+
+icon_design_project.docx
+icon_design_project.pdf

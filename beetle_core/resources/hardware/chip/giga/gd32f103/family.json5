@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'gd32f103'
+// ==============================
+// This file contains very basic data for the 'gd32f103' chipfamily. More detailed data is given in
+// the specific chipfiles.
+{
+    "name":               "gd32f103",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/giga_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "giga"
+}

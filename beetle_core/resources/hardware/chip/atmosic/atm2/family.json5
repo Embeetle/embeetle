@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'atm2'
+// ==========================
+// This file contains very basic data for the 'atm2' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "atm2",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/atmosic_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "atmosic"
+}

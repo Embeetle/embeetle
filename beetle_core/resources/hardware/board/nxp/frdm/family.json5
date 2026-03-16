@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'frdm'
+// ===========================
+// This file contains very basic data for the 'frdm' boardfamily. More detailed data is given in the
+// specific boardfiles.
+{
+    "name":               "frdm",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/frdm.png",
+    "synonyms":           [],
+    "manufacturer":       "nxp"
+}

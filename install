@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+top=$(dirname $0 | sed -e "s@^\.\$@$(pwd)@" -e "s@^\./@$(pwd)/@")
+version=$(sed -e 's@version: @@' < $top/beetle_core/version.txt)
+icon=$(find $top/ -name embeetle.png | head -1)
+target=$HOME/.local/share/application
+echo top: $top
+mkdir -p ~/.local/share/application
+cat <<!
+[Desktop Entry]
+Name=Embeetle
+Version=$version
+Type=Application
+Terminal=false
+Exec=$top/embeetle
+StartupWMClass=Embeetle
+Comment=Embeetle IDE for microcontroller programming
+Icon=$icon
+Categories=Development;
+GenericName=IDE
+Keywords=Embedded;Beetle;MCU;Microcontroller
+!
+echo "Desktop file installed at ~/.local/share/application"

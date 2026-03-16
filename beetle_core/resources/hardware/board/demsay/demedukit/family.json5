@@ -1,0 +1,12 @@
+// DATA FOR BOARDFAMILY 'demedukit'
+// ================================
+// This file contains very basic data for the 'demedukit' boardfamily. More detailed data is given
+// in the specific boardfiles.
+{
+    "name":               "demedukit",
+    "kind":               "boardfamily",
+    "active":             true,
+    "icon":               "icons/board/demedukit.png",
+    "synonyms":           [],
+    "manufacturer":       "demsay"
+}

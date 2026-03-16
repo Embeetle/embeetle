@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "packages": {
+    "SOP8": {
+      "type": "2-sides",
+      "pins": 8,
+      "aspect-ratio": 80
+    },
+    "SOP16": {
+      "type": "2-sides",
+      "pins": 16,
+      "aspect-ratio": 40
+    },
+    "TSSOP20": {
+      "type": "2-sides",
+      "pins": 20,
+      "aspect-ratio": 50
+    },
+    "QFN20": {
+      "type": "4-sides",
+      "pins": 20
+    },
+    "QFN48": {
+      "type": "4-sides",
+      "pins": 48
+    },
+    "LQFP48": {
+      "type": "4-sides",
+      "pins": 48
+    },
+    "LQFP64": {
+      "type": "4-sides",
+      "pins": 64
+    },
+    "LQFP100": {
+      "type": "4-sides",
+      "pins": 100
+    }
+  }
+}
+  

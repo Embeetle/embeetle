@@ -1,0 +1,12 @@
+// DATA FOR CHIPFAMILY 'k64f'
+// ==========================
+// This file contains very basic data for the 'k64f' chipfamily. More detailed data is given in the
+// specific chipfiles.
+{
+    "name":               "k64f",
+    "kind":               "chipfamily",
+    "active":             true,
+    "icon":               "icons/chip/nxp_chip.png",
+    "synonyms":           [],
+    "manufacturer":       "nxp"
+}

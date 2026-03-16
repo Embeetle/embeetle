@@ -1,0 +1,101 @@
+In the config UI, we need a graphical representation of the package of a chip
+with pins.
+
+The representation will be symbolic rather than realistic; essentially a big
+rectangle for the package and smaller rectangles for the pins.
+
+Every part has an associated package name; this is stored as an attribute of the
+part in the series json file. There will be a separate "database" with
+information about each package, to guide the symbolic representation.
+
+We will support three kinds of symbolic representations: 2sided, 4sided and
+grid.
+
+ - 2sided has pins on the left and right edge; the total number of pins is
+   always even
+
+- 4sided has pins on all 4 edges; the total number of pins is always a multiple
+  of 4.
+
+- grid arranges the pins in a grid over the surface of the rectangle; details
+  TBD.
+
+Here is an example of json data representation several packages:
+
+{
+  "version": 1,
+  "packages": {
+    "SOP8": {
+      "type": "2sided",
+      "pins": 8,
+      "width": 80,
+      "marker": "circle"
+    },
+    "SOP16": {
+      "type": "2sided",
+      "pins": 16,
+      "aspect-ratio": 40,
+      "marker": "circle"
+    },
+    "TSSOP20": {
+      "type": "2sided",
+      "pins": 20
+      "aspect-ratio": 50,
+    },
+    "QFN20": {
+      "type": "4sided",
+      "pins": 20
+    },
+    "QFN48": {
+      "type": "4sided",
+      "pins": 48
+    },
+    "LQFP48": {
+      "type": "4sided",
+      "pins": 48
+    },
+    "LQFP64": {
+      "type": "4sided",
+      "pins": 64
+    },
+    "LQFP100": {
+      "type": "4sided",
+      "pins": 100
+    }
+}
+
+The basic size unit is the pitch: the distance between two adjacent pins,
+center-to-center.  This is determined by readability concerns: there will be a
+label on each pin, and the text of that label must be readable, taking into
+account the scaling settings of the UI.  We probably want to leave some space
+between pins, so the pitch is slightly larger than the text size. We may also
+want to leave some extra space near the corners of the package, before the first
+pin and after the last pin on each side. This can be a percentage of the pitch,
+e.g. 50% (TBD).
+
+For a 4sided package, this determines all the dimensions. The representation is
+a square, and the length of the sides of the square is:
+    nr-of-pins/4 * pitch + 2 * extra-corner-space
+
+For a 2sided package, this determines only the height, so we add an extra
+attribute "aspect-ratio" that sets the width as a percentage of the height.
+The height is:
+    nr-of-pins/2 * pitch + 2 * extra-corner-space
+
+The pins will be numbered starting from the top-left,  going down, then right,
+then up, then left (anti-clockwise).
+
+Centered on the package,  we can add the vendor's logo and the part name.
+  
+The length of the pins will depend on the length of the label.  Some pins are
+bonded to two or more pads,  and in that case,  the label becomes longer (as it
+is constructed from all bonded pad names).
+
+
+TODO:
+
+Check BGA
+
+Check WLCSP12 and similar packages STM32C011D6Yx. Hmmm, in CubeMX, the layout
+does not match physical layout which is BGA 3x4, rows A B C d (top to bottom for
+top view), columns 1 2 3 left to right.
