@@ -29,12 +29,39 @@ import pathlib
 import fnmatch
 
 
-def build_embeetle(source_directory: Optional[str], build_directory: Optional[str]):
-    print("================================================================================")
-    print("|                                BUILD EMBEETLE                                |")
-    print("================================================================================")
+def _help():
+    print("BUILD EMBEETLE")
+    print("==============")
+    print("This is a helper script to build Embeetle from source. Do not use it")
+    print("directly. It is meant to be called from the `automate_builds.py` script,")
+    print("in the `automate_builds` repository:")
+    print("  https://github.com/Embeetle/automate_builds")
     print("")
-    
+    print("Clone that repository and follow the instructions in its README to build")
+    print("Embeetle from source.")
+    print("")
+    return
+
+
+def build_embeetle(
+    source_directory: Optional[str],
+    build_directory: Optional[str],
+):
+    """
+    Build Embeetle from `source_directory` into `build_directory`. Missing para-
+    meters default to a reasonable value.
+
+    STEPS:
+    1) Clean the build directory (delete and create empty folder if it exists).
+    2) Freeze Embeetle using `freeze_embeetle.py` (this creates the executable).
+    3) Copy the `resources` folder.
+    4) Copy the `sys` folder, excluding `.git` and `__pycache__` folders.
+    5) Copy the `licenses` folder.
+    6) Copy the Embeetle splash executable. The splash executable is built
+       separately in the `beetle_splash` repository, so it is not created by the
+       `freeze_embeetle.py` script. It is just copied from the source directory
+       to the build directory.      
+    """
     # source_directory
     if source_directory:
         source_directory = str(os.path.realpath(source_directory)).replace("\\", "/")
@@ -61,8 +88,7 @@ def build_embeetle(source_directory: Optional[str], build_directory: Optional[st
         print(f"Build directory:  '{build_directory}'")
 
     # & STEP 1: CLEAN
-    print("\nSTEP 1: CLEAN")
-    print("=============")
+    print("\n>>> STEP 1: CLEAN")
     if not os.path.exists(build_directory):
         print(f"Build directory '{build_directory}' does not exist yet.")
         print(f"Create it ...")
@@ -73,8 +99,7 @@ def build_embeetle(source_directory: Optional[str], build_directory: Optional[st
         os.makedirs(build_directory)
 
     # & STEP 2: FREEZE
-    print("\nSTEP 2: FREEZE")
-    print("==============")
+    print("\n>>> STEP 2: FREEZE")
     cmd = [
         "python",
         "freeze_embeetle.py",
@@ -120,8 +145,7 @@ def build_embeetle(source_directory: Optional[str], build_directory: Optional[st
     shutil.rmtree(f"{build_directory}/copied_embeetle")
 
     # & STEP 3: COPY RESOURCES
-    print("\nSTEP 3: COPY RESOURCES")
-    print("======================")
+    print("\n>>> STEP 3: COPY RESOURCES")
     resources_directory = os.path.join(
         source_directory,
         "beetle_core/resources",
@@ -135,8 +159,7 @@ def build_embeetle(source_directory: Optional[str], build_directory: Optional[st
 
     # & STEP 4: COPY SYS FOLDER
     # skip
-    print("\nSTEP 4: COPY SYS FOLDER")
-    print("=======================")
+    print("\n>>> STEP 4: COPY SYS FOLDER")
     sys_directory = os.path.join(
         source_directory,
         "sys",
@@ -150,8 +173,7 @@ def build_embeetle(source_directory: Optional[str], build_directory: Optional[st
     )
 
     # & STEP 5: COPY LICENSES
-    print("\nSTEP 5: COPY LICENSES")
-    print("=====================")
+    print("\n>>> STEP 5: COPY LICENSES")
     licenses_directory = os.path.join(
         source_directory,
         "licenses",
@@ -164,8 +186,7 @@ def build_embeetle(source_directory: Optional[str], build_directory: Optional[st
     )
 
     # & STEP 6: COPY SPLASH EXE
-    print("\nSTEP 6: COPY SPLASH EXE")
-    print("=======================")
+    print("\n>>> STEP 6: COPY SPLASH EXE")
     if platform.system().lower() == "windows":
         src_beetle_splash_exepath = os.path.join(
             source_directory,
@@ -189,8 +210,7 @@ def build_embeetle(source_directory: Optional[str], build_directory: Optional[st
     shutil.copy2(src_beetle_splash_exepath, dst_beetle_splash_exepath)
 
     # & FINISH BUILD
-    print("\nFINISH BUILD")
-    print("============")
+    print("\n>>> FINISH BUILD")
     print("Embeetle built at:")
     print(f"'{build_directory}'")
     return
@@ -305,19 +325,54 @@ def mirror_dir(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Build Embeetle from source.")
+    parser = argparse.ArgumentParser(
+        description="Build Embeetle from source.",
+        add_help=False,
+    )
+    # --help: Just print the help message and exit
+    parser.add_argument(
+        "-h", "--help",
+        action="store_true",
+    )
+    # --repo: Path to the Embeetle source directory (the repository)
     parser.add_argument(
         "--repo", 
         required=False, 
-        help="Path to the Embeetle source directory (the repository)"
     )
+    # --output: Path where the Embeetle build will be created
     parser.add_argument(
         "--output", 
         required=False, 
-        help="Path where the Embeetle build will be created"
     )
-    
+    # --auto: Flag to confirm this script is called from `automate_builds.py`
+    parser.add_argument(
+        "--auto",
+        action="store_true",
+    )
     args = parser.parse_args()
-
-    build_embeetle(source_directory=args.repo, build_directory=args.output)
+    if args.help:
+        _help()
+        sys.exit(0)
+    if args.auto:
+        build_embeetle(
+            source_directory=args.repo,
+            build_directory=args.output,
+        )
+    else:
+        print("WARNING: '--auto' flag not given. This script is meant to be ")
+        print("called from `automate_builds.py` in the `automate_builds`")
+        print("repository. It seems that you are trying to run this script")
+        print("directly, which we do not advise.")
+        print("")
+        print("RECOMMENDED: Clone the `automate_builds` repository and follow the")
+        print("instructions in the `README.md` file:")
+        print("    https://github.com/Embeetle/automate_builds")
+        print("")
+        choice = input("Do you want to continue anyhow (not recommended)? [y/n]: ").strip().lower()
+        if choice != 'y':
+            raise SystemExit(0)
+        build_embeetle(
+            source_directory=args.repo,
+            build_directory=args.output,
+        )
     sys.exit(0)
