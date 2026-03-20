@@ -3,13 +3,15 @@
 
 **Embeetle IDE** is a lightweight IDE built from scratch, specifically for embedded software. Unlike general-purpose editors based on Eclipse or VS Code, Embeetle focuses on keeping microcontroller programming intuitive, fast, and uncomplicated. Embeetle projects are self-contained where everything you need, from source code to makefiles and linker scripts, is easily accessible right in your project folder.
 
+For more information on the Embeetle IDE, check our website:
+https://embeetle.com
+
+Below is a quick guide on how to run and build Embeetle.
+
 ## 1. Run from executable (release)
 
 If you just want to use Embeetle, download the latest release from GitHub:
 https://github.com/Embeetle/embeetle/releases
-
-Also check out our website:
-https://embeetle.com
 
 Embeetle runs on Windows 10/11 and most recent Linux distros. On Linux it requires `glibc version 2.28` or higher (check with `$ ldd --version`).
 
@@ -19,7 +21,7 @@ Embeetle runs on Windows 10/11 and most recent Linux distros. On Linux it requir
 
 Open a Windows CMD terminal and enter these commands:
 
-```
+```bat
 # Clone the repository
 > git clone https://github.com/Embeetle/embeetle.git
 
@@ -41,7 +43,7 @@ Open a Windows CMD terminal and enter these commands:
 
 The first time you run Embeetle, it downloads the required tools (such as the source analyzer, 7zip, ...). Wait a few minutes.
 
-From now onwards, you can simply launch `run.cmd` to run Embeetle. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
+From now onwards you can simply launch `run.cmd`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
 
 
 ### Linux
@@ -73,14 +75,12 @@ $ ./run.sh
 
 The first time you run Embeetle, it downloads the required tools (such as the source analyzer, 7zip, ...). Wait a few minutes.
 
-From now onwards, you can simply launch `run.sh` to run Embeetle. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
+From now onwards, you can simply launch `run.sh`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
 
 ## 3. Build
 
-Embeetle consists of several software modules, so the build procedure is quite complex. To build Embeetle and all its components, we've set up a separate repo with the build scripts:
+Embeetle consists of several software modules (`LLVM`, `SA` and `Embeetle` itself), so the build procedure is quite complex. To build Embeetle and all its components, we've set up a separate repo with the build scripts:
 
 https://github.com/Embeetle/automate_builds
 
-Clone this repo and follow the instructions in its `README.md`.
-
-
+It's really quite simple: the automated build script clones the three required repos (`LLVM`, `SA` and `Embeetle` itself), builds them one-by-one and merges the result in the `~/bld/` folder. Clone this repo and follow the instructions in its `README.md`.
