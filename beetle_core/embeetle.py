@@ -170,10 +170,15 @@ def main():
     # not sufficient.
     if not os_checker.is_os("windows"):
         _ldpath = os.environ.get("LD_LIBRARY_PATH", "")
+        print(f"DEBUG LD_LIBRARY_PATH before fix : {_ldpath!r}")
+        print(f"DEBUG data.sys_lib               : {data.sys_lib!r}")
+        _libxcb = os.path.join(data.sys_lib, "libxcb-cursor.so.0")
+        print(f"DEBUG libxcb-cursor.so.0 exists  : {os.path.exists(_libxcb)}")
         if data.sys_lib not in _ldpath.split(os.pathsep):
             os.environ["LD_LIBRARY_PATH"] = (
                 f"{data.sys_lib}{os.pathsep}{_ldpath}" if _ldpath else data.sys_lib
             )
+        print(f"DEBUG LD_LIBRARY_PATH after fix  : {os.environ.get('LD_LIBRARY_PATH', '')!r}")
 
     app = qt.QApplication(sys.argv)
     # app.setAttribute(qt.Qt.AA_DisableHighDpiScaling)
