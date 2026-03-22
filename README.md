@@ -17,6 +17,8 @@ Embeetle runs on Windows 10/11 and most recent Linux distros. On Linux it requir
 
 ## 2. Run from source code
 
+> **Requirement:** Python 3.12 or higher is required.
+
 ### Windows CMD
 
 Open a CMD terminal. Clone the repository and move into it:
