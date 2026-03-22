@@ -17,9 +17,12 @@ Embeetle runs on Windows 10/11 and most recent Linux distros. On Linux it requir
 
 ## 2. Run from source code
 
-> **Requirement:** Python 3.12 or higher is required.
+> **Requirements:**
+> - Python 3.12+
+> - Git
+> - Git LFS (on Windows this is already included in the Git-for-Windows download, on Linux: `$ sudo apt install git-lfs`)
 
-### Windows CMD
+### 2.1 Windows CMD
 
 Open a CMD terminal.
 Check your python version. It should be `python 3.12` or higher:
@@ -53,7 +56,7 @@ The first time you run Embeetle, it downloads the required tools (such as the so
 
 From now onwards you can simply launch `run.cmd`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
 
-### Windows PowerShell
+### 2.2 Windows PowerShell
 
 Open a PowerShell terminal.
 Check your python version. It should be `python 3.12` or higher:
@@ -93,7 +96,7 @@ The first time you run Embeetle, it downloads the required tools (such as the so
 From now onwards you can simply launch `run.ps1`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
 
 
-### Linux
+### 2.3 Linux Bash Shell
 
 Open a terminal.
 Check your python version. It should be `python 3.12` or higher:
@@ -132,29 +135,6 @@ chmod +x run.sh
 The first time you run Embeetle, it downloads the required tools (such as the source analyzer, 7zip, ...). Wait a few minutes.
 
 From now onwards, you can simply launch `run.sh`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
-
-> **Troubleshooting (Linux):** If Embeetle fails to start with an error like
-> `Could not load the Qt platform plugin "xcb"`, Embeetle normally handles this
-> automatically by bundling `libxcb-cursor.so.0` in its `sys/lib` directory and
-> setting `LD_LIBRARY_PATH` at startup. If for some reason that mechanism doesn't
-> work on your system, install the library manually as a last resort.
->
-> Debian / Ubuntu / Mint:
-> ```bash
-> sudo apt install libxcb-cursor0
-> ```
-> Fedora / Red Hat:
-> ```bash
-> sudo dnf install xcb-util-cursor
-> ```
-> Arch / Manjaro:
-> ```bash
-> sudo pacman -S xcb-util-cursor
-> ```
-> openSUSE:
-> ```bash
-> sudo zypper install xcb-util-cursor
-> ```
 
 ## 3. Build
 
