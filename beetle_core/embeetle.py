@@ -61,38 +61,33 @@ def main():
             data.redirecting_output = False
 
     # Clone sys directory content if needed
-    if os.path.exists(data.sys_directory):
-        print(f"INFO: 'sys' directory found at '{data.sys_directory}'")
-        print(f"INFO: Launch Embeetle...\n")
-    else:
-        print(f"INFO: 'sys' directory not found at '{data.sys_directory}'")
-        print(f"INFO: Clone 'sys' directory from GitHub...")
-        import subprocess
-        import importlib
-        import shutil
-        import stat
-        import time
-        import os
+    import glob
+    import importlib
+    import shutil
+    import subprocess
 
-        def run(args, cwd=None, env=None):
-            print(f"$ {' '.join(args)}")
-            try:
-                subprocess.run(args, cwd=cwd, env=env, check=True)
-            except FileNotFoundError as e:
-                raise RuntimeError(
-                    "`git` was not found. Install Git and ensure it is on PATH."
-                ) from e
-            except subprocess.CalledProcessError as e:
-                raise RuntimeError(
-                    f"Command failed (exit {e.returncode}): {' '.join(args)}"
-                ) from e
+    def _run(args: list, cwd: str = None, env: dict = None) -> None:
+        """Run a command, raising RuntimeError on failure."""
+        print(f"$ {' '.join(args)}")
+        try:
+            subprocess.run(args, cwd=cwd, env=env, check=True)
+        except FileNotFoundError as e:
+            raise RuntimeError(
+                "`git` was not found. Install Git and ensure it is on PATH."
+            ) from e
+        except subprocess.CalledProcessError as e:
+            raise RuntimeError(
+                f"Command failed (exit {e.returncode}): {' '.join(args)}"
+            ) from e
+        return
 
-        repo_url = f"https://github.com/Embeetle/sys-{os_checker.get_os_with_arch()}.git"
+    def _require_git_lfs() -> None:
+        """Verify git-lfs is installed and initialize its hooks. Exit if missing.
 
-        # Verify git-lfs is installed and initialise its hooks (idempotent).
-        # Without git-lfs, 'git clone' only downloads small text pointer files
-        # instead of the real binary blobs, causing "invalid ELF header" errors
-        # at runtime.
+        Without git-lfs, 'git clone' only downloads small text pointer stubs
+        instead of the actual binary blobs, causing 'invalid ELF header' errors
+        at runtime.
+        """
         if shutil.which("git-lfs") is None:
             print(
                 f"[ERROR] git-lfs is not installed. The 'sys' directory contains\n"
@@ -106,33 +101,79 @@ def main():
                 f"        it is on your PATH."
             )
             sys.exit(1)
-        else:
-            # Set up LFS hooks globally so the subsequent clone and lfs pull work.
-            run(["git", "lfs", "install"])
+        # Set up LFS hooks globally (idempotent).
+        _run(["git", "lfs", "install"])
+        return
 
-        # Clone. GIT_CLONE_PROTECTION_ACTIVE=false allows post-checkout hooks
-        # (including LFS hooks) to run during the clone. Git 2.38+ blocks them
-        # by default as a security measure, but it is safe to enable here since
-        # we control the repo URL.
-        _clone_env = {**os.environ, "GIT_CLONE_PROTECTION_ACTIVE": "false"}
-        run(
-            ["git", "clone", "--branch", "master", repo_url, data.sys_directory],
-            env=_clone_env,
-        )
+    def _lfs_pull_and_fix_permissions() -> None:
+        """Fetch LFS binary blobs and fix execute permissions on Linux.
 
-        # Fetch the actual LFS binary blobs. 'git clone' may have left pointer
-        # stubs if git-lfs hooks were not active during the clone.
-        if shutil.which("git-lfs") is not None:
-            run(["git", "-C", data.sys_directory, "lfs", "pull"])
-
-        # Fix execute permissions on Linux. git and git-lfs do not reliably
-        # preserve the executable bit after a clone or lfs pull, so we enforce
-        # it explicitly on every file under sys/ (recursive).
+        'git clone' may leave pointer stubs if git-lfs hooks were not active.
+        On Linux, git and git-lfs do not reliably preserve the executable bit,
+        so we enforce it explicitly on every file under sys/ after the pull.
+        """
+        _run(["git", "-C", data.sys_directory, "lfs", "pull"])
         if not os_checker.is_os("windows"):
             for _root, _dirs, _files in os.walk(data.sys_directory):
                 for _fname in _files:
                     _fpath = os.path.join(_root, _fname)
                     os.chmod(_fpath, os.stat(_fpath).st_mode | 0o111)
+        return
+
+    def _is_lfs_pointer(path: str) -> bool:
+        """Return True if the file looks like a git-lfs pointer stub.
+
+        Real ELF binaries start with the magic bytes \\x7fELF. LFS pointer
+        files are plain text starting with 'version https://git-lfs.github.com'.
+        """
+        try:
+            with open(path, "rb") as _f:
+                return _f.read(7) == b"version"
+        except OSError:
+            pass
+        return False
+
+    #* SYS DIRECTORY EXISTS
+    if os.path.exists(data.sys_directory):
+        print(f"INFO: 'sys' directory found at '{data.sys_directory}'")
+        # Check whether binary files are real ELF binaries or LFS pointer stubs.
+        # This happens when the user previously cloned without git-lfs installed.
+        _so_files = [
+            f for f in glob.glob(os.path.join(data.sys_lib, "*.so*"))
+            if os.path.isfile(f)
+        ]
+        if _so_files and _is_lfs_pointer(_so_files[0]):
+            print(
+                f"INFO: LFS pointer stubs detected in 'sys/'. "
+                f"Fetching real binaries..."
+            )
+            _require_git_lfs()
+            _lfs_pull_and_fix_permissions()
+        print(f"INFO: Launch Embeetle...\n")
+
+    #* SYS DIRECTORY MUST BE CLONED
+    else:
+        print(f"INFO: 'sys' directory not found at '{data.sys_directory}'")
+        print(f"INFO: Clone 'sys' directory from GitHub...")
+        repo_url = f"https://github.com/Embeetle/sys-{os_checker.get_os_with_arch()}.git"
+        _require_git_lfs()
+        # Clone. GIT_CLONE_PROTECTION_ACTIVE=false allows post-checkout hooks
+        # (including LFS hooks) to run during the clone. Git 2.38+ blocks them
+        # by default as a security measure, but it is safe here since we control
+        # the repo URL.
+        _clone_env = {**os.environ, "GIT_CLONE_PROTECTION_ACTIVE": "false"}
+        _run(
+            [
+                "git",
+                "clone",
+                "--branch",
+                "master",
+                repo_url,
+                data.sys_directory,
+            ],
+            env=_clone_env,
+        )
+        _lfs_pull_and_fix_permissions()
 
         # Import
         if data.sys_directory not in sys.path:
@@ -140,7 +181,7 @@ def main():
         importlib.invalidate_caches()
 
         # Refresh sys_lib now that the sys directory exists. The restart is
-        # handled by fix_paths_for_embeetle_and_restore_global_environment()
+        # handled by `fix_paths_for_embeetle_and_restore_global_environment()`
         # below, which runs after this block regardless of whether sys was
         # just cloned or already present.
         data.sys_lib = data._find_sys_subdir("lib")
