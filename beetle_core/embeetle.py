@@ -99,16 +99,11 @@ def main():
             sys.path.insert(0, data.sys_directory)
         importlib.invalidate_caches()
 
-        # Restart so the new process starts with LD_LIBRARY_PATH already
-        # pointing to the now-existing sys/lib. On Linux, glibc caches
-        # LD_LIBRARY_PATH at process startup; a directory that didn't exist
-        # yet when the process launched won't be found by dlopen() even after
-        # it is created. Restarting here ensures Qt's xcb platform plugin can
-        # find libxcb-cursor.so.0 (and other bundled .so files) from the start.
+        # Refresh sys_lib now that the sys directory exists. The restart is
+        # handled by fix_paths_for_embeetle_and_restore_global_environment()
+        # below, which runs after this block regardless of whether sys was
+        # just cloned or already present.
         data.sys_lib = data._find_sys_subdir("lib")
-        # purefunctions.fix_paths_for_embeetle_and_restore_global_environment() <-- not needed here anymore
-        # The call above never returns: os.execv() replaces the process on
-        # Linux; on Windows subprocess.call() + sys.exit() terminates it.
 
     # Fix paths before importing anything: PYTHONPATH needs to be correct for imports
     purefunctions.fix_paths_for_embeetle_and_restore_global_environment()
