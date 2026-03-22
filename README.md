@@ -21,7 +21,14 @@ Embeetle runs on Windows 10/11 and most recent Linux distros. On Linux it requir
 
 ### Windows CMD
 
-Open a CMD terminal. Clone the repository and move into it:
+Open a CMD terminal.
+Check your python version. It should be `python 3.12` or higher:
+
+```bat
+python --version
+```
+
+Clone the repository and move into it:
 
 ```bat
 git clone https://github.com/Embeetle/embeetle.git
@@ -48,7 +55,14 @@ From now onwards you can simply launch `run.cmd`. It searches for a Python virtu
 
 ### Windows PowerShell
 
-Open a PowerShell terminal. Clone the repository and move into it:
+Open a PowerShell terminal.
+Check your python version. It should be `python 3.12` or higher:
+
+```bat
+python --version
+```
+
+Clone the repository and move into it:
 
 ```powershell
 git clone https://github.com/Embeetle/embeetle.git
@@ -81,7 +95,14 @@ From now onwards you can simply launch `run.ps1`. It searches for a Python virtu
 
 ### Linux
 
-Open a terminal. Clone the repository and move into it:
+Open a terminal.
+Check your python version. It should be `python 3.12` or higher:
+
+```bat
+python --version
+```
+
+Clone the repository and move into it:
 
 ```bash
 git clone https://github.com/Embeetle/embeetle.git
