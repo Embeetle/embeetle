@@ -48,16 +48,7 @@ From now onwards you can simply launch `run.cmd`. It searches for a Python virtu
 
 ### Linux
 
-First, install the required system dependencies:
-
-```bash
-$ sudo apt install libxcb-cursor0
-```
-
-> **Note:** `libxcb-cursor0` is required by Qt 6.5+ to load the XCB platform plugin on X11.
-> On non-Debian/Ubuntu distros, install the equivalent package (e.g. `xcb-util-cursor` on Arch/Fedora).
-
-Then open a terminal and enter these commands:
+Open a terminal and enter these commands:
 
 ```bash
 # Clone the repository
@@ -85,6 +76,18 @@ $ ./run.sh
 The first time you run Embeetle, it downloads the required tools (such as the source analyzer, 7zip, ...). Wait a few minutes.
 
 From now onwards, you can simply launch `run.sh`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
+
+> **Troubleshooting (Linux):** If Embeetle fails to start with an error like
+> `Could not load the Qt platform plugin "xcb"`, Embeetle normally handles this
+> automatically by bundling `libxcb-cursor.so.0` in its `sys/lib` directory and
+> setting `LD_LIBRARY_PATH` at startup. If for some reason that mechanism doesn't
+> work on your system, install the library manually as a last resort:
+> ```bash
+> sudo apt install libxcb-cursor0          # Debian / Ubuntu / Mint
+> sudo dnf install xcb-util-cursor         # Fedora / Red Hat
+> sudo pacman -S xcb-util-cursor           # Arch / Manjaro
+> sudo zypper install xcb-util-cursor      # openSUSE
+> ```
 
 ## 3. Build
 
