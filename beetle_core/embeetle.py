@@ -15,6 +15,17 @@
 
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+import sys
+
+if sys.version_info < (3, 12):
+    print(
+        f"ERROR: Python 3.12 or higher is required to run Embeetle.\n"
+        f"       You are running Python "
+        f"{sys.version_info.major}.{sys.version_info.minor}.\n"
+        f"       Please upgrade your Python installation."
+    )
+    sys.exit(1)
+
 import importlib
 import multiprocessing
 
