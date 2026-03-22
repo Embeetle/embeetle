@@ -26,6 +26,7 @@ Embeetle runs on Windows 10/11 and most recent Linux distros. On Linux it requir
 > - Git
 > - Git LFS (on Windows this is already included in the Git-for-Windows download, on Linux: `$ sudo apt install git-lfs`)
 
+&nbsp;<br>
 ### 2.1 Windows CMD
 
 Open a CMD terminal.
@@ -60,6 +61,7 @@ The first time you run Embeetle, it downloads the required tools (such as the so
 
 From now onwards you can simply launch `run.cmd`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
 
+&nbsp;<br>
 ### 2.2 Windows PowerShell
 
 Open a PowerShell terminal.
@@ -99,7 +101,7 @@ The first time you run Embeetle, it downloads the required tools (such as the so
 
 From now onwards you can simply launch `run.ps1`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
 
-
+&nbsp;<br>
 ### 2.3 Linux Bash Shell
 
 Open a terminal.
