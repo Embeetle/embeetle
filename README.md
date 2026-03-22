@@ -8,12 +8,16 @@ https://embeetle.com
 
 Below is a quick guide on how to run and build Embeetle.
 
+---
+
 ## 1. Run from executable (release)
 
 If you just want to use Embeetle, download the latest release from GitHub:
 https://github.com/Embeetle/embeetle/releases
 
 Embeetle runs on Windows 10/11 and most recent Linux distros. On Linux it requires `glibc version 2.28` or higher (check with `$ ldd --version`).
+
+---
 
 ## 2. Run from source code
 
@@ -135,6 +139,8 @@ chmod +x run.sh
 The first time you run Embeetle, it downloads the required tools (such as the source analyzer, 7zip, ...). Wait a few minutes.
 
 From now onwards, you can simply launch `run.sh`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
+
+---
 
 ## 3. Build
 
