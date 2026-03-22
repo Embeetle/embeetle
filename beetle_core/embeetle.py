@@ -156,6 +156,28 @@ def main():
     # Environment variable adjustments
     os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
 
+    def _debug_loaded_so(label: str) -> None:
+        """Print all .so files currently mapped into the process.
+
+        Reads /proc/self/maps, which lists every memory-mapped region. Lines
+        that refer to a .so file look like:
+            7f12..  r--p  ...  /usr/lib/x86_64-linux-gnu/libxcb.so.1
+        We collect the unique library paths and print them sorted.
+        Only available on Linux (requires /proc filesystem).
+        """
+        try:
+            with open("/proc/self/maps", "r") as _f:
+                _paths = set()
+                for _line in _f:
+                    _parts = _line.split()
+                    if _parts and _parts[-1].startswith("/") and ".so" in _parts[-1]:
+                        _paths.add(_parts[-1])
+            print(f"DEBUG [{label}] loaded .so files ({len(_paths)}):")
+            for _p in sorted(_paths):
+                print(f"  {_p}")
+        except OSError:
+            pass
+
     # Re-apply LD_LIBRARY_PATH just before creating QApplication so Qt can
     # find bundled .so files (e.g. libxcb-cursor.so.0) via dlopen(). On some
     # Linux distros, the dynamic linker re-reads LD_LIBRARY_PATH on each
@@ -165,6 +187,8 @@ def main():
     if not os_checker.is_os("windows"):
         import ctypes
         import glob
+
+        _debug_loaded_so("before ctypes pre-load")
 
         # Add sys/lib to LD_LIBRARY_PATH so the dynamic linker can find
         # bundled .so files when resolving dependencies. On some systems this
@@ -212,7 +236,10 @@ def main():
             if _newly_loaded == 0:
                 break
 
+        _debug_loaded_so("after ctypes pre-load")
+
     app = qt.QApplication(sys.argv)
+    _debug_loaded_so("after QApplication")
     # app.setAttribute(qt.Qt.AA_DisableHighDpiScaling)
     # app.setAttribute(qt.Qt.AA_EnableHighDpiScaling)
     # Save the Qt application to the global reference
