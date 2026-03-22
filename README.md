@@ -34,6 +34,8 @@ call .venv/Scripts/activate.bat
 python -m pip install -r requirements.txt
 ```
 
+> **Note:** These instructions require a CMD terminal. PowerShell is not supported.
+
 Run Embeetle:
 
 ```bat
