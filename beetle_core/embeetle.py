@@ -60,42 +60,6 @@ def main():
             purefunctions.reset_output()
             data.redirecting_output = False
 
-    # Fix paths before importing anything: PYTHONPATH needs to be correct for imports
-    purefunctions.fix_paths_for_embeetle_and_restore_global_environment()
-
-    # Check arguments
-    if options.debug_mode:
-        data.debug_mode = True
-        if os_checker.is_os("windows") and getattr(sys, "frozen", False):
-            # Running from a compiled application, no console
-            data.debug_mode = False
-    if options.filetree_progbar_mode:
-        data.filetree_progbar_mode = True
-    if options.makefile_version:
-        data.makefile_version_new_projects = options.makefile_version
-    if options.logging_mode:
-        data.logging_mode = True
-    file_arguments = options.files
-    if options.single_file is not None:
-        if file_arguments is not None:
-            file_list = file_arguments.split(";")
-            file_list.append(options.single_file)
-            file_arguments = ";".join(file_list)
-        else:
-            file_arguments = [options.single_file]
-    if options.source_analysis_only:
-        data.source_analysis_only = True
-        if options.open_project is None:
-            raise Exception(
-                f'The "source_analysis_only" flag has to have a '
-                f'"project" flag also!'
-            )
-    if file_arguments == [""]:
-        file_arguments = None
-
-    # New mode for testing
-    data.new_mode = options.new_mode
-
     # Clone sys directory content if needed
     if os.path.exists(data.sys_directory):
         print(f"INFO: 'sys' directory found at '{data.sys_directory}'")
@@ -142,10 +106,45 @@ def main():
         # it is created. Restarting here ensures Qt's xcb platform plugin can
         # find libxcb-cursor.so.0 (and other bundled .so files) from the start.
         data.sys_lib = data._find_sys_subdir("lib")
-        purefunctions.fix_paths_for_embeetle_and_restore_global_environment()
+        # purefunctions.fix_paths_for_embeetle_and_restore_global_environment() <-- not needed here anymore
         # The call above never returns: os.execv() replaces the process on
         # Linux; on Windows subprocess.call() + sys.exit() terminates it.
 
+    # Fix paths before importing anything: PYTHONPATH needs to be correct for imports
+    purefunctions.fix_paths_for_embeetle_and_restore_global_environment()
+
+    # Check arguments
+    if options.debug_mode:
+        data.debug_mode = True
+        if os_checker.is_os("windows") and getattr(sys, "frozen", False):
+            # Running from a compiled application, no console
+            data.debug_mode = False
+    if options.filetree_progbar_mode:
+        data.filetree_progbar_mode = True
+    if options.makefile_version:
+        data.makefile_version_new_projects = options.makefile_version
+    if options.logging_mode:
+        data.logging_mode = True
+    file_arguments = options.files
+    if options.single_file is not None:
+        if file_arguments is not None:
+            file_list = file_arguments.split(";")
+            file_list.append(options.single_file)
+            file_arguments = ";".join(file_list)
+        else:
+            file_arguments = [options.single_file]
+    if options.source_analysis_only:
+        data.source_analysis_only = True
+        if options.open_project is None:
+            raise Exception(
+                f'The "source_analysis_only" flag has to have a '
+                f'"project" flag also!'
+            )
+    if file_arguments == [""]:
+        file_arguments = None
+
+    # New mode for testing
+    data.new_mode = options.new_mode
 
     # Combine the application path with the embeetle icon file name
     # (the icon file name is set in the global module)
