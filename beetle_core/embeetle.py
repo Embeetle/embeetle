@@ -231,8 +231,8 @@ def main():
                     ctypes.CDLL(_so, mode=ctypes.RTLD_GLOBAL)
                     _loaded.add(_so)
                     _newly_loaded += 1
-                except OSError:
-                    pass
+                except OSError as e:
+                    print(f"DEBUG ctypes failed to load {_so}: {e}")
             if _newly_loaded == 0:
                 break
 
