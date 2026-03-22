@@ -123,8 +123,17 @@ def main():
         if data.sys_directory not in sys.path:
             sys.path.insert(0, data.sys_directory)
         importlib.invalidate_caches()
-        print("")
-        print("INFO: Launch Embeetle ... (check taskbar icons)\n")
+
+        # Restart so the new process starts with LD_LIBRARY_PATH already
+        # pointing to the now-existing sys/lib. On Linux, glibc caches
+        # LD_LIBRARY_PATH at process startup; a directory that didn't exist
+        # yet when the process launched won't be found by dlopen() even after
+        # it is created. Restarting here ensures Qt's xcb platform plugin can
+        # find libxcb-cursor.so.0 (and other bundled .so files) from the start.
+        data.sys_lib = data._find_sys_subdir("lib")
+        purefunctions.fix_paths_for_embeetle_and_restore_global_environment()
+        # The call above never returns: os.execv() replaces the process on
+        # Linux; on Windows subprocess.call() + sys.exit() terminates it.
 
 
     # Combine the application path with the embeetle icon file name
