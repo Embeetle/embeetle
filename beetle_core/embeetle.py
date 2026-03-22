@@ -74,10 +74,10 @@ def main():
         import time
         import os
 
-        def run(args, cwd=None):
+        def run(args, cwd=None, env=None):
             print(f"$ {' '.join(args)}")
             try:
-                subprocess.run(args, cwd=cwd, check=True)
+                subprocess.run(args, cwd=cwd, env=env, check=True)
             except FileNotFoundError as e:
                 raise RuntimeError(
                     "`git` was not found. Install Git and ensure it is on PATH."
@@ -89,10 +89,50 @@ def main():
 
         repo_url = f"https://github.com/Embeetle/sys-{os_checker.get_os_with_arch()}.git"
 
-        # Clone
+        # Verify git-lfs is installed and initialise its hooks (idempotent).
+        # Without git-lfs, 'git clone' only downloads small text pointer files
+        # instead of the real binary blobs, causing "invalid ELF header" errors
+        # at runtime.
+        if shutil.which("git-lfs") is None:
+            print(
+                f"[ERROR] git-lfs is not installed. The 'sys' directory contains\n"
+                f"        binary files stored in Git LFS. Without git-lfs these\n"
+                f"        will be downloaded as unusable pointer stubs.\n"
+                f"        Install git-lfs and restart Embeetle:\n"
+                f"          sudo apt install git-lfs   # Debian / Ubuntu / Mint\n"
+                f"          sudo dnf install git-lfs   # Fedora / Red Hat\n"
+                f"          sudo pacman -S git-lfs     # Arch / Manjaro\n"
+                f"        On Windows, Git for Windows ships with git-lfs — ensure\n"
+                f"        it is on your PATH."
+            )
+            sys.exit(1)
+        else:
+            # Set up LFS hooks globally so the subsequent clone and lfs pull work.
+            run(["git", "lfs", "install"])
+
+        # Clone. GIT_CLONE_PROTECTION_ACTIVE=false allows post-checkout hooks
+        # (including LFS hooks) to run during the clone. Git 2.38+ blocks them
+        # by default as a security measure, but it is safe to enable here since
+        # we control the repo URL.
+        _clone_env = {**os.environ, "GIT_CLONE_PROTECTION_ACTIVE": "false"}
         run(
-            ["git", "clone", "--branch", "master", repo_url, data.sys_directory]
+            ["git", "clone", "--branch", "master", repo_url, data.sys_directory],
+            env=_clone_env,
         )
+
+        # Fetch the actual LFS binary blobs. 'git clone' may have left pointer
+        # stubs if git-lfs hooks were not active during the clone.
+        if shutil.which("git-lfs") is not None:
+            run(["git", "-C", data.sys_directory, "lfs", "pull"])
+
+        # Fix execute permissions on Linux. git and git-lfs do not reliably
+        # preserve the executable bit after a clone or lfs pull, so we enforce
+        # it explicitly on every file under sys/ (recursive).
+        if not os_checker.is_os("windows"):
+            for _root, _dirs, _files in os.walk(data.sys_directory):
+                for _fname in _files:
+                    _fpath = os.path.join(_root, _fname)
+                    os.chmod(_fpath, os.stat(_fpath).st_mode | 0o111)
 
         # Import
         if data.sys_directory not in sys.path:
