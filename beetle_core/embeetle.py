@@ -151,6 +151,19 @@ def main():
     # Environment variable adjustments
     os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
 
+    # Re-apply LD_LIBRARY_PATH just before creating QApplication so Qt can
+    # find bundled .so files (e.g. libxcb-cursor.so.0) via dlopen(). On some
+    # Linux distros, the dynamic linker re-reads LD_LIBRARY_PATH on each
+    # dlopen() call rather than caching it at process startup, so setting it
+    # earlier (in fix_paths_for_embeetle_and_restore_global_environment) is
+    # not sufficient.
+    if not os_checker.is_os("windows"):
+        _ldpath = os.environ.get("LD_LIBRARY_PATH", "")
+        if data.sys_lib not in _ldpath.split(os.pathsep):
+            os.environ["LD_LIBRARY_PATH"] = (
+                f"{data.sys_lib}{os.pathsep}{_ldpath}" if _ldpath else data.sys_lib
+            )
+
     app = qt.QApplication(sys.argv)
     # app.setAttribute(qt.Qt.AA_DisableHighDpiScaling)
     # app.setAttribute(qt.Qt.AA_EnableHighDpiScaling)
