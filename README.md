@@ -48,7 +48,16 @@ From now onwards you can simply launch `run.cmd`. It searches for a Python virtu
 
 ### Linux
 
-Open a terminal and enter these commands:
+First, install the required system dependencies:
+
+```bash
+$ sudo apt install libxcb-cursor0
+```
+
+> **Note:** `libxcb-cursor0` is required by Qt 6.5+ to load the XCB platform plugin on X11.
+> On non-Debian/Ubuntu distros, install the equivalent package (e.g. `xcb-util-cursor` on Arch/Fedora).
+
+Then open a terminal and enter these commands:
 
 ```bash
 # Clone the repository
