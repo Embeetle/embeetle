@@ -17,9 +17,9 @@ Embeetle runs on Windows 10/11 and most recent Linux distros. On Linux it requir
 
 ## 2. Run from source code
 
-### Windows
+### Windows CMD
 
-Open a Windows CMD terminal. Clone the repository and move into it:
+Open a CMD terminal. Clone the repository and move into it:
 
 ```bat
 git clone https://github.com/Embeetle/embeetle.git
@@ -30,11 +30,9 @@ Create and activate a Python virtual environment, then install dependencies:
 
 ```bat
 python -m venv .venv
-call .venv/Scripts/activate.bat
+call .venv\Scripts\activate.bat
 python -m pip install -r requirements.txt
 ```
-
-> **Note:** These instructions require a CMD terminal. PowerShell is not supported.
 
 Run Embeetle:
 
@@ -45,6 +43,38 @@ run.cmd
 The first time you run Embeetle, it downloads the required tools (such as the source analyzer, 7zip, ...). Wait a few minutes.
 
 From now onwards you can simply launch `run.cmd`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
+
+### Windows PowerShell
+
+Open a PowerShell terminal. Clone the repository and move into it:
+
+```powershell
+git clone https://github.com/Embeetle/embeetle.git
+cd embeetle
+```
+
+Create and activate a Python virtual environment, then install dependencies:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+> **Note:** If you get a script execution error on the activation step, run this first:
+> ```powershell
+> Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+> ```
+
+Run Embeetle:
+
+```powershell
+.\run.ps1
+```
+
+The first time you run Embeetle, it downloads the required tools (such as the source analyzer, 7zip, ...). Wait a few minutes.
+
+From now onwards you can simply launch `run.ps1`. It searches for a Python virtual environment in `.venv/`, activates it, then launches Embeetle.
 
 
 ### Linux
