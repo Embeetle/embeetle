@@ -94,6 +94,11 @@ source .venv/bin/activate
 python3 -m pip install -r requirements.txt
 ```
 
+> **Note:** If `python3 -m venv` fails, install the venv package first:
+> ```bash
+> sudo apt install python3-venv
+> ```
+
 Make the run script executable and launch Embeetle:
 
 ```bash
