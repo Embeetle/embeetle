@@ -169,16 +169,54 @@ def main():
     # earlier (in fix_paths_for_embeetle_and_restore_global_environment) is
     # not sufficient.
     if not os_checker.is_os("windows"):
+        import ctypes
+        import glob
+
+        # Add sys/lib to LD_LIBRARY_PATH so the dynamic linker can find
+        # bundled .so files when resolving dependencies. On some systems this
+        # is sufficient; on others glibc has already cached LD_LIBRARY_PATH at
+        # process startup and ignores this change, which is why we also
+        # pre-load the libraries explicitly via ctypes below.
         _ldpath = os.environ.get("LD_LIBRARY_PATH", "")
-        print(f"DEBUG LD_LIBRARY_PATH before fix : {_ldpath!r}")
-        print(f"DEBUG data.sys_lib               : {data.sys_lib!r}")
-        _libxcb = os.path.join(data.sys_lib, "libxcb-cursor.so.0")
-        print(f"DEBUG libxcb-cursor.so.0 exists  : {os.path.exists(_libxcb)}")
         if data.sys_lib not in _ldpath.split(os.pathsep):
             os.environ["LD_LIBRARY_PATH"] = (
                 f"{data.sys_lib}{os.pathsep}{_ldpath}" if _ldpath else data.sys_lib
             )
-        print(f"DEBUG LD_LIBRARY_PATH after fix  : {os.environ.get('LD_LIBRARY_PATH', '')!r}")
+
+        # Pre-load all bundled .so files from sys/lib into the process before
+        # creating QApplication. This is necessary because glibc caches
+        # LD_LIBRARY_PATH at process startup and ignores any runtime changes
+        # made via os.environ. By explicitly loading the libraries here with
+        # ctypes, they are already present in the process's library list when
+        # Qt's platform plugins call dlopen() for their dependencies (e.g.
+        # libxcb-cursor.so.0 needed by the xcb platform plugin).
+        #
+        # We use RTLD_GLOBAL so the loaded symbols are visible to all
+        # subsequently loaded libraries, not just the immediate caller.
+        #
+        # We loop in multiple passes to handle inter-library dependencies: if
+        # library A depends on library B, loading A on the first pass fails
+        # because B isn't loaded yet. On the next pass, B is already in the
+        # process's library list so A succeeds. We stop when a full pass
+        # produces no new successful loads.
+        _so_files = [
+            f for f in glob.glob(os.path.join(data.sys_lib, "*.so*"))
+            if os.path.isfile(f)
+        ]
+        _loaded: set = set()
+        while True:
+            _newly_loaded = 0
+            for _so in _so_files:
+                if _so in _loaded:
+                    continue
+                try:
+                    ctypes.CDLL(_so, mode=ctypes.RTLD_GLOBAL)
+                    _loaded.add(_so)
+                    _newly_loaded += 1
+                except OSError:
+                    pass
+            if _newly_loaded == 0:
+                break
 
     app = qt.QApplication(sys.argv)
     # app.setAttribute(qt.Qt.AA_DisableHighDpiScaling)
